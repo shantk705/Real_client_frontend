@@ -1,0 +1,6 @@
+#root{
+  display: grid;
+  grid-template-rows: 10vh auto;
+  min-height: 161dvh;
+  background: linear-gradient(0deg, black, transparent);
+}

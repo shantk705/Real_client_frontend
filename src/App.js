@@ -1,9 +1,26 @@
-
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 import './App.css';
+import ContactUs from './Pages/Contactus/contact';
+import Navbar from './Components/Navbar/navbar';
+import Home from './Pages/Home/home';
+import React from 'react';
 
 function App() {
   return (
-    <div className=' my-10  bg-green-700   mx-10    h-40 '>aaazzz</div>
+    <>
+     <Navbar />
+    <Router>
+    <Routes>
+        
+        
+        <Route element={<Outlet />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/contactus' element={<ContactUs />} />
+        </Route>
+    </Routes>
+    </Router>
+    </>
   )
 }
 
