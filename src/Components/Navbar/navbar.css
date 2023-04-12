@@ -1,4 +1,4 @@
-.sticky-header{
+/* .sticky-header{
   position: sticky;
   top: 0;
   background-color: orange;
@@ -173,5 +173,158 @@
   }
   .burger-icon {
     display: none;
+  }
+} */
+
+.sticky-header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 300px 4fr 1fr;
+  background-color: orange;
+  transition: all .30s ease;
+  align-items: center;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  width: 105px;
+  cursor: pointer;
+  height: 90px;
+}
+
+.logo span{
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  margin: 0 auto;
+}
+
+.nav-links li a{
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0px 30px;
+  transition: all .30s ease;
+  text-decoration: none;
+}
+
+.nav-links li a:hover{
+  color: white;
+}
+
+.nav-links li a.active{
+  color: white;
+}
+
+.header-icons{
+  display: flex;
+  align-items: center;
+}
+
+.header-icons a{
+  margin-inline: 25px 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all .30s ease;
+}
+
+.header-icons a:hover{
+  color: white;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+}
+
+.user i {
+  padding-right: 5px;
+}
+#menu-icon {
+  display: none;
+}
+@media all and (max-width:1230px){
+  .sticky-header{
+    grid-template-columns: 250px 4fr 1fr;
+  }
+
+  .logo span{
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .nav-links li a{
+    font-size: 0.9rem;
+    padding: 5px 0;
+    margin: 0px 20px;
+  }
+
+  .header-icons a{
+    margin-inline:5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }  
+}
+
+@media all and (max-width:840px){
+  .sticky-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #menu-icon:hover{
+    color: white;
+  }
+  #menu-icon {
+    display: block;
+    font-size: 55px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: .30s all ease;
+  }
+
+  .nav-links{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 200px;
+    height: 29vh;
+    background-color: #ff8600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 0px 0px 10px 10px;
+    transition: .30s all ease;
+  }
+
+  .nav-links a{
+    display: block;
+    margin: 12px 0px;
+    padding: 0px 25px;
+    transition: 0.30s ease;
+  }
+
+  .user {
+    display: none;
+  }
+
+  .nav-links li a.active{
+    color: black;
+  }
+
+  .nav-links.open{
+    right: 0%;
   }
 }

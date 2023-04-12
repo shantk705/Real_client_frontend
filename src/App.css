@@ -1,6 +1,14 @@
 #root{
   display: grid;
   grid-template-rows: 10vh auto;
-  min-height: 161dvh;
-  background: linear-gradient(0deg, black, transparent);
+  min-height: 100dvh;
+}
+
+.main{
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100dvh;
 }
