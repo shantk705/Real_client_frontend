@@ -1,6 +1,6 @@
 #root{
   display: grid;
-  grid-template-rows: 10vh auto;
+  grid-template-rows: 90px auto;
   min-height: 100dvh;
 }
 
@@ -11,4 +11,6 @@
   align-items: center;
   flex-direction: column;
   min-height: 100dvh;
+  gap: 20vh;
+  background-color: #F6F5F3;
 }

@@ -5,6 +5,7 @@ import logo from '../../Assets/logo.png';
 
 function Navbar() {
   const [show, setShow] = useState(false);
+  const [nav, setNav] = useState(false)
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
@@ -28,40 +29,50 @@ function Navbar() {
     setShow(!show);
   };
 
+  function navbar(){
+    if (window.scrollY >= 1035){
+      setNav(true)
+    }
+    else{
+      setNav(false)
+    }
+  }
+
+  window.addEventListener("scroll", navbar)
   return (
-    <header className="sticky-header">
+    <header className={nav ? 'not' : 'sticky-header'}>
       <a href="/" className="logo">
         <img src={logo} alt="Dayaa logo" className="header-logo" />
         <span>Dayaa Store</span>
       </a>
       <ul className={menu}>
-        <li>
+        <li className={nav ? 'maintain' : 'normal'}>
           <a href="/" className={location.pathname === '/' ? 'active' : ''}>
             Home
           </a>
         </li>
-        <li>
+        <li className={nav ? 'maintain' : 'normal'}>
           <a href="/shop" className={location.pathname === '/shop' ? 'active' : ''}>
             Shop
           </a>
         </li>
-        <li>
+        <li className={nav ? 'maintain' : 'normal'}>
           <a href="/about" className={location.pathname === '/about' ? 'active' : ''}>
             About us
           </a>
         </li>
-        <li>
+        <li className={nav ? 'maintain' : 'normal'}>
           <a href="/discounts" className={location.pathname === '/discounts' ? 'active' : ''}>
             Discounts
           </a>
         </li>
-        <li>
+        <li className={nav ? 'maintain' : 'normal'}>
           <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
           </a>
         </li>
       </ul>
-      <div className="header-icons">
+      <div className={nav ? 'head-icons' : 'header-icons'}>
         <a href="/" className="user">
           <i className="ri-user-fill"></i>Sign-in
         </a>

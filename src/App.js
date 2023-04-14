@@ -13,7 +13,7 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <div className='main'>
+        <main className='main'>
           <Routes>
             <Route element={<Outlet />}>
               <Route path='/' element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
             </Route>
           </Routes>
           <Footer />
-        </div>
+        </main>
       </Router>
     </>
   );
