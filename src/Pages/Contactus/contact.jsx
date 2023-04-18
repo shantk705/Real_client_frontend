@@ -1,8 +1,7 @@
-import './contact.css'
+import "./contact.css";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-
 
 const ContactUs = () => {
   const form = useRef();
@@ -65,7 +64,7 @@ const ContactUs = () => {
   return (
     <>
       <div className="contact-us">
-          <h1>Contact Us</h1>
+        <h1>Contact Us</h1>
         <form className="contact-form" ref={form} onSubmit={onSubmit}>
           <input
             type="text"
@@ -95,12 +94,13 @@ const ContactUs = () => {
             onChange={onChange}
             required
           />
-            <button className="form-sbmt" type="submit" onClick={onSubmit}>
-              submit
-            </button>
+          <button className="form-sbmt" type="submit" onClick={onSubmit}>
+            submit
+          </button>
         </form>
       </div>
-    </>);
+    </>
+  );
 };
 
 export default ContactUs;
