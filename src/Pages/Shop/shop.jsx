@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import '../Shop/shop.css'; // Import your CSS file
+import '../Shop/shop.css'; 
+import { useParams } from "react-router-dom";
 
 function Shop() {
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
+
+  const {category_id} =useParams();
 
   const [activeProductIndex, setActiveProductIndex] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
   const getproducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/item/getitem");
+      console.log(category_id)
+      const response = await axios.get(`http://localhost:5000/item/items/${category_id}`);
       setProduct(response.data);
+      console.log(product)
     } catch (error) {
       console.error(error);
     }
@@ -27,6 +32,7 @@ function Shop() {
       console.error(error);
     }
   }
+  
 
   useEffect(() => {
     getproducts();
@@ -40,9 +46,9 @@ function Shop() {
   return (
     <div className="product-container">
      
-      {product && product.map((item, index) => (
+      {Array.isArray(product) && product.map((item, index) => (
         <div className="product-card" key={index}>
-
+{console.log(product)}
           { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
 
           <div className="image-product" onClick={() => handleProductClick(item._id)}>
