@@ -14,7 +14,7 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <main className='main'>
+        <main className="main">
           <Routes>
             <Route element={<Outlet />}>
               <Route path='/' element={<Home />} />
