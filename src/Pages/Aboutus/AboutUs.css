@@ -13,8 +13,8 @@
 .pic {
   height: auto;
   width: 302px;
-  image-rendering: auto;
-  filter: blur(-0.7px);
+  image-rendering: multiply;
+  filter: blur(0px);
 }
 .about {
   width: 1130px;
@@ -56,10 +56,37 @@ aboutspan {
   border: none;
   padding: 8px 25px;
   border-radius: 6px;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 .aboutbutton:hover {
   background: #4d1902f8;
-  /* border: 1px solid #0447ff; */
   border: none;
+}
+@media only screen and (max-width: 767px) {
+  .about {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pic {
+    margin-bottom: 2em;
+  }
+
+  .text h2 {
+    font-size: 4rem;
+  }
+
+  .text h5 {
+    font-size: 1.25rem;
+  }
+
+  .text p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .aboutbutton {
+    font-size: 0.9rem;
+    padding: 0.8em 2em;
+  }
 }

@@ -1,8 +1,8 @@
-import './home.css';
-import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import honey from '../../Assets/honey.png';
-import plogo from '../../Assets/logo.png';
+import "./home.css";
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import honey from "../../Assets/honey.png";
+import plogo from "../../Assets/logo.png";
 
 //we will bring the data from database instead fir now, 3m 7ot data statick, just to apply the effect, the slide index will determine the id of the element, and we will fetch the data by id, and display them in the 'hero left' section below
 function Home() {
@@ -11,30 +11,30 @@ function Home() {
   const carouselRef = useRef(null);
   const slidesData = [
     {
-      title: 'ALL NATURAL',
-      subtitle: 'HONEY EL',
-      price: '$5.59'
+      title: "ALL NATURAL",
+      subtitle: "HONEY EL",
+      price: "$5.59",
     },
     {
-      title: 'ALL NATURAL',
-      subtitle: 'KAMMOUN EL',
-      price: '$2.99'
+      title: "ALL NATURAL",
+      subtitle: "KAMMOUN EL",
+      price: "$2.99",
     },
     {
-      title: 'ALL NATURAL',
-      subtitle: 'DEBES EL',
-      price: '$6.99'
+      title: "ALL NATURAL",
+      subtitle: "DEBES EL",
+      price: "$6.99",
     },
     {
-      title: 'ALL NATURAL',
-      subtitle: 'MRABA EL',
-      price: '$12.99'
+      title: "ALL NATURAL",
+      subtitle: "MRABA EL",
+      price: "$12.99",
     },
     {
-      title: 'ALL NATURAL',
-      subtitle: 'HACHICH EL',
-      price: '$99.99'
-    }
+      title: "ALL NATURAL",
+      subtitle: "HACHICH EL",
+      price: "$99.99",
+    },
   ];
 
   useEffect(() => {
@@ -53,7 +53,7 @@ function Home() {
     } else {
       carousel.scroll({
         left: nextSlide * slideWidth,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setCurrentSlide(nextSlide);
@@ -61,9 +61,9 @@ function Home() {
 
   function disabled() {
     if (window.scrollY >= 1035) {
-      setFixed(true)
+      setFixed(true);
     } else {
-      setFixed(false)
+      setFixed(false);
     }
   }
 
@@ -74,70 +74,74 @@ function Home() {
 
   return (
     <>
-      <section className={fixed ? 'notfixed' : 'hero-main'}>
-          <div className='hero-left'>
-              <h1>{slidesData[currentSlide].title}</h1>
-              <div className='des-wrap'>
-                <h1>{slidesData[currentSlide].subtitle}</h1>
-                <h1>DAYAA</h1>
-              </div>
-              <p><span>{slidesData[currentSlide].price}</span> Regular price</p>
+      <section className={fixed ? "notfixed" : "hero-main"}>
+        <div className="hero-left">
+          <h1>{slidesData[currentSlide].title}</h1>
+          <div className="des-wrap">
+            <h1>{slidesData[currentSlide].subtitle}</h1>
+            <h1>DAYAA</h1>
           </div>
-          <div className='right-wrapper'>
-            <div className='clip'></div>
-            <div className='carousel-parent'>
-          <ul className='carousel-wrapper' ref={carouselRef}
+          <p>
+            <span>{slidesData[currentSlide].price}</span> Regular price
+          </p>
+        </div>
+        <div className="right-wrapper">
+          <div className="clip"></div>
+          <div className="carousel-parent">
+            <ul
+              className="carousel-wrapper"
+              ref={carouselRef}
               onScroll={(e) => {
                 const scrollPosition = e.target.scrollLeft;
                 const slideWidth = e.target.offsetWidth;
                 const newSlide = Math.round(scrollPosition / slideWidth);
                 setCurrentSlide(newSlide);
               }}>
-            <li className="carousel-child">
-              <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-          </ul>
-        </div>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className="honey" />
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className="plogo" />
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className="honey" />
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className="plogo" />
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className="honey" />
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className="plogo" />
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className="honey" />
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className="plogo" />
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className="honey" />
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className="plogo" />
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+            </ul>
           </div>
+        </div>
       </section>
-      <section className='hero-shop'>
-          <div className='clip-left'></div>
-          <div className='clip-right'></div>
+      <section className="hero-shop">
+        <div className="clip-left"></div>
+        <div className="clip-right"></div>
       </section>
     </>
-  )
+  );
 }
 
 export default Home;
