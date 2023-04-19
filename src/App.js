@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar/navbar';
 import Home from './Pages/Home/home';
 import React from 'react';
 import Footer from './Components/Footer/footer';
+import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
 
 function App() {
@@ -13,11 +14,12 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <main className='main'>
+        <main className="main">
           <Routes>
             <Route element={<Outlet />}>
               <Route path='/' element={<Home />} />
-              <Route path='/shop' element={<Shop />} />
+              <Route path='/shop' element={<Category/>} />
+              <Route path='/shop/:category_id' element={<Shop />} />
               <Route path='/contactus' element={<ContactUs />} />
             </Route>
           </Routes>

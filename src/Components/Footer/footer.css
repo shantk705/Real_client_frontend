@@ -1,4 +1,4 @@
-footer{
+footer {
   letter-spacing: 0.27em;
   height: 44dvh;
   background-color: black;
@@ -8,7 +8,7 @@ footer{
   display: flex;
   justify-content: center;
 }
-.footer-main{
+.footer-main {
   width: 90%;
   height: 100%;
   margin: 0 auto;
@@ -18,33 +18,33 @@ footer{
   gap: 20px;
 }
 
-.footer-main section{
-    height: 50%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 70px auto;
+.footer-main section {
+  height: 50%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 70px auto;
 }
 
-.footer-main h1{
+.footer-main h1 {
   font-size: clamp(0.75rem, 0.3023rem + 1vw, 2.125rem);
   color: #737373;
 }
 
-.clmn-1 h1{
+.clmn-1 h1 {
   color: orange;
 }
 
-plaintext{
+plaintext {
   margin: 0;
 }
 
-.icons-wrapper{
+.icons-wrapper {
   display: flex;
   padding-bottom: 25px;
   gap: 10px;
 }
 
-.icn-wrap{
+.icn-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@ plaintext{
   height: 27px;
   border-radius: 10px;
   position: relative;
-  transition: .30s all ease;
+  transition: 0.3s all ease;
   border: 1px solid rgb(255, 255, 255);
 }
 
@@ -60,28 +60,28 @@ plaintext{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: .30s all ease;
+  transform: translate(-40%, -50%);
+  transition: 0.3s all ease;
 }
 
-.icn-wrap:is(:hover, :focus){
+.icn-wrap:hover {
   background-color: orange;
   border: orange;
   outline: none;
 }
 
-.icn-wrap:is(:hover, :focus) i{
+.icn-wrap:hover i {
   color: black;
 }
 
-.footer-main section ul li{
+.footer-main section ul li {
   font-size: clamp(0.5625rem, 0.4618rem + 0.5034vw, 1.5rem);
 }
 
-.footer-main section ul li a{
-  transition: .30s all ease;
+.footer-main section ul li a {
+  transition: 0.3s all ease;
 }
-.footer-main section ul li a:is(:hover, :focus, :focus-visible){
+.footer-main section ul li a:hover {
   color: orange;
   outline: none;
 }
@@ -94,28 +94,28 @@ plaintext{
   text-align: center;
 }
 
-@media all and (max-width:476px){
-  .footer-main{
+@media all and (max-width: 476px) {
+  .footer-main {
     flex-direction: column;
   }
 
-  .footer-main section{
+  .footer-main section {
     text-align: center;
   }
-  footer{
+  footer {
     height: auto;
     padding: 7vh;
   }
 
-  .icons-wrapper{
+  .icons-wrapper {
     justify-content: center;
   }
-  .footer-main h1{
+  .footer-main h1 {
     font-size: clamp(0.75rem, -1.0833rem + 9.1667vw, 1.4375rem);
     color: #737373;
   }
 
-  .footer-main section{
+  .footer-main section {
     grid-template-rows: 40px auto;
   }
 
@@ -124,11 +124,11 @@ plaintext{
     flex-direction: column;
     gap: 10px;
   }
-  .footer-main section ul li{
+  .footer-main section ul li {
     font-size: clamp(0.5625rem, -0.7708rem + 6.6667vw, 1.0625rem);
   }
 
-  footer{
+  footer {
     display: flex;
   }
   .copyright {
