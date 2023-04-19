@@ -8,6 +8,7 @@ import React from 'react';
 import Footer from './Components/Footer/footer';
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
+import Discounts from './Pages/Discounts/discount';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
               <Route path='/shop' element={<Category/>} />
               <Route path='/shop/:category_id' element={<Shop />} />
               <Route path='/contactus' element={<ContactUs />} />
+              <Route path='/discounts' element={<Discounts />} />
+
             </Route>
           </Routes>
           <Footer />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Shop/category.css'; // Import your CSS file
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Shop from '../Shop/shop';
 
 
@@ -44,3 +44,11 @@ function Category() {
 }
 
 export default Category;
+
+
+
+
+
+
+
+
