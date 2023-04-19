@@ -1,10 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Adress = () => {
   
   const [adress, setAdress] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    street: '',
+    building: '',
+    details: '',
   });
 
   useEffect(() => {
@@ -13,9 +23,10 @@ const Adress = () => {
       .get("http://localhost:5000/adress/64332eb3dfcb091305c650e8", {
         headers: {},
       })
+      
       .then((res) => {
+       
         
-        console.log(res.data.data.phone)
         setAdress({
           name: res.data.data.name,
           phone: res.data.data.phone,
@@ -30,7 +41,52 @@ const Adress = () => {
         console.log(err);
       });
   }, []);
-  console.log(adress.phone)
+
+  async function updateAddress(event) {
+   
+    event.preventDefault();
+     const x =await fetch("http://localhost:5000/adress/64332eb3dfcb091305c650e8", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: adress.name,
+        phone: adress.phone,
+        email: adress.email,
+        city: adress.city,
+        street: adress.street,
+        building: adress.building,
+        details: adress.details,
+
+
+      }),
+    });
+    const response= await x.json()
+    if(response.name){
+      toast.success('Address saved !', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    }else{
+      toast.error('Something went wrong !', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    }
+  }
   function handleChange(evt) {
     const value = evt.target.value;
     setAdress({
@@ -38,11 +94,12 @@ const Adress = () => {
       [evt.target.name]: value,
     });
   }
+  
   return (
     <>
       <div className="w-[60rem] h-5/6  ml-12 mt-12 flex flex-col  ">
         <h1 className="mb-5 text-xl font-bold">Delivery information </h1>
-        <form className="  bg-white  grid-cols-2 grid  gap-5 h-5/6">
+        <form onSubmit={updateAddress} className="  bg-white  grid-cols-2 grid  gap-5 h-5/6">
           <label className="flex  flex-col ml-5 mr-10 pt-5">
             Name
             <input
@@ -50,7 +107,7 @@ const Adress = () => {
               name="name"
               value={adress.name}
               onChange={handleChange}
-              className="border-2 h-10  mt-2"
+              className="border-2 h-10  mt-2 "
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10 pt-5">
@@ -113,7 +170,7 @@ const Adress = () => {
               className="border-2 h-24  mt-2"
             />
           </label>
-          <button className="bg-black h-10 w-3/4 text-white mt-10 ml-12">
+          <button type="submit" className="bg-black h-10 w-3/4 text-white mt-10 ml-12">
             Save Adress
           </button>
         </form>
@@ -131,6 +188,16 @@ const Adress = () => {
             Cash On Delivery
           </label>
         </div>
+        <ToastContainer  position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"/>
       </div>
     </>
   );

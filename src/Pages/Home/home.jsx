@@ -3,6 +3,9 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import honey from '../../Assets/honey.png';
 import plogo from '../../Assets/logo.png';
+import stick from '../../Assets/honeystick.png';
+import Carousel from '../../Components/Carousel/carousel';
+import spread from '../../Assets/spices-spread.png'
 
 //we will bring the data from database instead fir now, 3m 7ot data statick, just to apply the effect, the slide index will determine the id of the element, and we will fetch the data by id, and display them in the 'hero left' section below
 function Home() {
@@ -60,7 +63,7 @@ function Home() {
   }
 
   function disabled() {
-    if (window.scrollY >= 1035) {
+    if (window.scrollY >= 1050) {
       setFixed(true)
     } else {
       setFixed(false)
@@ -72,6 +75,9 @@ function Home() {
     return () => window.removeEventListener("scroll", disabled);
   }, []);
 
+
+
+
   return (
     <>
       <section className={fixed ? 'notfixed' : 'hero-main'}>
@@ -81,61 +87,73 @@ function Home() {
                 <h1>{slidesData[currentSlide].subtitle}</h1>
                 <h1>DAYAA</h1>
               </div>
-              <p><span>{slidesData[currentSlide].price}</span> Regular price</p>
+              <p><span>{slidesData[currentSlide].price}</span>Regular price</p>
           </div>
           <div className='right-wrapper'>
             <div className='clip'></div>
             <div className='carousel-parent'>
-          <ul className='carousel-wrapper' ref={carouselRef}
-              onScroll={(e) => {
-                const scrollPosition = e.target.scrollLeft;
-                const slideWidth = e.target.offsetWidth;
-                const newSlide = Math.round(scrollPosition / slideWidth);
-                setCurrentSlide(newSlide);
-              }}>
-            <li className="carousel-child">
+            <ul className='carousel-wrapper' ref={carouselRef}
+                onScroll={(e) => {
+                  const scrollPosition = e.target.scrollLeft;
+                  const slideWidth = e.target.offsetWidth;
+                  const newSlide = Math.round(scrollPosition / slideWidth);
+                  setCurrentSlide(newSlide);
+                }}>
+              <li className="carousel-child">
+                <img src={honey} alt="honey" className='honey'/>
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className='plogo'/>
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
               <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-            <li className="carousel-child">
-            <img src={honey} alt="honey" className='honey'/>
-              <div className="product-logo">
-                <img src={plogo} alt="product" className='plogo'/>
-                <h1>Dayaa Store</h1>
-              </div>
-            </li>
-          </ul>
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className='plogo'/>
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+              <img src={honey} alt="honey" className='honey'/>
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className='plogo'/>
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+              <img src={honey} alt="honey" className='honey'/>
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className='plogo'/>
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+              <li className="carousel-child">
+              <img src={honey} alt="honey" className='honey'/>
+                <div className="product-logo">
+                  <img src={plogo} alt="product" className='plogo'/>
+                  <h1>Dayaa Store</h1>
+                </div>
+              </li>
+            </ul>
         </div>
           </div>
       </section>
       <section className='hero-shop'>
-          <div className='clip-left'></div>
-          <div className='clip-right'></div>
+          <div className='clip-left'>
+            <h2>Check out</h2>
+            <h1>Our products</h1>
+          </div>
+          <div className='clip-right'>
+            <a href="/shop" className='shop-btn'>Shop Now!</a>
+          </div>
       </section>
+      <div className='stick-fill'>
+              <img src={stick} alt="honey stick" />
+      </div>
+      <Carousel />
+      <div className='spread-fill'>
+              <img src={spread} alt="honey stick" />
+      </div>
     </>
   )
 }

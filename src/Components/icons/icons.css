@@ -1,0 +1,126 @@
+.np-icon{
+  transition: .30s ease;
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+}
+
+.np-icon:is(:hover, :focus) path{
+  stroke: rgba(255, 174, 0, 0.507);
+}
+
+.np-icon path {
+  stroke: black;
+  stroke-width: 1.5;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+
+.carousel button:is(:hover, :focus){
+  outline: none;
+}
+.carousel button:is(:hover, :focus) .np-icon path{
+  stroke: rgba(255, 174, 0, 0.788);
+}
+
+.carousel button:is(:hover, :focus) .icon-f .arrow {
+  animation: prev .6s linear;
+}
+
+.carousel button:is(:hover, :focus) .np-icon {
+  box-shadow: 0px 0px 10px rgba(255, 174, 0, 0.788);
+}
+
+.carousel button:is(:hover, :focus) .icon-s .arrow {
+  animation: next .6s linear;
+}
+
+
+@keyframes prev {
+  0%{
+    transform: translateX(0px);
+  }
+
+  25%{
+    transform: translateX(-5px);
+  }
+  
+  50%{
+    transform: translateX(0px);
+  }
+
+  75%{
+    transform: translateX(-5px);
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+
+@keyframes next {
+  0%{
+    transform: translateX(0px);
+  }
+
+  25%{
+    transform: translateX(5px);
+  }
+  
+  50%{
+    transform: translateX(0px);
+  }
+
+  75%{
+    transform: translateX(5px);
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+
+@media screen and (max-width: 1073px) {
+
+  .carousel-wrap h1{
+
+    font-size: 2.3rem;
+  }
+  .np-icon{
+    width: 50px;
+  }
+
+  .carousel button:last-of-type{
+    right: -65px;
+  }
+
+  .carousel button:first-of-type{
+    left: -65px;
+  }
+}
+
+@media screen and (max-width: 682px) {
+
+  .carousel-wrap h1{
+    font-size: 1.5rem;
+  }
+
+  .np-icon{
+    width: 30px;
+  }
+
+  .carousel button:last-of-type{
+    right: -35px;
+  }
+
+  .carousel button:first-of-type{
+    left: -35px;
+  }
+
+}
