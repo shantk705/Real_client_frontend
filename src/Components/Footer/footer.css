@@ -67,6 +67,7 @@ plaintext {
 .icn-wrap:hover {
   background-color: orange;
   border: orange;
+  outline: none;
 }
 
 .icn-wrap:hover i {
@@ -82,6 +83,7 @@ plaintext {
 }
 .footer-main section ul li a:hover {
   color: orange;
+  outline: none;
 }
 
 .copyright {
