@@ -232,8 +232,9 @@
   text-decoration: none;
 }
 
-.nav-links li a:hover{
+.nav-links li a:is(:hover, :focus, :focus-visible){
   color: white;
+  outline: none;
 }
 
 .active {
@@ -243,8 +244,9 @@
   color: white;
 }
 
-.maintain a:hover{
+.maintain a:is(:hover, :focus, :focus-visible){
   color: orange!important;
+  outline: none;
 }
 
 .maintain a.active{
@@ -263,8 +265,9 @@
   transition: all .30s ease;
 }
 
-.header-icons a:hover{
+.header-icons a:is(:hover, :focus, :focus-visible){
   color: white;
+  outline: none;
 }
 
 .head-icons{
@@ -279,8 +282,9 @@
   transition: all .30s ease;
 }
 
-.head-icons a:hover{
+.head-icons a:is(:hover, :focus, :focus-visible){
   color: orange;
+  outline: none;
 }
 
 .user{
@@ -299,6 +303,10 @@
     grid-template-columns: 250px 4fr 1fr;
   }
 
+  .not{
+    grid-template-columns: 250px 4fr 1fr;
+}
+
   .logo span{
     font-size: 1.2rem;
     font-weight: bold;
@@ -315,6 +323,12 @@
     font-size: 0.9rem;
     font-weight: bold;
   }  
+
+  .head-icons a {
+    margin-inline: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
 }
 
 @media all and (max-width:840px){
@@ -324,6 +338,11 @@
     align-items: center;
   }
 
+  .not {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
   #menu-icon:hover{
     color: white;
   }

@@ -10,9 +10,9 @@ function Footer() {
           <h1><plaintext>SOCIAL LINKS</plaintext></h1>
           <div className='media-icons-wrapper'>
             <div className='icons-wrapper'>
-              <div className='icn-wrap'><a href='https://www.instagram.com/dayaa.store/'><i className="ri-instagram-line"></i></a></div>
-              <div className='icn-wrap'><a href='/'><i className="ri-facebook-fill"></i></a></div>
-              <div className='icn-wrap'><a href='/'><i className="ri-linkedin-fill"></i></a></div>
+              <button className='icn-wrap'><a href='https://www.instagram.com/dayaa.store/'><i className="ri-instagram-line"></i></a></button>
+              <button className='icn-wrap'><a href='/'><i className="ri-facebook-fill"></i></a></button>
+              <button className='icn-wrap'><a href='/'><i className="ri-linkedin-fill"></i></a></button>
             </div>
             <p>Don't Forget To Follow Us!</p>
           </div>
