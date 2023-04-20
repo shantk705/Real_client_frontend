@@ -1,4 +1,5 @@
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import './App.css';
 import ContactUs from './Pages/Contactus/contact';
@@ -8,13 +9,24 @@ import React from 'react';
 import Footer from './Components/Footer/footer';
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
+import LoginUp from './Components/popAuth/LoginUp';
 
 function App() {
+
+  const [showPopUp, setShowPopUp] = useState(false);
+
+  function handleButtonClick() {
+    setShowPopUp(true);
+  }
+
+  function handleCloseButtonClick() {
+    setShowPopUp(false);
+  }
   return (
     <>
       <Router>
-        <Navbar />
-        <main className="main">
+        <Navbar onButtonClick={handleButtonClick}/>
+        <main className={showPopUp ? "none" : "main" }>
           <Routes>
             <Route element={<Outlet />}>
               <Route path='/' element={<Home />} />
@@ -25,6 +37,7 @@ function App() {
           </Routes>
           <Footer />
         </main>
+      <LoginUp showPopUp={showPopUp} onCloseButtonClick={handleCloseButtonClick}/>
       </Router>
     </>
   );

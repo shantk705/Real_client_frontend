@@ -77,7 +77,6 @@ function Home() {
 
 
 
-
   return (
     <>
       <section className={fixed ? 'notfixed' : 'hero-main'}>
