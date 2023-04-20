@@ -73,7 +73,6 @@ function Shop(props) {
               </div>
             }
            </div>
-           
            <div className="button-card">
               <button>Add to Cart</button>
             </div>
