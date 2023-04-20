@@ -35,15 +35,17 @@ function Discounts() {
   useEffect(() => {
     getdiscounts();
   }, []);
- 
 
   const handleProductClick = (id) => {
     getsingleproduct(id);
   }
 
   return (
+<>
+<div className="text-discount">
+  <h2>You can see here all the items that have a discount!</h2>
+  </div>
     <div className="product-container-discount">
-     
       {Array.isArray(product) && product.map((item, index) => (
         <div className="product-card-discount" key={index}>
 {console.log(product)}
@@ -81,6 +83,7 @@ function Discounts() {
       )}
       
     </div>
+    </>
   );
 }
 

@@ -9,7 +9,7 @@ import Footer from './Components/Footer/footer';
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
 import Discounts from './Pages/Discounts/discount';
-
+import AboutUs from './Pages/Aboutus/AboutUs'
 function App() {
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
               <Route path='/shop/:category_id' element={<Shop />} />
               <Route path='/contactus' element={<ContactUs />} />
               <Route path='/discounts' element={<Discounts />} />
+              <Route path='/aboutUs' element={<AboutUs />} />
 
             </Route>
           </Routes>

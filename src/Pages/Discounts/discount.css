@@ -20,7 +20,10 @@
     position: relative;
     overflow: hidden;
   }
-  
+  .product-card-discount:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    }
   
   .discount {
     position: absolute;
@@ -135,6 +138,10 @@
     line-height: 1.5;
     margin-bottom: 20px;
     text-align: center;
+  }
+
+  .text-discount{
+    font-size: 25px;
   }
   
   

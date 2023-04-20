@@ -3,21 +3,26 @@ import axios from 'axios';
 import '../Shop/shop.css'; 
 import { useParams } from "react-router-dom";
 
-function Shop() {
+function Shop(props) {
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
-
-  const {category_id} =useParams();
+  const { categoryId, filteredCategory } = props;
 
   const [activeProductIndex, setActiveProductIndex] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
   const getproducts = async () => {
     try {
-      console.log(category_id)
-      const response = await axios.get(`http://localhost:5000/item/items/${category_id}`);
+      console.log(categoryId)
+      if (categoryId===""){  
+         const response = await axios.get("http://localhost:5000/item/getitem");
+         setProduct(response.data);
+        }
+
+  else{
+      const response = await axios.get(`http://localhost:5000/item/items/${categoryId}`);
       setProduct(response.data);
-      console.log(product)
+    }
     } catch (error) {
       console.error(error);
     }
@@ -36,7 +41,7 @@ function Shop() {
 
   useEffect(() => {
     getproducts();
-  }, []);
+  }, [categoryId]);
  
 
   const handleProductClick = (id) => {

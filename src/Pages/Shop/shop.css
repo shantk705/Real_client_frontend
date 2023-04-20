@@ -20,7 +20,10 @@
     position: relative;
     overflow: hidden;
   }
-  
+  .product-card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    }
   
   .discount {
     position: absolute;

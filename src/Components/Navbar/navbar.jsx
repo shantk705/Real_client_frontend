@@ -57,7 +57,7 @@ function Navbar() {
           </a>
         </li>
         <li className={nav ? 'maintain' : 'normal'}>
-          <a href="/about" className={location.pathname === '/about' ? 'active' : ''}>
+          <a href="/aboutUs" className={location.pathname === '/aboutUs' ? 'active' : ''}>
             About us
           </a>
         </li>
