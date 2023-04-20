@@ -97,9 +97,10 @@ const Adress = () => {
   
   return (
     <>
-      <div className="w-[60rem] h-5/6  ml-12 mt-12 flex flex-col  ">
+    <div className="flex flex-col">
+      <div className="w-[60rem] h-[40rem]  xl:ml-12 xl:mt-12 flex flex-col  md:h-[60rem] md:pl-[10vw]  md:pr-[10vw] md:w-[80vw]">
         <h1 className="mb-5 text-xl font-bold">Delivery information </h1>
-        <form onSubmit={updateAddress} className="  bg-white  grid-cols-2 grid  gap-5 h-5/6">
+        <form onSubmit={updateAddress} className="  bg-white  grid-cols-2 grid  gap-5 h-5/6 shadow-xl md:w-[78vw]  md:grid-cols-1 md:h-[58rem] ">
           <label className="flex  flex-col ml-5 mr-10 pt-5">
             Name
             <input
@@ -170,14 +171,14 @@ const Adress = () => {
               className="border-2 h-24  mt-2"
             />
           </label>
-          <button type="submit" className="bg-black h-10 w-3/4 text-white mt-10 ml-12">
+          <button type="submit" className="bg-black h-10 w-3/4 text-white mt-10 ml-12 md:ml-[12%]">
             Save Adress
           </button>
         </form>
       </div>
-      <div className="ml-12 mt-0">
+      <div className="xl:ml-12 mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%]">
         <h2 className="mb-5 text-xl font-bold ">Payment Method</h2>
-        <div className=" w-[60rem] flex flex-col bg-white mb-32 h-[6rem]  justify-center	 ">
+        <div className=" xl:w-[60rem] flex flex-col bg-white mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  ">
           <label className="  ml-14 text-xl ">
             <input
               type="radio"
@@ -198,6 +199,7 @@ const Adress = () => {
         draggable
         pauseOnHover
         theme="dark"/>
+      </div>
       </div>
     </>
   );
