@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 
-function Navbar({ onButtonClick }) {
+function Navbar() {
   const [show, setShow] = useState(false);
   const [nav, setNav] = useState(false)
   const [menu, setMenu] = useState("nav-links");
@@ -57,7 +57,7 @@ function Navbar({ onButtonClick }) {
           </a>
         </li>
         <li className={nav ? 'maintain' : 'normal'}>
-          <a href="/aboutus" className={location.pathname === '/aboutus' ? 'active' : ''}>
+          <a href="/aboutUs" className={location.pathname === '/aboutUs' ? 'active' : ''}>
             About us
           </a>
         </li>
@@ -73,9 +73,9 @@ function Navbar({ onButtonClick }) {
         </li>
       </ul>
       <div className={nav ? 'head-icons' : 'header-icons'}>
-        <p onClick={onButtonClick} className="user">
+        <a href="/" className="user">
           <i className="ri-user-fill"></i>Sign-in
-        </p>
+        </a>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

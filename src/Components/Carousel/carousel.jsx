@@ -10,7 +10,7 @@ function Carousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/item/getitem')
+    axios.get('http://localhost:5000/item/getdiscount')
       .then(res => {
         setData(res.data);
         console.log(res.data);
