@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: 90px auto;
   min-height: 100dvh;
+  grid-template-columns: 100%;
 }
 
 .main{
@@ -13,4 +14,10 @@
   min-height: 100dvh;
   gap: 20vh;
   background-color: #F6F5F3;
+}
+
+@media screen and (max-width: 1073px) {
+  .main{
+    gap: 0;
+  }
 }
