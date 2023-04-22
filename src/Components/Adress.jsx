@@ -171,7 +171,7 @@ const Adress = () => {
               className="border-2 h-24  mt-2"
             />
           </label>
-          <button type="submit" className="bg-black h-10 w-3/4 text-white mt-10 ml-12 md:ml-[12%]">
+          <button type="submit" className="bg-black  w-3/4 text-white mt-10 ml-12 md:ml-[12%] h-[5vh] text-xl  hover:bg-[#FFA500] hover:text-black hover:border-2 hover:border-[black]">
             Save Adress
           </button>
         </form>
