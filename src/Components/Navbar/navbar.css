@@ -225,7 +225,7 @@
 
 .nav-links li a{
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 5px 0;
   margin: 0px 30px;
   transition: all .30s ease;
@@ -258,14 +258,14 @@
   align-items: center;
 }
 
-.header-icons a{
+.header-icons p{
   margin-inline: 25px 10px;
   font-size: 1.1rem;
   font-weight: bold;
   transition: all .30s ease;
 }
 
-.header-icons a:is(:hover, :focus, :focus-visible){
+.header-icons p:is(:hover, :focus, :focus-visible){
   color: white;
   outline: none;
 }
@@ -275,14 +275,14 @@
   align-items: center;
 }
 
-.head-icons a{
+.head-icons p{
   margin-inline: 25px 10px;
   font-size: 1.1rem;
   font-weight: bold;
   transition: all .30s ease;
 }
 
-.head-icons a:is(:hover, :focus, :focus-visible){
+.head-icons p:is(:hover, :focus, :focus-visible){
   color: orange;
   outline: none;
 }
@@ -290,6 +290,7 @@
 .user{
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .user i {
@@ -318,13 +319,13 @@
     margin: 0px 20px;
   }
 
-  .header-icons a{
+  .header-icons p{
     margin-inline:5px 10px;
     font-size: 0.9rem;
     font-weight: bold;
   }  
 
-  .head-icons a {
+  .head-icons p {
     margin-inline: 5px 10px;
     font-size: 0.9rem;
     font-weight: bold;
