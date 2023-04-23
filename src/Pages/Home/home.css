@@ -213,8 +213,8 @@
   height: 500px;
 }
 .plogo{
-  width: 105px;
-  height: 90px;
+  width: 65px;
+  height: 55px;
 }
 
 .product-logo{
@@ -232,15 +232,15 @@
 .stick-fill {
   width: 100%;
   position: relative;
-  height: 25vh;
+  height: 5vh;
   margin-top: -100px;
 }
 
 .spread-fill{
   width: 100%;
   position: relative;
-  top: -170px;
-  height: 25vh;
+  top: -250px;
+  height: 5vh;
 }
 .stick-fill img {
   position: absolute;
@@ -257,7 +257,7 @@
   .stick-fill {
     width: 100%;
     position: relative;
-    height: 43vh;
+    height: 25vh;
     margin-top: 0px;
 }
 
@@ -378,7 +378,7 @@
   
   .plogo {
     width: 65px;
-    height: 57px;
+    height: 55px;
 }
 }
 
@@ -440,7 +440,7 @@
     width: 100%;
     position: relative;
     top: 0;
-    height: 28vh;
+    height: 25vh;
     top: 4vh;
 }
 

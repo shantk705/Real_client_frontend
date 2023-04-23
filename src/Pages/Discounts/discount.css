@@ -1,0 +1,177 @@
+.product-container-discount {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    gap: 5%;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .product-card-discount {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin: 0.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card-discount:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    }
+  
+  .discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: grey;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+   font-size: 25px;
+  }
+
+  .image-product-discount{
+    margin-top: 75px;
+  }
+
+  
+  .content-product-discount h3 {
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: 800;
+  }
+  
+  .content-product-discount p {
+    font-size: 14px;
+    color: #666;
+    padding-top: 7px;
+    font-weight: 600;
+  }
+
+  .content-product-discount h4{
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: 400;
+  }
+
+  .price-discount {
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    background-color: #f5f5f5;
+ 
+  }
+  
+  .price-discount h3 {
+    color: orange;
+    font-size: 25px;
+    padding-right: 20px;
+    font-weight: 900;
+  }
+  
+  .price-discount h4 {
+    color: #999;
+    font-size: 25px;
+    text-decoration: line-through;
+  }
+
+  .button-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .button-card-discount button {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .button-card-discount button:hover {
+    background-color: darkgoldenrod;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: orange;
+    border: 1px solid black;
+    padding: 20px;
+    z-index: 9999;
+    width: 400px;
+    max-width: 90%;
+    height: auto;
+    max-height: calc(100% - 40px); 
+    overflow: hidden;
+  }
+  
+  .popup button{
+    /* position: absolute; */
+    margin-bottom: 20px;
+    margin-left: 330px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .popup p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .text-discount{
+    font-size: 25px;
+  }
+  
+  
+  
+  
+  /* Media queries for responsive design */
+
+@media screen and (max-width: 1200px) {
+  .product-card-discount{
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-card-discount {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .popup {
+    width: 85%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+  }
+  
+  .popup button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+  

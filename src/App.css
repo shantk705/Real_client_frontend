@@ -1,3 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root{
+  --main-color: #fa4299;
+  --button-color: rgb(35, 35, 35);
+  --border-color: #000;
+  --theme:rgb(252, 185, 0);
+}
 #root{
   display: grid;
   grid-template-rows: 90px auto;
@@ -16,6 +27,12 @@
   background-color: #F6F5F3;
 }
 
+.none{
+  position: absolute;
+  visibility: hidden;
+  height: 0vh;
+  overflow: hidden;
+}
 @media screen and (max-width: 1073px) {
   .main{
     gap: 0;
