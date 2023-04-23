@@ -22,7 +22,7 @@ const Carts = () => {
       )
 
       .then((res) => {
-        console.log(res)
+       
         if (res.status === 201) {
           Refresh();
         }
