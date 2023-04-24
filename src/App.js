@@ -1,11 +1,11 @@
 import { Route, Routes, BrowserRouter} from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+
 import './App.css';
 import ContactUs from './Pages/Contactus/contact';
-import Navbar from './Components/Navbar/navbar';
+
 import Home from './Pages/Home/home';
 import React, { useState } from 'react';
-import Footer from './Components/Footer/footer';
+
 import Layout from "./Pages/layout.jsx"
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
@@ -27,12 +27,19 @@ function App() {
 
   return (
     <>
-   
+    <BrowserRouter>
+   <Routes>
+   <Route element={<SideBar/>}>
+   <Route path="/admin"/>
+   </Route>
+   </Routes>
+   </BrowserRouter>
       
      
         <main className={showPopUp ? "none" : "main" }>
         <BrowserRouter>
           <Routes>
+         
          <Route element={<Layout/>}>
               <Route path='/' element={<Home />} />
               <Route path='/shop' element={<Category/>} />
@@ -45,9 +52,10 @@ function App() {
               </Routes>
          
           </BrowserRouter>
+          <LoginUp showPopUp={showPopUp} onCloseButtonClick={handleCloseButtonClick}/>
         </main>
         
-        <LoginUp showPopUp={showPopUp} onCloseButtonClick={handleCloseButtonClick}/>
+        
      
     </>
   );
