@@ -2,7 +2,7 @@ import React from 'react'
 
 const SideBar = () => {
   return (
-    <div>asdmalksdmlakmsdlka</div>
+    <div className='bg-black'>asdmalksdmlakmsdlka</div>
   )
 }
 
