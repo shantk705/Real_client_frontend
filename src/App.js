@@ -11,6 +11,7 @@ import Shop from './Pages/Shop/shop';
 import Discounts from './Pages/Discounts/discount';
 import AboutUs from './Pages/Aboutus/AboutUs'
 import LoginUp from './Components/popAuth/LoginUp';
+import SideBar from "./Components/SideBar"
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -25,11 +26,17 @@ function App() {
 
   return (
     <>
+    <Router>
+    <Routes>
+    <Route path='admin' element={<SideBar/>}/>
+    </Routes>
+    </Router>
       <Router>
-        <Navbar onButtonClick={handleButtonClick}/>
+     
+        // <Navbar onButtonClick={handleButtonClick}/>
         <main className={showPopUp ? "none" : "main" }>
           <Routes>
-            <Route element={<Outlet />}>
+         
               <Route path='/' element={<Home />} />
               <Route path='/shop' element={<Category/>} />
               <Route path='/shop/:category_id' element={<Shop />} />
@@ -37,7 +44,7 @@ function App() {
               <Route path='/discounts' element={<Discounts />} />
               <Route path='/aboutUs' element={<AboutUs />} />
 
-            </Route>
+          
           </Routes>
           <Footer />
         </main>
