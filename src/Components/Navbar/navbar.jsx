@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 
-function Navbar({ onButtonClick }) {
+function Navbar({ onButtonClick, onSignClick }) {
   const [show, setShow] = useState(false);
   const [nav, setNav] = useState(false)
   const [menu, setMenu] = useState("nav-links");
@@ -38,7 +38,15 @@ function Navbar({ onButtonClick }) {
     }
   }
 
-  window.addEventListener("scroll", navbar)
+  const handleSignClick = () => {
+    onSignClick();
+    setShow(false);
+    setMenu("nav-links");
+    setIcon("bx bx-menu");
+  };
+
+  window.addEventListener("scroll", navbar);
+
   return (
     <header className={nav ? 'not' : 'sticky-header'}>
       <a href="/" className="logo">
@@ -70,6 +78,11 @@ function Navbar({ onButtonClick }) {
           <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
           </a>
+        </li>
+        <li className="willhide">
+          <p onClick={handleSignClick} className={location.pathname === '/sign-in' ? 'active' : ''}>
+            Sign-in
+          </p>
         </li>
       </ul>
       <div className={nav ? 'head-icons' : 'header-icons'}>

@@ -23,10 +23,10 @@ function App() {
     setShowPopUp(false);
   }
 
-  return (
+  return (  
     <>
       <Router>
-        <Navbar onButtonClick={handleButtonClick}/>
+        <Navbar onButtonClick={handleButtonClick} onSignClick={handleButtonClick} />
         <main className={showPopUp ? "none" : "main" }>
           <Routes>
             <Route element={<Outlet />}>
