@@ -86,7 +86,15 @@ function Navbar({ onButtonClick, onSignClick }) {
         </li>
       </ul>
       <div className={nav ? 'head-icons' : 'header-icons'}>
-        <p onClick={onButtonClick} className="user">
+        <p onKeyDown={(e) => {
+          if (e.keyCode === 13) {
+            handleSignClick();
+          }
+          }} 
+          onClick={onButtonClick}
+          tabIndex="0"
+          className="user"
+        >
           <i className="ri-user-fill"></i>Sign-in
         </p>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
