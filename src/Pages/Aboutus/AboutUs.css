@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .about-us {
   height: 110vh;
   width: 100%;
@@ -73,23 +74,39 @@
   .about {
     flex-direction: column;
     justify-content: center;
+    padding: 60px 0;
+  }
+
+  .about-us {
+    height: auto;
+    min-height: 100vh;
+    background-position: bottom;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
   }
 
   .text h2 {
     font-size: 4rem;
+    margin-bottom: 20px;
   }
 
   .text h5 {
     font-size: 1.25rem;
+    margin-bottom: 30px;
   }
 
   .text p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
+    margin-bottom: 30px;
   }
 
   .aboutbutton {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0.8em 2em;
   }
 }
