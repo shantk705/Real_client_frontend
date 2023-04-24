@@ -1,14 +1,17 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .about-us {
-  height: 100vh;
+  height: 125vh;
   width: 100%;
   padding: 90px 0;
-  background: rgb(236, 241, 182);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/home/hasan/Desktop/Real_client_frontend/src/Assets/top-view-honey-with-honeycomb-pieces.jpg");
 }
 .pic {
   height: auto;
@@ -20,6 +23,7 @@
   width: 1130px;
   max-width: 85%;
   margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: space-around;

@@ -1,10 +1,15 @@
 .product-container {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   gap: 5%;
-  max-width: 80%;
   margin: 0 auto;
+  justify-content: center;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.hidden-wrp{
+  visibility: hidden;
 }
 .product-card {
   width: 20%;
@@ -15,15 +20,111 @@
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  height: auto;
   position: relative;
-  overflow: hidden;
+  /* border: 2px solid #ffc400; */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  transform-origin: center;
 }
-.product-card:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease-in-out;
-  }
+
+.product-card:hover{
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ffc400;
+}
+
+
+.infor{
+  padding: 15px;
+  width: 5px;
+  height:5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightgray;
+  color: lightgray;
+  font-weight: bold;
+}
+
+.infor:hover{
+  border: 2px solid #ffc400;
+  color: #ffc400;
+}
+
+.flip{
+  transform: rotateY(180deg);
+}
+
+.front{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.back{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  z-index: 999;
+  overflow: scroll;
+  align-items: flex-start;
+}
+
+.popup{
+  height: 100%;
+}
+
+.back p {
+  color: black;
+  text-align: left;
+  font-size: 1vw;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.back button{
+  width: fit-content;
+  font-size: 30px;
+}
+
+.back button i {
+  transition: 0.3s;
+}
+
+
+.back button:hover i {
+  transform: rotate(90deg);
+  color: orange;
+}
+
+.back::-webkit-scrollbar {
+  margin-bottom: 20px;
+  width: 5px;
+}
+
+.back::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+.back::-webkit-scrollbar-thumb {
+  background: #ffc400;
+  border-radius: 15px;
+}
+
+.back::-webkit-scrollbar-thumb:hover {
+  background: #f2a34e;
+}
 
 .discount {
   position: absolute;
@@ -106,38 +207,10 @@
   background-color: darkgoldenrod;
 }
 
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: orange;
+
+.button-card button:focus{
+  outline: none;
   border: 1px solid black;
-  padding: 20px;
-  z-index: 9999;
-  width: 400px;
-  max-width: 90%;
-  height: auto;
-  max-height: calc(100% - 40px); 
-  overflow: hidden;
-}
-
-.popup button{
-  /* position: absolute; */
-  margin-bottom: 20px;
-  margin-left: 330px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-}
-
-.popup p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 
@@ -154,19 +227,5 @@
 @media screen and (max-width: 768px) {
 .product-card {
   width: 100%;
-}
-}
-@media (max-width: 768px) {
-.popup {
-  width: 85%;
-  max-width: none;
-  height: auto;
-  max-height: none;
-}
-
-.popup button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 }
