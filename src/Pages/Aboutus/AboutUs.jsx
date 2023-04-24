@@ -6,7 +6,11 @@ function AboutUs() {
   return (
     <section className="about-us">
       <div className="about">
-        <img src={logo} className="pic" alt="logo" />
+        <img
+          src="/static/media/logo.763338d458b0b5baba83.png"
+          className="pic"
+          alt="logo"
+        />
         <div className="text">
           <h2>About Us</h2>
           <h5>

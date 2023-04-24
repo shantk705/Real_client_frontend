@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 .about-us {
-  height: 125vh;
+  height: 110vh;
   width: 100%;
   padding: 90px 0;
   background-position: center;
@@ -13,45 +13,46 @@
   background-repeat: no-repeat;
   background-image: url("/home/hasan/Desktop/Real_client_frontend/src/Assets/top-view-honey-with-honeycomb-pieces.jpg");
 }
-.pic {
-  height: auto;
-  width: 302px;
-  image-rendering: multiply;
-  filter: blur(0px);
-}
-.about {
-  width: 1130px;
-  max-width: 85%;
-  margin: 0 auto;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 .text {
-  width: 540px;
+  width: calc(100% - 250px);
 }
+
 .text h2 {
   font-size: 90px;
   font-weight: 600;
   margin-bottom: 10px;
 }
+
 .text h5 {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 20px;
 }
-aboutspan {
+
+.aboutspan {
   color: #b9e200;
 }
+
 .text p {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 1px;
 }
+
+.about {
+  width: 100%;
+  max-width: 1130px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .data {
   margin-top: 30px;
 }
+
 .aboutbutton {
   font-size: 18px;
   background: #ffa500;
@@ -62,18 +63,16 @@ aboutspan {
   border-radius: 6px;
   transition: 0.7s;
 }
+
 .aboutbutton:hover {
   background: #4d1902f8;
   border: none;
 }
+
 @media only screen and (max-width: 767px) {
   .about {
     flex-direction: column;
     justify-content: center;
-  }
-
-  .pic {
-    margin-bottom: 2em;
   }
 
   .text h2 {
