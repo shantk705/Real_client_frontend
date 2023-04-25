@@ -6,6 +6,7 @@ import React from 'react';
 import Layout from "./Pages/layout.jsx"
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
+import Cart from './Pages/Cart.jsx'
 import Discounts from './Pages/Discounts/discount';
 import AboutUs from './Pages/Aboutus/AboutUs'
 import LoginUp from './Components/popAuth/LoginUp';
