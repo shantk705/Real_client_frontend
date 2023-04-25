@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
+import Loader from "../../Components/Loader/Loader";
 
 function Discounts() {
+  const [item, setItem] = useState(null);
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
@@ -14,6 +16,7 @@ function Discounts() {
     try {
       const response = await axios.get(`http://localhost:5000/item/getdiscount`);
       setProduct(response.data);
+      setItem(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -24,6 +27,7 @@ function Discounts() {
       const response = await axios.get(`http://localhost:5000/item/getitem/${id}`);
       setSingle(response.data);
       setShowPopup(true);
+      setItem(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -46,6 +50,13 @@ function Discounts() {
     handleCardFlip(itemId);
   }
 
+  if (!item) {
+    return (
+    <>
+      <Loader />
+    </>
+    );
+  }
   return (
     <>
       <div className="text-discount">
