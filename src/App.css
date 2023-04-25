@@ -20,7 +20,7 @@
   grid-row: 2;
   display: flex;
   justify-content: center;
- 
+  align-items: center;
   flex-direction: column;
   min-height: 80dvh;
   gap: 20vh;
@@ -37,4 +37,11 @@
   .main{
     gap: 0;
   }
+}
+
+
+#flex-wrap{
+  inset: 0;
+  position: absolute;
+  background-color: white;
 }

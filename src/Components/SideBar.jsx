@@ -9,7 +9,7 @@ const [open, setopen] = useState(true)
   return (
 
     <>
-    <div className='flex'>
+    <div className='flex' id='flex-wrap'>
     <div className={` ${open ? "w-72" : "w-20"} duration-300 h-screen bg-light-orange relative`}>
     <img  src={arrow} className={` ${!open && 'rotate-180'} duration-300 absolute rounded-full cursor-pointer -right-3 top-20 w-8 border-2  border-light-orange  bg-white`} alt="Arrow logo" onClick={()=>setopen(!open)}/>
 
@@ -25,8 +25,9 @@ const [open, setopen] = useState(true)
 
 
 
-    <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
+    <div className='p-7 text-2xl font-semibold flex-1 h-screen flex content-center justify-center items-center'>
     <h1>Home Page</h1>
+    <p>hellooooooo</p>
     </div>
     </div>
 
