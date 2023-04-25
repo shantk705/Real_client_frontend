@@ -1,8 +1,11 @@
 import { Route, Routes, BrowserRouter} from 'react-router-dom';
+
 import './App.css';
 import ContactUs from './Pages/Contactus/contact';
+
 import Home from './Pages/Home/home';
-import React from 'react';
+import React, { useState } from 'react';
+
 import Layout from "./Pages/layout.jsx"
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
