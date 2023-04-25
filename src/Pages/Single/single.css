@@ -21,15 +21,17 @@
 }
 
 .s-left img {
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   position: absolute;
+  object-fit: contain;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   mix-blend-mode: darken;
   filter: drop-shadow(0px 12px 16px rgba(0, 0, 0, 0.45));
-  box-shadow: 0px 30px 30px -17px #525252;
+  /* box-shadow: 0px 30px 30px -17px #525252; */
+  height: 65%;
 }
 
 .s-right{
@@ -110,7 +112,7 @@
     position: static;
     transform: none;
     filter: drop-shadow(0px 12px 16px rgba(0, 0, 0, 0.45));
-    box-shadow: 0px 30px 30px -17px #525252;
+    /* box-shadow: 0px 30px 30px -17px #525252; */
   }
 }
 
