@@ -1,7 +1,6 @@
 import './home.css';
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import honey from '../../Assets/honey.png';
 import plogo from '../../Assets/logo.png';
 import stick from '../../Assets/honeystick.png';
 import Carousel from '../../Components/Carousel/carousel';
@@ -28,26 +27,26 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    function scrollCarousel() {
+      const carousel = carouselRef.current;
+      const slideWidth = carousel.offsetWidth;
+      const currentSlide = Math.round(carousel.scrollLeft / slideWidth);
+      let nextSlide = currentSlide + 1;
+      if (nextSlide >= favorites.length) { 
+        nextSlide = 0; 
+        carousel.scrollLeft = 0;
+      } else {
+        carousel.scroll({
+          left: nextSlide * slideWidth,
+          behavior: "smooth",
+        });
+      }
+      setCurrentSlide(nextSlide);
+    }
+  
     const intervalId = setInterval(scrollCarousel, 3000);
     return () => clearInterval(intervalId);
-  }, []);
-
-  function scrollCarousel() {
-    const carousel = carouselRef.current;
-    const slideWidth = carousel.offsetWidth;
-    const currentSlide = Math.round(carousel.scrollLeft / slideWidth);
-    let nextSlide = currentSlide + 1;
-    if (nextSlide >= favorites.length) { 
-      nextSlide = 0; 
-      carousel.scrollLeft = 0;
-    } else {
-      carousel.scroll({
-        left: nextSlide * slideWidth,
-        behavior: "smooth",
-      });
-    }
-    setCurrentSlide(nextSlide);
-  }
+  }, [favorites]);
 
   function disabled() {
     if (window.scrollY >= 790) {
@@ -64,7 +63,7 @@ function Home() {
     return () => window.removeEventListener("scroll", disabled);
   }, []);
 
-  return (
+  return ( 
     <>
       <section className={fixed ? 'notfixed' : 'hero-main'}>
 
