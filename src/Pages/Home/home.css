@@ -31,6 +31,7 @@
   word-break: break-word;
   color: black;
   font-size: clamp(1rem, 0.9601rem + 3.4493vw, 6rem);
+  width: 400px;
 }
 
 .des-wrap h1:nth-of-type(2){
@@ -210,7 +211,9 @@
 }
 
 .honey{
-  height: 500px;
+  height: 470px;
+  width: 370px;
+
 }
 .plogo{
   width: 65px;
@@ -252,6 +255,13 @@
   left: -10vh;
 }
 
+.All-Natural{
+  color: orange;
+  font-size: 50px;
+  font-weight: 900;
+
+}
+
 @media screen and (max-width: 1073px) {
 
   .stick-fill {
@@ -270,7 +280,8 @@
   }
 
   .honey {
-    height: 230px;
+    height: 300px;
+    width: 250px;
   }
 
   .clip-left h1 {
@@ -339,6 +350,7 @@
   .des-wrap h1:first-of-type{
     color: rgb(0, 0, 0);
     line-height: normal;
+
   }
 
   .hero-left p:first-of-type{
@@ -370,6 +382,7 @@
     font-size: 1.2em;
     line-height: normal;
     margin: 0;
+    width: 250px;
   }
 
   .des-wrap h1:nth-of-type(2){
@@ -453,8 +466,26 @@
   }
 }
 
+@media screen and (max-width: 562px) {
+  .honey{
+    height: 230px;
+    width: 166px;
+    object-fit: cover;
+  }
+}
+
 @media all and (max-width:400px){
   .clip-left h1 {
     font-size: clamp(1.25rem, 0.4601rem + 4vw, 7.5rem);
 }
+
+.des-wrap h1:first-of-type {
+  width: 180px;
 }
+.honey{
+  height: 180px;
+  width: 136px;
+  object-fit: cover;
+}
+}
+

@@ -74,7 +74,11 @@ function Discounts() {
                   <h4>{item.price}$</h4>
                 </div>
               )}
+             
             </div>
+            <div className="button-card">
+                    <button>Add to Cart</button>
+                  </div>
         </div>
               <div className="front">
             <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
@@ -95,7 +99,11 @@ function Discounts() {
                   <h4>{item.price}$</h4>
                 </div>
               )}
+               
             </div>
+            <div className="button-card">
+                    <button>Add to Cart</button>
+                  </div>
             </div>
             <div className="back">
             <button onClick={() => handleCardFlip(item._id)}>
