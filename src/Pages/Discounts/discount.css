@@ -135,24 +135,82 @@
   .text-discount{
     font-size: 25px;
   }
-  
-  
-  
-  
-  /* Media queries for responsive design */
 
-@media screen and (max-width: 1200px) {
+  /* .swal-button{
+    background-color: orange!important;
+   
+    width: 100%;
+    margin-bottom: 10px;
+  }  
+
+  .swal-button-center {
+    display: flex !important;
+    justify-content: center !important;
+  } */
+
+  .swal-button {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 900;
+  }
+  
+  .swal-button.swal-button--confirm {
+    background-color: orange;
+    border-color: orange;
+  }
+  
+  .swal-button.swal-button--cancel {
+    background-color: #aaa;
+    border-color: #aaa;
+  }
+  
+  .swal-button.swal-button--cancel:focus {
+    outline: none;
+  }
+
+  .swal-button.swal-button--confirm:hover{
+    background-color: goldenrod;
+  }
+  
+  .swal-button-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-custom-container-class {
+    max-width: 100%;
+  }
+
+   /* Media queries for responsive design */
+  
+  @media screen and (min-width: 480px) {
+    .my-custom-container-class {
+      max-width: 480px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .my-custom-container-class {
+      max-width: 768px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .my-custom-container-class {
+      max-width: 1024px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
   .product-card-discount{
     width: 45%;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .product-card-discount {
-    width: 100%;
+  .my-custom-container-class {
+    max-width: 1280px;
   }
 }
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   .popup {
     width: 85%;
     max-width: none;
@@ -168,6 +226,9 @@
 
   .back p {
     font-size: 1.4rem;
+  }
+  .product-card-discount {
+    width: 100%;
   }
 }
   

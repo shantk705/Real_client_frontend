@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
+import swal from 'sweetalert';
 
 function Discounts(props) {
   const [product, setProduct] = useState([]);
@@ -117,9 +118,34 @@ function Discounts(props) {
                
             </div>
             <div className="button-card">
-                    <button onClick={(event)=>addToCart(event,item._id)}>Add to Cart</button>
-                  </div>
+                   
+        <button onClick={(event) => {
+        addToCart(event,item._id);
+        swal({
+          title: "Item added to cart!",
+          icon: "success",
+          buttons: {
+            cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
+        }).then((value) => {
+          if (value === "cart") {
+            window.location.href = "/cart";
+          } 
+        });
+         }}>Add to Cart</button>
+
+         </div>
             </div>
+
             <div className="back">
             <button onClick={() => handleCardFlip(item._id)}>
             <i className="bx bx-x"></i>
