@@ -2,10 +2,12 @@ import React from "react";
 import "./loginup.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 
 
-function LoginUp({ showPopUp, onCloseButtonClick }) {
+function LoginUp() {
+  let navigate=useNavigate()
   const [lol, setLol]= useState(false)
 
   function login(){
@@ -54,7 +56,7 @@ function LoginUp({ showPopUp, onCloseButtonClick }) {
   };
   return(
     <>
-    {showPopUp && (
+   
     <section className="log-popup">
       <div className="forms-wrapper">
         <div className={lol === true ? "log-header-left" : "log-header"}>
@@ -109,11 +111,11 @@ function LoginUp({ showPopUp, onCloseButtonClick }) {
           </form>
         </div>
         <div className="guid">
-          <button onClick={onCloseButtonClick}>Cancel</button>
+          <button onClick={()=>{navigate(-1)}}>Cancel</button>
         </div>
       </div>
     </section>
-    )}
+   
     </>
   )
 }
