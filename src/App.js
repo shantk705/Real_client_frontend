@@ -1,31 +1,20 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-
-import "./App.css";
-import ContactUs from "./Pages/Contactus/contact";
-
-import Home from "./Pages/Home/home";
-import React, { useState } from "react";
-
-import Layout from "./Pages/layout.jsx";
-import Category from "./Pages/Shop/category";
-import Shop from "./Pages/Shop/shop";
-import Discounts from "./Pages/Discounts/discount";
-import AboutUs from "./Pages/Aboutus/AboutUs";
-import LoginUp from "./Components/popAuth/LoginUp";
-import SideBar from "./Components/SideBar";
+import { Route, Routes, BrowserRouter} from 'react-router-dom';
+import './App.css';
+import ContactUs from './Pages/Contactus/contact';
+import Home from './Pages/Home/home';
+import React from 'react';
+import Layout from "./Pages/layout.jsx"
+import Category from './Pages/Shop/category';
+import Shop from './Pages/Shop/shop';
+import Cart from './Pages/Cart.jsx'
+import Discounts from './Pages/Discounts/discount';
+import AboutUs from './Pages/Aboutus/AboutUs'
+import LoginUp from './Components/popAuth/LoginUp';
+import SideBar from "./Components/SideBar"
 
 function App() {
-  const [showPopUp, setShowPopUp] = useState(false);
 
-  function handleButtonClick() {
-    setShowPopUp(true);
-  }
-
-  function handleCloseButtonClick() {
-    setShowPopUp(false);
-  }
-
-  return (
+  return (  
     <>
       <BrowserRouter>
         <Routes>

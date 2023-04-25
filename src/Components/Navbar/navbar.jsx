@@ -1,9 +1,12 @@
 import './navbar.css';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 
-function Navbar({ onButtonClick }) {
+
+function Navbar() {
+
+  let navigate=useNavigate();
   const [show, setShow] = useState(false);
   const [nav, setNav] = useState(false)
   const [menu, setMenu] = useState("nav-links");
@@ -38,7 +41,15 @@ function Navbar({ onButtonClick }) {
     }
   }
 
-  window.addEventListener("scroll", navbar)
+  const handleSignClick = () => {
+    navigate("/login")
+    setMenu("nav-links");
+    setIcon("bx bx-menu");
+    console.log("fa2asna");
+  };
+
+  window.addEventListener("scroll", navbar);
+
   return (
     <header className={nav ? 'not' : 'sticky-header'}>
       <a href="/" className="logo">
@@ -71,9 +82,22 @@ function Navbar({ onButtonClick }) {
             Contact us
           </a>
         </li>
+        <li className="willhide">
+          <p onClick={handleSignClick} className={location.pathname === '/sign-in' ? 'active' : ''}>
+            Sign-in
+          </p>
+        </li>
       </ul>
-      <div className={nav ? 'head-icons' : 'header-icons'}>
-        <p onClick={onButtonClick} className="user">
+      <div  className={nav ? 'head-icons' : 'header-icons'}>
+        <p onKeyDown={(e) => {
+          if (e.keyCode === 13) {
+            handleSignClick();
+          }
+          }} 
+          onClick={handleSignClick}
+          tabIndex="0"
+          className="user"
+        >
           <i className="ri-user-fill"></i>Sign-in
         </p>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
