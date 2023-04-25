@@ -11,13 +11,14 @@
 }
 
 .contact-us h1 {
+  margin-bottom: 20px;
   font-size: 30px;
   font-weight: bold;
   color: #ffb400;
 }
 .contact-form {
-  border: solid red;
   width: 70%;
+  border: 1.5px solid #9e9d9d;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -28,19 +29,20 @@
 }
 
 .contact-form input {
-  padding: 10px;
-  border: 2px solid #acacac;
+  padding: 15px;
+  border: 1.5px solid #9e9d9d;
   width: 100%;
 }
 .contact-form button {
   background: #ffb400;
+  border-radius: 2px;
 }
 .message {
   height: 100px;
 }
 .divplus {
+  width: 100%;
   margin: 0 auto;
-  margin-left: 50px;
-  border: green solid;
   padding-right: 1300px;
+  background-color: rgb(243, 238, 238);
 }

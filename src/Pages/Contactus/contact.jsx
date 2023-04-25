@@ -97,7 +97,7 @@ const ContactUs = () => {
               required
             />
             <button className="form-sbmt" type="submit" onClick={onSubmit}>
-              submit
+              SEND
             </button>
           </form>
         </div>
