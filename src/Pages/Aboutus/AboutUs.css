@@ -4,50 +4,58 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .about-us {
-  height: 100vh;
+  height: 110vh;
   width: 100%;
-  padding: 90px 0;
-  background: rgb(236, 241, 182);
+  padding-top: 100px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/home/hasan/Desktop/Real_client_frontend/src/Assets/top-view-honey-with-honeycomb-pieces.jpg");
 }
-.pic {
-  height: auto;
-  width: 302px;
-  image-rendering: auto;
-  filter: blur(-0.7px);
-}
-.about {
-  width: 1130px;
-  max-width: 85%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
+
 .text {
-  width: 540px;
+  width: calc(100% - 250px);
 }
+
 .text h2 {
-  font-size: 90px;
+  font-size: 65px;
   font-weight: 600;
   margin-bottom: 10px;
 }
+
 .text h5 {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 20px;
 }
-aboutspan {
+
+.aboutspan {
   color: #b9e200;
 }
+
 .text p {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 1px;
 }
+.about img {
+  width: 150px;
+}
+.about {
+  width: 100%;
+  max-width: 1130px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .data {
   margin-top: 30px;
 }
+
 .aboutbutton {
   font-size: 18px;
   background: #ffa500;
@@ -56,10 +64,52 @@ aboutspan {
   border: none;
   padding: 8px 25px;
   border-radius: 6px;
-  transition: 0.5s;
+  transition: 0.7s;
 }
+
 .aboutbutton:hover {
   background: #4d1902f8;
-  /* border: 1px solid #0447ff; */
   border: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .about {
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 15vh;
+    margin-top: -8vh;
+  }
+
+  .about-us {
+    height: auto;
+    min-height: 100vh;
+    background-position: bottom;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .text h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+
+  .text h5 {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+
+  .text p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  .aboutbutton {
+    font-size: 1rem;
+    padding: 0.8em 2em;
+  }
 }
