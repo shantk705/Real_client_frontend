@@ -43,7 +43,7 @@ function Category() {
  
     <div className="category-buttons">
     <button value="" onClick={handleButtonClick} className={`category-button ${selectedCategoryId === "" ? "selected" : ""}`}>All Products</button>
-    {category.map((item, index) => (
+    {Array.isArray(category) && category.map((item, index) => (
     <button key={index} value={item._id} onClick={handleButtonClick} className={`category-button ${selectedCategoryId === item._id ? "selected" : ""}`}>{item.name_category}</button>
   ))}
 </div>
