@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from '../Components/Navbar/navbar';
 import Footer from '../Components/Footer/footer';
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 const Layout = () => {
+  let location=useLocation()
+
   return (
     <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
-    
+      <Navbar />
+      <Outlet/>
+      {location.pathname==="/login"?"":<Footer/>}
     </>
    
   )

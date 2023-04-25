@@ -165,5 +165,9 @@
     margin-right: auto;
     display: block;
   }
+
+  .back p {
+    font-size: 1.4rem;
+  }
 }
   
