@@ -43,7 +43,7 @@ function Home() {
     } else {
       carousel.scroll({
         left: nextSlide * slideWidth,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setCurrentSlide(nextSlide);
@@ -51,9 +51,9 @@ function Home() {
 
   function disabled() {
     if (window.scrollY >= 1050) {
-      setFixed(true)
+      setFixed(true);
     } else {
-      setFixed(false)
+      setFixed(false);
     }
   }
 
@@ -61,8 +61,6 @@ function Home() {
     window.addEventListener("scroll", disabled);
     return () => window.removeEventListener("scroll", disabled);
   }, []);
-
-
 
   return (
     <>
@@ -114,15 +112,15 @@ function Home() {
             <a href="/shop" className='shop-btn'>Shop Now!</a>
           </div>
       </section>
-      <div className='stick-fill'>
-              <img src={stick} alt="honey stick" />
+      <div className="stick-fill">
+        <img src={stick} alt="honey stick" />
       </div>
       <Carousel />
-      <div className='spread-fill'>
-              <img src={spread} alt="honey stick" />
+      <div className="spread-fill">
+        <img src={spread} alt="honey stick" />
       </div>
     </>
-  )
+  );
 }
 
 export default Home;
