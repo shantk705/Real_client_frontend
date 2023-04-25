@@ -50,12 +50,19 @@ function Home() {
   }
 
   function disabled() {
+<<<<<<< HEAD
     if (window.scrollY >= 1050) {
       setFixed(true);
+=======
+    if (window.scrollY >= 790) {
+      setFixed(true)
+>>>>>>> 1b83a9eb91d9234a29874edaced802b5a44817db
     } else {
       setFixed(false);
     }
   }
+
+  console.log(window.scrollY);
 
   useEffect(() => {
     window.addEventListener("scroll", disabled);

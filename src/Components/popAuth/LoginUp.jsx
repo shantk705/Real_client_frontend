@@ -30,6 +30,8 @@ function LoginUp() {
       );
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userType", response.data.userType);
+      sessionStorage.setItem("user_id", response.data._id);
+      sessionStorage.setItem("userName", response.data.name);
       console.log("done");
     } catch (error) {
       console.log(error);
@@ -49,6 +51,9 @@ function LoginUp() {
       );
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userType", response.data.userType);
+      sessionStorage.setItem("user_id", response.data._id);
+      sessionStorage.setItem("userName", response.data.name);
+
       // handle successful registration
     } catch (error) {
       console.log(error);
@@ -99,7 +104,7 @@ function LoginUp() {
             <div className="user-input-wrp">
               <input
                 className="inputText"
-                id="password"
+                id="password-r"
                 type="password"
                 required
               />

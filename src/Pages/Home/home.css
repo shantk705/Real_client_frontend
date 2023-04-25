@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
 }
 
 
@@ -89,6 +90,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  opacity: 0;
 }
 
 .hero-shop{
@@ -235,15 +237,15 @@
 .stick-fill {
   width: 100%;
   position: relative;
-  height: 5vh;
-  margin-top: -100px;
+  height: 25vh;
+  margin-top: 50px;
 }
 
-.spread-fill{
+.spread-fill {
   width: 100%;
   position: relative;
-  top: -250px;
-  height: 5vh;
+  top: -70px;
+  height: 50vh;
 }
 .stick-fill img {
   position: absolute;
@@ -321,7 +323,6 @@
     width: 100%;
     background-color: #F6F5F3;
     position: static;
-    /* top: 90px; */
     display: flex;
     justify-content: flex-end;
     align-items: center;

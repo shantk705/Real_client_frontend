@@ -33,7 +33,7 @@ function Navbar() {
   };
 
   function navbar(){
-    if (window.scrollY >= 1035){
+    if (window.scrollY >= 851){
       setNav(true)
     }
     else{
