@@ -3,11 +3,13 @@ import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
 
-function Discounts() {
+function Discounts(props) {
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const { categoryId } = props;
+
 
   console.log(single, showPopup);
   const getdiscounts = async () => {
@@ -44,6 +46,19 @@ function Discounts() {
   const handleMoreInfoClick = (itemId) => {
     getsingleproduct(itemId);
     handleCardFlip(itemId);
+  }
+
+  function addToCart(event, props){
+    let id= props
+    axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
+        headers: { "Content-Type": "application/json",},
+      })
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   return (
@@ -102,7 +117,7 @@ function Discounts() {
                
             </div>
             <div className="button-card">
-                    <button>Add to Cart</button>
+                    <button onClick={(event)=>addToCart(event,item._id)}>Add to Cart</button>
                   </div>
             </div>
             <div className="back">
