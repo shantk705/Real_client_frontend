@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
+<<<<<<< HEAD
 import swal from 'sweetalert';
 
 function Discounts(props) {
+=======
+import Loader from "../../Components/Loader/Loader";
+
+function Discounts() {
+  const [item, setItem] = useState(null);
+>>>>>>> 1b83a9eb91d9234a29874edaced802b5a44817db
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
@@ -17,6 +24,7 @@ function Discounts(props) {
     try {
       const response = await axios.get(`http://localhost:5000/item/getdiscount`);
       setProduct(response.data);
+      setItem(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -27,6 +35,7 @@ function Discounts(props) {
       const response = await axios.get(`http://localhost:5000/item/getitem/${id}`);
       setSingle(response.data);
       setShowPopup(true);
+      setItem(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +58,7 @@ function Discounts(props) {
     handleCardFlip(itemId);
   }
 
+<<<<<<< HEAD
   function addToCart(event, props){
     let id= props
     axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
@@ -62,6 +72,15 @@ function Discounts(props) {
     });
   }
 
+=======
+  if (!item) {
+    return (
+    <>
+      <Loader />
+    </>
+    );
+  }
+>>>>>>> 1b83a9eb91d9234a29874edaced802b5a44817db
   return (
     <>
       <div className="text-discount">

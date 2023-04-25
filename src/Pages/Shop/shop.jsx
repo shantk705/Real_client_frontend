@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 import '../Shop/shop.css'; 
+import { useNavigate } from "react-router";
+import Loader from "../../Components/Loader/Loader";
 import swal from 'sweetalert';
 
 
 function Shop(props) {
+  const [item, setItem] = useState(null);
+  const navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const { categoryId } = props;
@@ -15,6 +19,7 @@ function Shop(props) {
       if (categoryId==="") {  
          const response = await axios.get("http://localhost:5000/item/getitem");
          setProduct(response.data);
+         setItem(response.data);
       } else {
           const response = await axios.get(`http://localhost:5000/item/items/${categoryId}`);
           setProduct(response.data);
@@ -38,6 +43,14 @@ function Shop(props) {
 
   const handleMoreInfoClick = (itemId) => {
     handleCardFlip(itemId);
+  }
+
+  if (!item) {
+    return (
+    <>
+      <Loader />
+    </>
+    );
   }
 
 function addToCart(event, props){
@@ -105,6 +118,7 @@ function addToCart(event, props){
             </div>
 
             <div className="button-card">
+            <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
             <button onClick={(event) => {
         addToCart(event,item._id);
         swal({

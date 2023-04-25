@@ -14,6 +14,7 @@ import Discounts from './Pages/Discounts/discount';
 import AboutUs from './Pages/Aboutus/AboutUs'
 import LoginUp from './Components/popAuth/LoginUp';
 import SideBar from "./Components/SideBar"
+import Single from './Pages/Single/Single';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
                   <Route path='/' element={<Home />} />
                   <Route path='/shop' element={<Category/>} />
                   <Route path='/shop/:category_id' element={<Shop />} />
+                  <Route path='/single' element={<Single />} />
                   <Route path='/contactus' element={<ContactUs />} />
                   <Route path='/discounts' element={<Discounts />} />
                   <Route path='/aboutUs' element={<AboutUs />} />
