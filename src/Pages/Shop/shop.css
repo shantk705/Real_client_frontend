@@ -30,7 +30,7 @@
 
 .product-card:hover{
   transition: 0.3s;
-  box-shadow: 0 0 10px #ffc400;
+  box-shadow: 0 0 10px #b1b1b1;
 }
 
 
@@ -88,7 +88,7 @@
 .back p {
   color: black;
   text-align: left;
-  font-size: 1vw;
+  font-size: clamp(0.75rem, 0.4023rem + 0.8vw, 4.125rem);
   line-height: 1.5;
   margin-bottom: 20px;
 }
