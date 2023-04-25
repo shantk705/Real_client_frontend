@@ -1,6 +1,5 @@
 import React from "react";
 import "./AboutUs.css";
-import logo from "../../Assets/logo.png";
 
 function AboutUs() {
   return (
