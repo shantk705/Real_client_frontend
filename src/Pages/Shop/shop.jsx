@@ -1,92 +1,110 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 import '../Shop/shop.css'; 
-import { useParams } from "react-router-dom";
 
 function Shop(props) {
   const [product, setProduct] = useState([]);
-  const [single, setSingle] = useState([]);
-  const { categoryId, filteredCategory } = props;
+  const [flippedItem, setFlippedItem] = useState(null);
 
-  const [activeProductIndex, setActiveProductIndex] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+  const { categoryId } = props;
 
-  const getproducts = async () => {
+  const getProducts = useCallback(async () => {
     try {
       console.log(categoryId)
-      if (categoryId===""){  
+      if (categoryId==="") {  
          const response = await axios.get("http://localhost:5000/item/getitem");
          setProduct(response.data);
-        }
-
-  else{
-      const response = await axios.get(`http://localhost:5000/item/items/${categoryId}`);
-      setProduct(response.data);
-    }
+      } else {
+          const response = await axios.get(`http://localhost:5000/item/items/${categoryId}`);
+          setProduct(response.data);
+      }
     } catch (error) {
       console.error(error);
     }
-  }
-
-  const getsingleproduct = async (id) => {
-    try {
-      const response = await axios.get(`http://localhost:5000/item/getitem/${id}`);
-      setSingle(response.data);
-      setShowPopup(true);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
+  }, [categoryId])
 
   useEffect(() => {
-    getproducts();
-  }, [categoryId]);
+    getProducts();
+  }, [getProducts]);
  
 
-  const handleProductClick = (id) => {
-    getsingleproduct(id);
+
+  const handleCardFlip = (itemId) => {
+    if (flippedItem === itemId) {
+      setFlippedItem(null); // unflip the card
+    } else {
+      setFlippedItem(itemId); // flip the card
+    }
   }
 
+  const handleMoreInfoClick = (itemId) => {
+    handleCardFlip(itemId);
+  }
   return (
     <div className="product-container">
-     
       {Array.isArray(product) && product.map((item, index) => (
-        <div className="product-card" key={index}>
-{console.log(product)}
+        <div 
+          className={flippedItem === item._id ? "product-card flip" : "product-card"} 
+          key={index}
+        >
+          {console.log(product)}
+          <div className="hidden-wrp">
+          <div className="infor"></div>
           { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
-
-          <div className="image-product" onClick={() => handleProductClick(item._id)}>
-             <img src={item.image.url}/>
-           </div>
-           
-           <div className="content-product">
-           <h3>{item.name}</h3>
-          {/* <p>{item.description}</p> */}
-          <h4>{item.weight} kg</h4>
-           </div>
-           <div className="price">
-            {item.price === item.price_after_discount  ? <h3>{item.price}$</h3> : 
-              <div className="price"> 
-                <h3>{ item.price_after_discount}$</h3> 
-                <h4>{item.price}$</h4>
+                <div className="image-product">
+                  <img src={item.image.url} alt="product is not displaying"/>
+                </div>
+                  <div className="content-product">
+                    <h3>{item.name}</h3>
+                    {/* <p>{item.description}</p> */}
+                    <h4>{item.weight} kg</h4>
+                  </div>
+                    <div className="price">
+                      {item.price === item.price_after_discount  ? <h3>{item.price}$</h3> : 
+                        <div className="price"> 
+                          <h3>{ item.price_after_discount}$</h3> 
+                          <h4>{item.price}$</h4>
+                        </div>
+                      }
+                    </div>
+                  <div className="button-card">
+                    <button>Add to Cart</button>
+                  </div>
               </div>
-            }
-           </div>
-           <div className="button-card">
+          <div className="front">
+            <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
+            { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
+            <div className="image-product">
+              <img src={item.image.url} alt="product is not displaying"/>
+            </div>
+            <div className="content-product">
+              <h3>{item.name}</h3>
+              <h4>{item.weight} kg</h4>
+            </div>
+            <div className="price">
+              {item.price === item.price_after_discount ? (
+                <h3>{item.price}$</h3>
+              ) : (
+                <div className="price"> 
+                  <h3>{ item.price_after_discount}$</h3> 
+                  <h4>{item.price}$</h4>
+                </div>
+              )}
+            </div>
+            <div className="button-card">
               <button>Add to Cart</button>
             </div>
+          </div>
+          <div className="back">
+          <button onClick={() => handleCardFlip(item._id)}>
+            <i className="bx bx-x"></i>
+          </button>
+            <div className="popup">
+              <p>{item.description}</p>
+            </div>
+          </div>
         </div>
       ))}
-      
-      {showPopup && (
-        <div className="popup">
-           <button onClick={() => setShowPopup(false)}> x </button>
-          <p>{single.description}</p>
-         
-        </div>
-      )}
-      
     </div>
   );
 }

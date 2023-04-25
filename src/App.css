@@ -9,12 +9,12 @@
   --border-color: #000;
   --theme:rgb(252, 185, 0);
 }
-/* #root{
+#root{
   display: grid;
   grid-template-rows: 90px auto;
-  min-height: 100dvh;
+
   grid-template-columns: 100%;
-} */
+}
 
 .main{
   grid-row: 2;

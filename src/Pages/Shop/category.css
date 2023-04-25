@@ -1,10 +1,13 @@
 .category-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 90%;
+  height: 100%;
+  margin-top: 50px;
+  transform-style: preserve-3d;
+
 }
 
 /* select {
@@ -43,16 +46,21 @@ option:selected {
 } */
 
 .category-button {
-  background-color: #ffffff;
-  border: 2px solid #dddddd;
-  color: #333333;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin-right: 10px;
-  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  text-align: center;
+}
+
+.category-button.selected {
+  border-bottom: 3px solid orange;
 }
 
 .category-button.active {
   background-color: #333333;
   color: #ffffff;
+}
+
+
+.category-buttons{
+  border-bottom: 2px solid lightgray;
 }

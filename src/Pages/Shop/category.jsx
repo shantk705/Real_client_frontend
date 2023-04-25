@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Shop/category.css'; // Import your CSS file
 import Shop from '../Shop/shop';
-import { get } from "react-hook-form";
 
 function Category() {
   const [category, setCategory] = useState([]);
@@ -41,7 +40,7 @@ function Category() {
 
   return (
     <div className="category-container">
-
+ 
     <div className="category-buttons">
     <button value="" onClick={handleButtonClick} className={`category-button ${selectedCategoryId === "" ? "selected" : ""}`}>All Products</button>
     {category.map((item, index) => (
