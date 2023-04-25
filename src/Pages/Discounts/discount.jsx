@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import '../Discounts/discount.css'
-import { useParams } from "react-router-dom";
+import '../Shop/shop.css'; 
 
 function Discounts() {
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
-
-  const {category_id} =useParams();
-
-  const [activeProductIndex, setActiveProductIndex] = useState(null);
+  const [flippedItem, setFlippedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
+  console.log(single, showPopup);
   const getdiscounts = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/item/getdiscount`);
@@ -31,57 +29,84 @@ function Discounts() {
     }
   }
   
-
   useEffect(() => {
     getdiscounts();
   }, []);
 
-  const handleProductClick = (id) => {
-    getsingleproduct(id);
+  const handleCardFlip = (itemId) => {
+    if (flippedItem === itemId) {
+      setFlippedItem(null); // unflip the card
+    } else {
+      setFlippedItem(itemId); // flip the card
+    }
+  }
+
+  const handleMoreInfoClick = (itemId) => {
+    getsingleproduct(itemId);
+    handleCardFlip(itemId);
   }
 
   return (
-<>
-<div className="text-discount">
-  <h2>You can see here all the items that have a discount!</h2>
-  </div>
-    <div className="product-container-discount">
-      {Array.isArray(product) && product.map((item, index) => (
-        <div className="product-card-discount" key={index}>
-{console.log(product)}
-          { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
-
-          <div className="image-product-discount" onClick={() => handleProductClick(item._id)}>
-             <img src={item.image.url}/>
-           </div>
-           
-           <div className="content-product-discount">
-           <h3>{item.name}</h3>
-          {/* <p>{item.description}</p> */}
-          <h4>{item.weight} kg</h4>
-           </div>
-           <div className="price-discount">
-            {item.price === item.price_after_discount  ? <h3>{item.price}$</h3> : 
-              <div className="price-discount"> 
-                <h3>{ item.price_after_discount}$</h3> 
-                <h4>{item.price}$</h4>
-              </div>
-            }
-           </div>
-           <div className="button-card-discount">
-              <button>Add to Cart</button>
+    <>
+      <div className="text-discount">
+        <h2>You can see here all the items that have a discount!</h2>
+      </div>
+      <div className="product-container-discount">
+        {Array.isArray(product) && product.map((item, index) => (
+          <div className={flippedItem === item._id ? "product-card flip" : "product-card"} 
+            key={index}>
+               <div className="hidden-wrp">
+          <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
+            { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
+            <div className="image-product">
+              <img src={item.image.url} alt="product is not displaying"/>
+            </div>
+            <div className="content-product">
+              <h3>{item.name}</h3>
+              <h4>{item.weight} kg</h4>
+            </div>
+            <div className="price">
+              {item.price === item.price_after_discount ? (
+                <h3>{item.price}$</h3>
+              ) : (
+                <div className="price"> 
+                  <h3>{ item.price_after_discount}$</h3> 
+                  <h4>{item.price}$</h4>
+                </div>
+              )}
             </div>
         </div>
-      ))}
-      
-      {showPopup && (
-        <div className="popup">
-           <button onClick={() => setShowPopup(false)}> x </button>
-          <p>{single.description}</p>
-         
+              <div className="front">
+            <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
+            { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
+            <div className="image-product">
+              <img src={item.image.url} alt="product is not displaying"/>
+            </div>
+            <div className="content-product">
+              <h3>{item.name}</h3>
+              <h4>{item.weight} kg</h4>
+            </div>
+            <div className="price">
+              {item.price === item.price_after_discount ? (
+                <h3>{item.price}$</h3>
+              ) : (
+                <div className="price"> 
+                  <h3>{ item.price_after_discount}$</h3> 
+                  <h4>{item.price}$</h4>
+                </div>
+              )}
+            </div>
+            </div>
+            <div className="back">
+            <button onClick={() => handleCardFlip(item._id)}>
+            <i className="bx bx-x"></i>
+          </button>
+            <div className="popup">
+              <p>{item.description}</p>
+            </div>
+          </div>
         </div>
-      )}
-      
+      ))}
     </div>
     </>
   );

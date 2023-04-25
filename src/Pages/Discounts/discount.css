@@ -1,7 +1,6 @@
 .product-container-discount {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     gap: 5%;
     max-width: 80%;
     margin: 0 auto;
@@ -106,7 +105,7 @@
     background-color: darkgoldenrod;
   }
   
-  .popup {
+  /* .popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -120,7 +119,7 @@
     height: auto;
     max-height: calc(100% - 40px); 
     overflow: hidden;
-  }
+  } */
   
   .popup button{
     /* position: absolute; */
@@ -133,13 +132,6 @@
     cursor: pointer;
   }
   
-  .popup p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
   .text-discount{
     font-size: 25px;
   }
@@ -172,6 +164,10 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+  }
+
+  .back p {
+    font-size: 1.4rem;
   }
 }
   
