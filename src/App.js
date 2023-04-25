@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import Layout from "./Pages/layout.jsx"
 import Category from './Pages/Shop/category';
 import Shop from './Pages/Shop/shop';
+import Cart from './Pages/Cart.jsx'
 import Discounts from './Pages/Discounts/discount';
 import AboutUs from './Pages/Aboutus/AboutUs'
 import LoginUp from './Components/popAuth/LoginUp';
@@ -36,6 +37,7 @@ function App() {
                   <Route path='/discounts' element={<Discounts />} />
                   <Route path='/aboutUs' element={<AboutUs />} />
                   <Route path='/login' element={<LoginUp/>}/>
+                  <Route path='/cart' element={<Cart/>}/>
                 </Route>
             </Routes>
           </BrowserRouter>
