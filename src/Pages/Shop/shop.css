@@ -30,7 +30,7 @@
 
 .product-card:hover{
   transition: 0.3s;
-  box-shadow: 0 0 10px #ffc400;
+  box-shadow: 0 0 10px #b1b1b1;
 }
 
 

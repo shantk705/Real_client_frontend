@@ -1,9 +1,12 @@
 import './navbar.css';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 
-function Navbar({ onButtonClick, onSignClick }) {
+
+function Navbar() {
+
+  let navigate=useNavigate();
   const [show, setShow] = useState(false);
   const [nav, setNav] = useState(false)
   const [menu, setMenu] = useState("nav-links");
@@ -39,10 +42,10 @@ function Navbar({ onButtonClick, onSignClick }) {
   }
 
   const handleSignClick = () => {
-    onSignClick();
-    setShow(false);
+    navigate("/login")
     setMenu("nav-links");
     setIcon("bx bx-menu");
+    console.log("fa2asna");
   };
 
   window.addEventListener("scroll", navbar);
@@ -85,13 +88,13 @@ function Navbar({ onButtonClick, onSignClick }) {
           </p>
         </li>
       </ul>
-      <div className={nav ? 'head-icons' : 'header-icons'}>
+      <div  className={nav ? 'head-icons' : 'header-icons'}>
         <p onKeyDown={(e) => {
           if (e.keyCode === 13) {
             handleSignClick();
           }
           }} 
-          onClick={onButtonClick}
+          onClick={handleSignClick}
           tabIndex="0"
           className="user"
         >

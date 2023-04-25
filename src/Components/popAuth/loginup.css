@@ -1,5 +1,4 @@
 .log-popup{
-  position: absolute;
   background-color: #f3f3f3;
   inset: 0;
   display:flex;
@@ -25,7 +24,7 @@
 .forms-wrapper{
   overflow: hidden;
   position: relative;
-  width: 600px;
+  max-width: 600px;
   min-height: 52vh;
   background-color: white;
   border-radius: 20px;

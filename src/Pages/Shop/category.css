@@ -7,43 +7,8 @@
   height: 100%;
   margin-top: 50px;
   transform-style: preserve-3d;
-
+  min-height: 100dvh;
 }
-
-/* select {
-  float: left;
-  margin-right: 10px;
-  padding: 5px;
-  font-size: 16px;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-} */
-
-/* select:focus {
-  outline: none;
-  border: 1px solid #007bff;
-}
-
-option {
-  font-size: 16px;
-  color: #333;
-  background-color: #fff;
-}
-
-option:hover {
-  background-color: #f2f2f2;
-}
-
-option:selected {
-  background-color: #007bff;
-  color: #fff;
-}
-.category-select{
-  position: absolute;
-  left: 0;
-} */
 
 .category-button {
   height: 40px;

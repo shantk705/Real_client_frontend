@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100dvh;
+  min-height: 80dvh;
   gap: 20vh;
   background-color: #F6F5F3;
 }
