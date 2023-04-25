@@ -2,8 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5%;
-    max-width: 80%;
     margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    transform-style: preserve-3d;
   }
   .product-card-discount {
     width: 20%;

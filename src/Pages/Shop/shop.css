@@ -193,14 +193,14 @@
 
 .button-card button {
   background-color: orange;
-  color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 20px;
+  padding: 10px 0px;
+  font-size: 17px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: 100%;
+  color: white;
 }
 
 .button-card button:hover {

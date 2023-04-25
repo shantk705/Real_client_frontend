@@ -3,20 +3,18 @@ import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
 import swal from 'sweetalert';
+import { useNavigate } from "react-router";
 import Loader from "../../Components/Loader/Loader";
 
 function Discounts(props) {
-
-
-
+  const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const { categoryId } = props;
-
-
+  console.log(categoryId)
   console.log(single, showPopup);
   const getdiscounts = async () => {
     try {
@@ -107,8 +105,9 @@ function Discounts(props) {
              
             </div>
             <div className="button-card">
-                    <button>Add to Cart</button>
-                  </div>
+              <button>Add to Cart</button>
+              <button>Add to Cart</button>
+            </div>
         </div>
               <div className="front">
             <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
@@ -132,7 +131,7 @@ function Discounts(props) {
                
             </div>
             <div className="button-card">
-                   
+            <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
         <button onClick={(event) => {
         addToCart(event,item._id);
         swal({
