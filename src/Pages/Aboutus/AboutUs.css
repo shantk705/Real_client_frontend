@@ -12,9 +12,8 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/home/hasan/Desktop/Real_client_frontend/src/Assets/top-view-honey-with-honeycomb-pieces.jpg");
+  background-image: url("../../Assets/top-view-honey-with-honeycomb-pieces.jpg");
 }
-
 .text {
   width: calc(100% - 250px);
 }
