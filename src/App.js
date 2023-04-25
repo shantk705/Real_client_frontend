@@ -16,32 +16,29 @@ function App() {
 
   return (  
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<SideBar />}>
-            <Route path="/admin" />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-
-      <main className={showPopUp ? "none" : "main"}>
         <BrowserRouter>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Category />} />
-              <Route path="/shop/:category_id" element={<Shop />} />
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/discounts" element={<Discounts />} />
-              <Route path="/aboutUs" element={<AboutUs />} />
-            </Route>
-          </Routes>
+                  <Routes>
+                  <Route element={<SideBar/>}>
+                  <Route path="/admin"/>
+                  </Route>
+                  </Routes>
         </BrowserRouter>
-        <LoginUp
-          showPopUp={showPopUp}
-          onCloseButtonClick={handleCloseButtonClick}
-        />
-      </main>
+        <main className= "main">
+          <BrowserRouter>
+            <Routes>      
+                <Route element={<Layout />}> 
+                  <Route path='/' element={<Home />} />
+                  <Route path='/shop' element={<Category/>} />
+                  <Route path='/shop/:category_id' element={<Shop />} />
+                  <Route path='/contactus' element={<ContactUs />} />
+                  <Route path='/discounts' element={<Discounts />} />
+                  <Route path='/aboutUs' element={<AboutUs />} />
+                  <Route path='/login' element={<LoginUp/>}/>
+                  <Route path='/cart' element={<Cart/>}/>
+                </Route>
+            </Routes>
+          </BrowserRouter>
+        </main>
     </>
   );
 }

@@ -5,7 +5,6 @@ import '../Shop/shop.css';
 function Shop(props) {
   const [product, setProduct] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
-
   const { categoryId } = props;
 
   const getProducts = useCallback(async () => {
@@ -25,10 +24,8 @@ function Shop(props) {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
+  }, []);
  
-
-
   const handleCardFlip = (itemId) => {
     if (flippedItem === itemId) {
       setFlippedItem(null); // unflip the card
@@ -40,6 +37,19 @@ function Shop(props) {
   const handleMoreInfoClick = (itemId) => {
     handleCardFlip(itemId);
   }
+
+function addToCart(event, props){
+  let id= props
+  axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
+      headers: { "Content-Type": "application/json",},
+    })
+  .then((res) => {
+    console.log(res.data)
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+}
   return (
     <div className="product-container">
       {Array.isArray(product) && product.map((item, index) => (
@@ -92,7 +102,7 @@ function Shop(props) {
               )}
             </div>
             <div className="button-card">
-              <button>Add to Cart</button>
+              <button onClick={(event)=>addToCart(event,item._id)}>Add to Cart</button>
             </div>
           </div>
           <div className="back">
