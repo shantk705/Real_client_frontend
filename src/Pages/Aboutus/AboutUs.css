@@ -8,7 +8,7 @@
 .about-us {
   height: 110vh;
   width: 100%;
-  padding: 90px 0;
+  padding-top: 100px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -41,7 +41,7 @@
   letter-spacing: 1px;
 }
 .about img {
-  width: 190px;
+  width: 150px;
 }
 .about {
   width: 100%;
@@ -76,7 +76,7 @@
   .about {
     flex-direction: column;
     justify-content: center;
-    /* padding: 0px 0; */
+    padding-bottom: 15vh;
   }
 
   .about-us {
