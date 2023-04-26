@@ -118,7 +118,7 @@ if (!item) {
           className={flippedItem === item._id ? "product-card flip" : "product-card"} 
           key={index}
         >
-          {console.log(product)}
+          
           <div className="hidden-wrp">
           <div className="infor"></div>
           { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
