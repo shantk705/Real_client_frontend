@@ -60,10 +60,52 @@ function Discounts(props) {
         headers: { "Content-Type": "application/json",},
       })
     .then((res) => {
-      console.log(res.data)
+      if(res.status===201){
+     
+        swal({
+          title: "Item added to cart!",
+          icon: "success",
+          buttons: {
+            cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
+        }).then((value) => {
+          if (value === "cart") {
+            window.location.href = "/cart";
+          } 
+        });
+      }
+      
     })
     .catch((err) => {
-      console.log(err);
+      swal({
+        title: "Something went wrong ! please try again",
+        icon: "error",
+        buttons: {
+          cancel: "Continue Shopping",
+          confirm: {
+            text: "See Cart",
+            value: "cart",
+            className: "swal-button"
+          },
+        },
+        customClass: {
+          confirmButton: "swal-button-center",
+          container: "my-custom-container-class",
+        },
+      }).then((value) => {
+        if (value === "cart") {
+          window.location.href = "/cart";
+        } 
+      });
     });
   }
 
@@ -77,7 +119,7 @@ function Discounts(props) {
   return (
     <>
       <div className="text-discount">
-        <h2>You can see here all the items that have a discount!</h2>
+        <h2>Discounted Items!</h2>
       </div>
       <div className="product-container-discount">
         {Array.isArray(product) && product.map((item, index) => (
@@ -132,29 +174,7 @@ function Discounts(props) {
             </div>
             <div className="button-card">
             <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
-        <button onClick={(event) => {
-        addToCart(event,item._id);
-        swal({
-          title: "Item added to cart!",
-          icon: "success",
-          buttons: {
-            cancel: "Continue Shopping",
-            confirm: {
-              text: "See Cart",
-              value: "cart",
-              className: "swal-button"
-            },
-          },
-          customClass: {
-            confirmButton: "swal-button-center",
-            container: "my-custom-container-class",
-          },
-        }).then((value) => {
-          if (value === "cart") {
-            window.location.href = "/cart";
-          } 
-        });
-         }}>Add to Cart</button>
+        <button onClick={(event) => {addToCart(event,item._id); }}>Add to Cart</button>
 
          </div>
             </div>

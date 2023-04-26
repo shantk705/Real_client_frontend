@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
 import '../Shop/shop.css'; 
+import swal from 'sweetalert';
 import { useNavigate } from "react-router";
 import Loader from "../../Components/Loader/Loader";
-import swal from 'sweetalert';
+
+
 
 
 function Shop(props) {
-  const [item, setItem] = useState(null);
-  const navigate = useNavigate();
   const [product, setProduct] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const { categoryId } = props;
+  const navigate = useNavigate();
+  const [item, setItem] = useState(null);
+
 
   const getProducts = useCallback(async () => {
     try {
@@ -45,26 +48,69 @@ function Shop(props) {
     handleCardFlip(itemId);
   }
 
-  if (!item) {
-    return (
-    <>
-      <Loader />
-    </>
-    );
-  }
-
 function addToCart(event, props){
   let id= props
   axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
       headers: { "Content-Type": "application/json",},
     })
   .then((res) => {
-    console.log(res.data)
+    if(res.status===201){
+   
+      swal({
+        title: "Item added to cart!",
+        icon: "success",
+        buttons: {
+          cancel: "Continue Shopping",
+          confirm: {
+            text: "See Cart",
+            value: "cart",
+            className: "swal-button"
+          },
+        },
+        customClass: {
+          confirmButton: "swal-button-center",
+          container: "my-custom-container-class",
+        },
+      }).then((value) => {
+        if (value === "cart") {
+          window.location.href = "/cart";
+        } 
+      });
+    }
+    
   })
   .catch((err) => {
-    console.log(err);
+    swal({
+      title: "Something went wrong ! please try again",
+      icon: "error",
+      buttons: {
+        cancel: "Continue Shopping",
+        confirm: {
+          text: "See Cart",
+          value: "cart",
+          className: "swal-button"
+        },
+      },
+      customClass: {
+        confirmButton: "swal-button-center",
+        container: "my-custom-container-class",
+      },
+    }).then((value) => {
+      if (value === "cart") {
+        window.location.href = "/cart";
+      } 
+    });
   });
 }
+
+if (!item) {
+  return (
+  <>
+    <Loader />
+  </>
+  )
+}
+
   return (
     <div className="product-container">
       {Array.isArray(product) && product.map((item, index) => (
@@ -119,28 +165,10 @@ function addToCart(event, props){
 
             <div className="button-card">
             <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
+
             <button onClick={(event) => {
         addToCart(event,item._id);
-        swal({
-          title: "Item added to cart!",
-          icon: "success",
-          buttons: {
-            cancel: "Continue Shopping",
-            confirm: {
-              text: "See Cart",
-              value: "cart",
-              className: "swal-button"
-            },
-          },
-          customClass: {
-            confirmButton: "swal-button-center",
-            container: "my-custom-container-class",
-          },
-        }).then((value) => {
-          if (value === "cart") {
-            window.location.href = "/cart";
-          } 
-        });
+        
         }}>Add to Cart</button>
             </div>
           </div>
