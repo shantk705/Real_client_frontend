@@ -176,7 +176,7 @@ const Adress = () => {
           </button>
         </form>
       </div>
-      <div className="mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%]  md:mt-[10%] md:h-[20vh]">
+      <div className="mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%]  md:mt-[10%] md:h-[25vh]">
         <h2 className="mb-3 text-xl font-bold ml-[3%] ">Payment Method</h2>
         <div className=" xl:w-[100%] flex flex-col bg-[#F6F5F3] mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  rounded-md ">
           <label className="  ml-14 text-xl ">
