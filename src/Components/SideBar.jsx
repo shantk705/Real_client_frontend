@@ -31,9 +31,9 @@ const links=[
       Dayaa Store
     </h1>
     </div>
-    <div className='flex items-center flex-col mt-8 ' >
+    <div className='flex items-center flex-col mt-8  ' >
     {links.map((link,index)=>(
-<NavLink key={index} to={link.nav}   className=" flex items-center gap-x-4 hover:bg-[#FFD580] w-[90%]  ml-[5%] mr-[5%]">
+<NavLink key={index} to={link.nav}   className=" focus:bg-white flex items-center gap-x-4 hover:bg-[#FFD580] w-[90%]  ml-[5%] mr-[5%] h-[8vh] rounded-md">
 <img src={link.img} className="w-14 h-14 ml-[6%]"/>
 <div className={`text-xl ${!open && 'scale-0'}  w-24 `}>{link.title}</div>
 </NavLink>

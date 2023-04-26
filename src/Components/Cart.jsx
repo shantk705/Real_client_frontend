@@ -105,12 +105,12 @@ const Carts = () => {
   return (
     <div
       id="component-parent"
-      className="w-[100%]  flex flex-col md:w-[80%]  md:ml-[10%] md:mr-[10%] md:mb-[3%]"
+      className="md:mb-[10%] w-[100%]  flex flex-col md:w-[80%]  md:ml-[10%] md:mr-[10%]  xl:ml-[3.5%] xl:mt-[2%] xl:mr-[3.5%]"
     >
-      <h1 id="component-title" className="mb-5 text-xl font-bold">
+      <h1 id="component-title" className="mb-3 text-xl font-bold ml-[3%]">
         Cart
       </h1>
-      <div id="cart-parent" className=" bg-white  h-[46rem] shadow-xl">
+      <div id="cart-parent" className=" bg-[#F6F5F3]  h-[46rem] shadow-xl rounded-md">
         <div className="flex flex-col">
           <div
             id="item-container"
@@ -120,7 +120,7 @@ const Carts = () => {
               <div
                 id="item-parent"
                 key={items.item_id._id}
-                className="flex flex-row w-[100%]  border-b-2  pb-[2%] pt-[2%] "
+                className="flex flex-row w-[100%]  border-b-2  pb-[2%] pt-[2%]  "
               >
                 <img
                   src={items.item_id.image.url}
@@ -128,19 +128,19 @@ const Carts = () => {
                   className="w-[5vw] h-[12vh] ml-[5%] md:w-[75px] md:h-[8vh]"
                 />
                 
-                <div className="flex flex-col space-y-2 xl:ml-[10%] md:ml-[4%] self-center xl:max-w-[10vw] ">
-                  <h2 className="font-bold m-0 p-0   md:text-[10px]">
+                <div className="flex flex-col space-y-2 xl:ml-[10%] md:ml-[4%] self-center xl:font-[5px] ">
+                  <h2 className="font-bold m-0 p-0   md:text-[10px] xl:text-[90%]">
                     {items.item_id.name}
                   </h2>
-                  <p className="text-[gray] md:text-[10px]">
+                  <p className="text-[gray] md:text-[10px] xl:text-[75%]">
                     {items.item_id.weight}ML
                   </p>
-                  <p className="font-light text-lg md:text-[10px]">
+                  <p className="font-light text-[75%] md:text-[10px]  ">
                     Unit Price: {items.unit}$
                   </p>
                 </div>
 
-                <div className="flex flex-row h-10  rounded-lg  bg-transparent mt-1 w-[15%] self-center xl:ml-[12rem]  md:h-[1.5rem] md:items-center md:ml-[3%] ">
+                <div className="flex flex-row h-10  rounded-lg  bg-transparent mt-1 w-[15%] self-center xl:ml-[15%]  md:h-[1.5rem] md:items-center md:ml-[3%] ">
                   <button
                     onClick={(event) => Decrement(event, items.item_id._id)}
                     className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none md:flex md:items-center"
@@ -167,7 +167,7 @@ const Carts = () => {
                 </div>
                 <button
                   onClick={(event) => Remove(event, items.item_id._id)}
-                  className=" ml-[5%] mt-[-12%]"
+                  className=" ml-[10%]  justify-self-end"
                 >
                   <span className="font-bold text-xl">x</span>
                 </button>
@@ -175,22 +175,22 @@ const Carts = () => {
             ))}
           </div>
           <div className="ml-[5%] mr-[5%] self-end w-[90%] h-[9vh] flex flex-col border-t-2 border-black ">
-            <div className="flex flex-row xl:space-x-[74%] mt-[1%] md:space-x-[70%] md:mb-[5%] ">
+            <div className="flex flex-row xl:space-x-[74%] mt-[1%] md:space-x-[45%] md:mb-[5%] ">
               <div className="ml-[3%]">
                 <span className=" font-bold">Total</span>
-                <span className="text-[gray]">(USD):</span>{" "}
+                <span className="text-[gray]">(USD):</span>
               </div>
               <div className=" md:text-sm  font-semibold">{cart.total} $</div>
             </div>
             <div className="flex flex-row   mt-[1%] gap-10 justify-center">
               <NavLink
                 to="/shop"
-                className=" md:text-sm md:w-[12rem] bg-[black] w-[15vw] h-[5vh] text-white text-xl  flex items-center justify-center hover:bg-white  hover:text-black  hover:border-2 hover:border-black "
+                className=" md:text-sm md:w-[12rem] bg-[black] w-[15vw] h-[5vh] text-white text-xl  flex items-center justify-center hover:bg-white  hover:text-black  hover:border-2 hover:border-black  rounded-md md:text-center md:text-[10px] xl:text-center xl:text-[95%]"
               >
-                {" "}
+                
                 Continue shopping
               </NavLink>
-              <button className=" md:text-sm md:w-[12rem] bg-[#FFA500] w-[15vw] h-[5vh] text-white text-xl text-semibold hover:bg-white hover:text-[black] hover:border-2 hover:border-[#FFA500]">
+              <button className=" xl:text-center xl:text-[95%] md:text-sm md:w-[12rem] bg-[#FFA500] w-[15vw] h-[5vh] text-white text-xl text-semibold hover:bg-white hover:text-[black] hover:border-2 hover:border-[#FFA500] rounded-md">
                 Place Order
               </button>
             </div>

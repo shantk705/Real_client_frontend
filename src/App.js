@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<SuperLayout />}>
-            <Route path="/users" />
+            <Route path="/users"  />
             <Route path="/orders" />
             <Route path="/items" />
           </Route>
