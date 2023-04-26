@@ -2,6 +2,7 @@ import "./contact.css";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import stick from "../../Assets/honeydipper.png";
 
 const ContactUs = () => {
   const form = useRef();
@@ -64,40 +65,46 @@ const ContactUs = () => {
   return (
     <>
       <div className="contact-us">
-        <h1>Contact Us</h1>
-        <form className="contact-form" ref={form} onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="fullName"
-            value={fullName}
-            placeholder="Enter your Full name"
-            onChange={onChange}
-            required
-          />
-
-          <input
-            type="text"
-            name="mail"
-            value={mail}
-            placeholder="Enter your email "
-            onChange={onChange}
-            required
-          />
-          {error === "Email is required" && (
-            <div style={{ color: "red" }}>{error}</div>
-          )}
-          <input
-            type="text"
-            name="Message"
-            value={Message}
-            placeholder="Enter your Message"
-            onChange={onChange}
-            required
-          />
-          <button className="form-sbmt" type="submit" onClick={onSubmit}>
-            submit
-          </button>
-        </form>
+        <div className="frm-wrpr">
+          <h1>CONTACT US</h1>
+          <form className="contact-form" ref={form} onSubmit={onSubmit}>
+            <label htmlFor="fullName">Full Name</label>
+            <input
+              type="text"
+              name="fullName"
+              value={fullName}
+              placeholder="Enter your Full name"
+              onChange={onChange}
+              required
+            />
+            <label htmlFor="E-mail">E-mail</label>
+            <input
+              type="text"
+              name="mail"
+              value={mail}
+              placeholder="Enter your email "
+              onChange={onChange}
+              required
+            />
+            {error === "Email is required" && (
+              <div style={{ color: "red" }}>{error}</div>
+            )}
+            <label htmlFor="Message">Message</label>
+            <textarea
+              className="message"
+              type="text"
+              name="Message"
+              value={Message}
+              placeholder="Enter your Message"
+              onChange={onChange}
+              required
+            />
+            <button className="form-sbmt" type="submit" onClick={onSubmit}>
+              SEND
+            </button>
+          </form>
+        </div>
+        <img src={stick} className="dipper" alt="honey stick" />
       </div>
     </>
   );
