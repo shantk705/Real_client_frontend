@@ -5,9 +5,11 @@ import SideBar from '../../Components/SideBar.jsx'
 const SuperLayout = () => {
   return (
    <>
-   <div className='flex flex-col'>
+   <div className='flex flex-row'>
    <SideBar/>
-   <Outlet/>
+   
+   <Outlet />
+ 
    </div>
    </>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { NavLink } from "react-router-dom";
+import {  FaBeer } from 'react-icons/fa'
 import arrow from "../Assets/sideArrow.svg"
 import Logo from "../Assets/logo.png"
 import Users from "../Assets/users.png"
