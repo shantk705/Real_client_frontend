@@ -44,3 +44,7 @@
   position: absolute;
   background-color: white;
 }
+
+#carte-container{
+  width: 100%;
+}

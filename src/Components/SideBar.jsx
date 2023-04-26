@@ -1,10 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
+import { NavLink } from "react-router-dom";
 import arrow from "../Assets/sideArrow.svg"
 import Logo from "../Assets/logo.png"
-
+import Users from "../Assets/users.png"
+import Orders from "../Assets/orders.png"
+import Items from "../Assets/items.png"
 const SideBar = () => {
 const [open, setopen] = useState(true)
+const links=[
+  {title:"Items" ,nav:"/items", img:Items},
+  {title:"Users" ,nav:"/users", img:Users},
+  {title:"Orders" ,nav:"/orders", img:Orders},
+  
+  
+
+ ]
 
   return (
 
@@ -14,21 +25,26 @@ const [open, setopen] = useState(true)
     <img  src={arrow} className={` ${!open && 'rotate-180'} duration-300 absolute rounded-full cursor-pointer -right-3 top-20 w-8 border-2  border-light-orange  bg-white`} alt="Arrow logo" onClick={()=>setopen(!open)}/>
 
     <div className=' flex gap-x-4 items-center mt-[3%]'>
-    <img src={Logo} alt="Company Logo" className={`w-24  cursor-pointer duration-500 `}/>
+    <img src={Logo} alt="Company Logo" className={`w-24  cursor-pointer duration-500  ml-[5%]`}/>
     <h1 className={`${!open && 'scale-0'} text-xl duration-300 text-black origin-left font font-medium`}>
       Dayaa Store
     </h1>
     </div>
+    <div className='flex items-center flex-col mt-8 ' >
+    {links.map((link,index)=>(
+<NavLink key={index} to={link.nav}   className=" flex items-center gap-x-4 hover:bg-[#FFD580] w-[90%]  ml-[5%] mr-[5%]">
+<img src={link.img} className="w-14 h-14 ml-[6%]"/>
+<div className={`text-xl ${!open && 'scale-0'}  w-24 `}>{link.title}</div>
+</NavLink>
+  ))}
+  </div>
     </div>
 
 
 
 
 
-    <div className='p-7 text-2xl font-semibold flex-1 h-screen flex content-center justify-center items-center'>
-    <h1>Home Page</h1>
-    <p>hellooooooo</p>
-    </div>
+   
     </div>
 
     </>
