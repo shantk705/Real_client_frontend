@@ -105,7 +105,7 @@ const Carts = () => {
   return (
     <div
       id="component-parent"
-      className="w-[60rem]   xl:ml-12 xl:mr-12 xl:mt-12 flex flex-col md:w-[80%]  md:ml-[10%] md:mr-[10%] md:mb-[3%]"
+      className="w-[100%]  flex flex-col md:w-[80%]  md:ml-[10%] md:mr-[10%] md:mb-[3%]"
     >
       <h1 id="component-title" className="mb-5 text-xl font-bold">
         Cart
@@ -127,6 +127,7 @@ const Carts = () => {
                   alt="item "
                   className="w-[5vw] h-[12vh] ml-[5%] md:w-[75px] md:h-[8vh]"
                 />
+                
                 <div className="flex flex-col space-y-2 xl:ml-[10%] md:ml-[4%] self-center xl:max-w-[10vw] ">
                   <h2 className="font-bold m-0 p-0   md:text-[10px]">
                     {items.item_id.name}

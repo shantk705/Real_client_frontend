@@ -97,8 +97,8 @@ const Adress = () => {
   
   return (
     <>
-    <div className="flex flex-col">
-      <div className="w-[60rem] h-[40rem]  xl:ml-12 xl:mt-12 flex flex-col  md:h-[60rem] md:pl-[10vw]  md:pr-[10vw] md:w-[80vw]">
+    <div className="flex flex-col w-[100%]">
+      <div className="w-[100%] h-[40rem]    flex flex-col  md:h-[60rem] md:pl-[10vw]  md:pr-[10vw] md:w-[80vw]">
         <h1 className="mb-5 text-xl font-bold">Delivery information </h1>
         <form onSubmit={updateAddress} className="  bg-white  grid-cols-2 grid  gap-5 h-5/6 shadow-xl md:w-[78vw]  md:grid-cols-1 md:h-[58rem] ">
           <label className="flex  flex-col ml-5 mr-10 pt-5">
@@ -176,9 +176,9 @@ const Adress = () => {
           </button>
         </form>
       </div>
-      <div className="xl:ml-12 mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%]">
+      <div className="mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%] ">
         <h2 className="mb-5 text-xl font-bold ">Payment Method</h2>
-        <div className=" xl:w-[60rem] flex flex-col bg-white mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  ">
+        <div className=" xl:w-[100%] flex flex-col bg-white mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  ">
           <label className="  ml-14 text-xl ">
             <input
               type="radio"
