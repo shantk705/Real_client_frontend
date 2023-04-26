@@ -1,48 +1,129 @@
-.contact-us {
+.divplus {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
   margin-top: 50px;
-  margin-right: 100px;
-  margin-left: 100px;
-  margin-bottom: 50px;
+  margin-right: 1000px;
+}
+
+.divplus img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.contact-us {
+  width: 100%;
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh;
+}
+
+.dipper {
+  margin-top: -70px;
+  width: 46%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .contact-us h1 {
   margin-bottom: 20px;
-  font-size: 30px;
+  margin-right: 30px;
+  font-size: 35px;
   font-weight: bold;
   color: #ffb400;
 }
+
 .contact-form {
-  width: 70%;
+  width: 100%;
   border: 1.5px solid #9e9d9d;
-  height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
   padding: 3vh;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
 }
 
 .contact-form input {
-  padding: 15px;
-  border: 1.5px solid #9e9d9d;
+  padding: 10px;
+  border: 1.5px solid #000000;
   width: 100%;
-}
-.contact-form button {
-  background: #ffb400;
   border-radius: 2px;
 }
-.message {
-  height: 110px;
+
+.contact-form .message {
+  height: 100px;
+  border: 1px solid rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
 }
-.divplus {
-  width: 100%;
-  margin: 0 auto;
-  padding-right: 1300px;
-  background-color: rgb(243, 238, 238);
+
+.form-sbmt {
+  padding: 10px 15px;
+  background-color: orange;
+}
+
+@media screen and (max-width: 767px) {
+  .divplus {
+    margin-top: 30px;
+    margin-right: 0;
+  }
+
+  .contact-us {
+    margin-left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .contact-us h1 {
+    margin-right: 0;
+  }
+
+  .contact-form {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .contact-form input {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .contact-form .message {
+    height: 100px;
+  }
+
+  .contact-form button {
+    margin-top: 20px;
+    height: 35px;
+    width: 80px;
+    font-size: 14px;
+  }
+
+  .stick-fill {
+    height: 15vh;
+  }
+}
+
+.frm-wrpr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
 }

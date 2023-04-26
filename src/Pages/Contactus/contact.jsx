@@ -2,6 +2,7 @@ import "./contact.css";
 import axios from "axios";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import stick from "../../Assets/honeydipper.png";
 
 const ContactUs = () => {
   const form = useRef();
@@ -63,10 +64,11 @@ const ContactUs = () => {
 
   return (
     <>
-      <div className="divplus">
-        <div className="contact-us">
+      <div className="contact-us">
+        <div className="frm-wrpr">
           <h1>CONTACT US</h1>
           <form className="contact-form" ref={form} onSubmit={onSubmit}>
+            <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
               name="fullName"
@@ -75,7 +77,7 @@ const ContactUs = () => {
               onChange={onChange}
               required
             />
-
+            <label htmlFor="E-mail">E-mail</label>
             <input
               type="text"
               name="mail"
@@ -87,7 +89,8 @@ const ContactUs = () => {
             {error === "Email is required" && (
               <div style={{ color: "red" }}>{error}</div>
             )}
-            <input
+            <label htmlFor="Message">Message</label>
+            <textarea
               className="message"
               type="text"
               name="Message"
@@ -101,6 +104,7 @@ const ContactUs = () => {
             </button>
           </form>
         </div>
+        <img src={stick} className="dipper" alt="honey stick" />
       </div>
     </>
   );
