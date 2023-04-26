@@ -3,6 +3,8 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import "./single.css"
 import Loader from "../../Components/Loader/Loader";
+import swal from 'sweetalert';
+
 function Single() {
   const [item, setItem] = useState(null);
   const location = useLocation();
@@ -20,6 +22,61 @@ function Single() {
     };
     getItem();
   }, [location.state.id]);
+
+  function addToCart(event, props){
+    let id= props
+    axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
+        headers: { "Content-Type": "application/json",},
+      })
+    .then((res) => {
+      if(res.status===201){
+     
+        swal({
+          title: "Item added to cart!",
+          icon: "success",
+          buttons: {
+            cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
+        }).then((value) => {
+          if (value === "cart") {
+            window.location.href = "/cart";
+          } 
+        });
+      }
+      
+    })
+    .catch((err) => {
+      swal({
+        title: "Something went wrong ! please try again",
+        icon: "error",
+        buttons: {
+          cancel: "Continue Shopping",
+          confirm: {
+            text: "See Cart",
+            value: "cart",
+            className: "swal-button"
+          },
+        },
+        customClass: {
+          confirmButton: "swal-button-center",
+          container: "my-custom-container-class",
+        },
+      }).then((value) => {
+        if (value === "cart") {
+          window.location.href = "/cart";
+        } 
+      });
+    });
+  }
 
   if (!item) {
     return (
@@ -48,7 +105,10 @@ function Single() {
             </div>
           )}
         </div>
-        <button className="s-btn">Add to Cart</button>
+        <button  onClick={(event) => {
+        addToCart(event,item._id);
+        
+        }}className="s-btn">Add to Cart</button>
       </div>
     </div>
   );
