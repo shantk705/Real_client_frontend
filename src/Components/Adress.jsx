@@ -97,10 +97,10 @@ const Adress = () => {
   
   return (
     <>
-    <div className="flex flex-col w-[100%] ml-[3.5%] mt-[2%]">
+    <div className="flex flex-col w-[100%]  mt-[2%] xl:ml-[3.5%]">
       <div className="w-[100%] h-[40rem]    flex flex-col  md:h-[60rem] md:pl-[10vw]  md:pr-[10vw] md:w-[80vw]">
-        <h1 className="mb-3 text-xl font-bold ml-[3%]">Delivery information </h1>
-        <form onSubmit={updateAddress} className="  bg-[#cccccc] rounded-md  grid-cols-2 grid  gap-5 h-5/6 shadow-xl md:w-[78vw]  md:grid-cols-1 md:h-[58rem] ">
+        <h1 className="mb-3 text-xl font-bold ">Delivery information </h1>
+        <form onSubmit={updateAddress} id="Adress-parent" className="  bg-[white] rounded-md  grid-cols-2 grid  gap-5 h-5/6 shadow-xl md:w-[78vw]  md:grid-cols-1 md:h-[58rem] ">
           <label className="flex  flex-col ml-5 mr-10 pt-5">
             Name
             <input
@@ -108,7 +108,7 @@ const Adress = () => {
               name="name"
               value={adress.name}
               onChange={handleChange}
-              className="border-2 h-10  mt-2  rounded-md"
+              className="border-2 h-10  mt-2  rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10 pt-5">
@@ -118,7 +118,7 @@ const Adress = () => {
               name="phone"
               value={adress.phone}
               onChange={handleChange}
-              className="border-2 h-10 mt-2 rounded-md"
+              className="border-2 h-10 mt-2 rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10">
@@ -128,7 +128,7 @@ const Adress = () => {
               name="email"
               value={adress.email}
               onChange={handleChange}
-              className="border-2 h-10 mt-2 rounded-md"
+              className="border-2 h-10 mt-2 rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10 " >
@@ -138,7 +138,7 @@ const Adress = () => {
               name="city"
               value={adress.city}
               onChange={handleChange}
-              className="border-2 h-10 mt-2 rounded-md"
+              className="border-2 h-10 mt-2 rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10">
@@ -148,7 +148,7 @@ const Adress = () => {
               name="streer"
               value={adress.street}
               onChange={handleChange}
-              className="border-2 h-10 mt-2 rounded-md"
+              className="border-2 h-10 mt-2 rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10">
@@ -158,7 +158,7 @@ const Adress = () => {
               name="building"
               value={adress.building}
               onChange={handleChange}
-              className="border-2 h-10 mt-2 rounded-md"
+              className="border-2 h-10 mt-2 rounded-md pl-[3%]"
             />
           </label>
           <label className="flex  flex-col ml-5 mr-10 ">
@@ -168,7 +168,7 @@ const Adress = () => {
               name="details"
               value={adress.details}
               onChange={handleChange}
-              className="border-2 h-24  mt-2 rounded-md"
+              className="border-2 h-24  mt-2 rounded-md pl-[3%]"
             />
           </label>
           <button type="submit" className="bg-black  w-3/4 text-white mt-10 ml-[10%] md:ml-[12%] h-[5vh] text-xl  hover:bg-[#FFA500] hover:text-black hover:border-2 hover:border-[black] rounded-md">
@@ -177,8 +177,8 @@ const Adress = () => {
         </form>
       </div>
       <div className="mt-0 md:ml-[10%] md:mr-[10%] md:w-[100%]  md:mt-[10%] md:h-[25vh]">
-        <h2 className="mb-3 text-xl font-bold ml-[3%] ">Payment Method</h2>
-        <div className=" xl:w-[100%] flex flex-col bg-[#F6F5F3] mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  rounded-md ">
+        <h2 className="mb-3 text-xl font-bold  ">Payment Method</h2>
+        <div id="Payment-parent" className=" xl:w-[100%]  flex flex-col bg-[white] mb-24 h-[6rem]  justify-center	shadow-xl md:w-[80%]  rounded-md ">
           <label className="  ml-14 text-xl ">
             <input
               type="radio"
