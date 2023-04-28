@@ -13,7 +13,7 @@
   display: grid;
   grid-template-rows: 90px auto;
   grid-template-columns: 100%;
-  overflow: hidden;
+  
 }
 
 .main{
