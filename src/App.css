@@ -39,3 +39,11 @@
 
 
 
+
+
+
+@media all and (max-width:840px) {
+  .mainer{
+    overflow: hidden;
+  }
+}

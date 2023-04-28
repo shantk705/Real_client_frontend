@@ -1,9 +1,10 @@
 .log-popup{
-  background-color: #f3f3f3;
   inset: 0;
-  display:flex;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
 }
 
 @keyframes pop {
@@ -188,7 +189,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 60%;
 }
 
 .user-input-wrp .inputText{
