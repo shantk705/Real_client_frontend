@@ -13,12 +13,26 @@ import LoginUp from "./Components/popAuth/LoginUp";
 import SuperLayout from "./Pages/Dashboard/SuperLayout";
 import Single from "./Pages/Single/Single";
 import { MyContext } from "./myContext";
+import Users from "./Pages/users";
+import hash from "hash-it";
 
 import Error from "./Pages/A/Error";
 
 
 function App() {
   const [text, setText] = useState(false);
+ 
+  
+const type=sessionStorage.getItem("userType")
+if(type&&type.length>4){
+if(type.toString()===hash("superAdmin").toString()){
+ if(text===false){
+  setText(true)
+ }
+}
+ 
+
+}
 
 
  
@@ -33,7 +47,7 @@ function App() {
         <Routes>
           
           <Route element={text===true?<SuperLayout/>:<Error/>}>
-            <Route path="/users" />
+            <Route path="/users" element={<Users/>} />
             <Route path="/orders" />
             <Route path="/items" />
           </Route>
