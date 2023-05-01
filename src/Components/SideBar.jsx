@@ -7,15 +7,14 @@ import Logo from "../Assets/logo.png"
 import Users from "../Assets/users.png"
 import Orders from "../Assets/orders.png"
 import Items from "../Assets/items.png"
+import Carousel from "../Assets/carousel.png";
 const SideBar = () => {
 const [open, setopen] = useState(true)
 const links=[
   {title:"Items" ,nav:"/items", img:Items},
   {title:"Users" ,nav:"/users", img:Users},
   {title:"Orders" ,nav:"/orders", img:Orders},
-  {title:"Carousel", nav:"/carousel"}
-  
-
+  {title:"Carousel", nav:"/carousel", img: Carousel}
  ]
 
   return (
@@ -41,11 +40,6 @@ const links=[
   </div>
     </div>
 
-
-
-
-
-   
     </div>
 
     </>
