@@ -1,0 +1,142 @@
+.item-desc{
+    width: 500px;
+}
+
+.table-item {
+    border-collapse: collapse;
+    margin-left: 15px;
+    margin-top: 30px;
+  }
+  
+  .first-item-- {
+    background-color: grey;
+  }
+  
+  .table-item th,
+  .table-item td {
+    border: 3px solid black;
+    padding: 5px;
+    text-align: center;
+    color: blacka;
+    font-size:20px;
+  }
+
+  .item-desc{
+    width: 500px;
+}
+
+.item-name{
+    width: 75px;
+}
+
+.button-delete-item {
+    background-color: grey;
+    border: none;
+    color: orange;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .button-delete-item:hover{
+    background-color: white;
+  }
+
+  .title-item{
+    border-bottom: 2px solid lightgrey;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    padding-right: 2%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .add-item-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    font-size: 25px;
+    margin-right: 10px;
+    border: 2px solid #000;
+  }
+
+  .item-image{
+    width: 200px;
+  }
+
+  .button-edit-item {
+    background-color: grey;
+    border: none;
+    color: orange;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  /* Media Queries */
+@media only screen and (max-width: 768px) {
+  .item-desc {
+    width: 100%;
+  }
+
+  .table-item th,
+  .table-item td {
+    font-size: 16px;
+  }
+
+  .title-item {
+    font-size: 24px;
+    flex-direction: column;
+  }
+
+  .button-delete-item,
+  .button-edit-item {
+    font-size: 16px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .item-desc {
+    width: 100%;
+  }
+
+  .table-item th,
+  .table-item td {
+    font-size: 14px;
+    padding: 3px;
+  }
+
+  .title-item {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .add-item-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .button-delete-item,
+  .button-edit-item {
+    font-size: 14px;
+    padding: 3px;
+  }
+}

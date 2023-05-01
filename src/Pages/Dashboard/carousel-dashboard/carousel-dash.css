@@ -1,0 +1,150 @@
+
+.table-item-carousel {
+    border-collapse: collapse;
+    margin-left: 15px;
+    margin-top: 30px;
+  
+  }
+  
+  .first-item-- {
+    background-color: grey;
+  }
+  
+  .table-item-carousel th,
+  .table-item-carousel td {
+    border: 3px solid black;
+    padding: 5px;
+    text-align: center;
+    color: blacka;
+    font-size:20px;
+  }
+
+.item-name{
+    width: 75px;
+}
+
+.button-delete-item-carousel {
+    background-color: grey;
+    border: none;
+    color: orange;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .button-delete-item-carousel:hover{
+    background-color: white;
+  }
+
+  .add-item-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    font-size: 25px;
+    margin-right: 10px;
+    border: 2px solid #000;
+  }
+
+  .item-image-carousel{
+    width: 200px;
+  }
+
+  .button-edit-item {
+    background-color: grey;
+    border: none;
+    color: orange;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+/* ////////////////////////////////////////////////// */
+  .add-item-icon-dash-carousel {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    color: black;
+    font-size: 25px;
+    border: 2px solid #000;
+  }
+
+  .input-name-carousel{
+    border: 2px solid black;
+     width: 80%;
+    height: 25%;
+    font-size: 25px;
+    
+  }
+
+  .labels-input-carousel{
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 900;
+  }
+
+  .inputs-add-products-carousel{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-add-item-carousel{
+    background-color: orange;
+    padding: 5px;
+    font-size: 15px ;
+    font-weight: 900;
+    width: 100px;
+    margin-top: 7px;
+ 
+  }
+  /* ////////////////////////////////////////////////////////// */
+  /* Media Queries */
+@media only screen and (max-width: 768px) {
+
+  .table-item-carousel th,
+  .table-item-carousel td {
+    font-size: 16px;
+  }
+
+  .button-delete-item-carousel,
+  .button-edit-item {
+    font-size: 16px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .table-item-carousel th,
+  .table-item-carousel td {
+    font-size: 14px;
+    padding: 3px;
+  }
+
+  .add-item-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .button-delete-item-carousel,
+  .button-edit-item {
+    font-size: 14px;
+    padding: 3px;
+  }
+}

@@ -18,6 +18,10 @@ import hash from "hash-it";
 
 import Error from "./Pages/A/Error";
 
+import Items from "./Pages/Dashboard/items/items";
+import Cat from "./Pages/Dashboard/items/cat";
+import Favorites from "./Pages/Dashboard/carousel-dashboard/carousel-dash";
+
 
 function App() {
   const [text, setText] = useState(false);
@@ -49,7 +53,8 @@ if(type.toString()===hash("superAdmin").toString()){
           <Route element={text===true?<SuperLayout/>:<Error/>}>
             <Route path="/users" element={<Users/>} />
             <Route path="/orders" />
-            <Route path="/items" />
+            <Route path="/items" element={<Cat/>} />
+            <Route path="/carousel" element={<Favorites/>}/>
           </Route>
 
           <Route path="/" element={<Layout />}>

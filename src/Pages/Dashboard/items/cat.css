@@ -1,0 +1,78 @@
+.category-container-dash {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    width: 90%;
+    height: 100%;
+    margin-top: 50px;
+    transform-style: preserve-3d;
+    min-height: 100dvh;
+  }
+  
+  .category-button-dash {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+   
+  }
+  
+  .category-button-dash.selected {
+    border-bottom: 3px solid orange;
+  }
+  
+  .category-button-dash.active {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  
+  
+  .category-buttons-dash{
+    border-bottom: 2px solid lightgray;
+    margin-left: 50px;
+  }
+
+  .add-item-icon-dash {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    color: black;
+    font-size: 25px;
+    
+    border: 2px solid #000;
+    
+  }
+
+  .input-name{
+    border: 2px solid black;
+     width: 80%;
+    height: 25%;
+    font-size: 25px;
+    
+  }
+
+  .labels-input{
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 900;
+  }
+
+  .inputs-add-products{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-add-item{
+
+    background-color: orange;
+    padding: 5px;
+    font-size: 15px ;
+    font-weight: 900;
+    width: 100px;
+    margin-top: 7px;
+ 
+  }
