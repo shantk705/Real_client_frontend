@@ -31,6 +31,7 @@ const Carts = () => {
         console.log(err);
       });
    }
+
   function Refresh() {
     setRefresh();
     toast.success("Cart Updated successfully ", {
@@ -107,16 +108,16 @@ const Carts = () => {
       id="component-parent"
       className="md:mb-[10%] w-[100%]  flex flex-col md:w-[80%]  md:ml-[10%] md:mr-[10%]  xl:ml-[3.5%] xl:mt-[2%] xl:mr-[3.5%]"
     >
-      <h1 id="component-title" className="mb-3 text-xl font-bold ml-[3%]">
+      <h1 id="component-title" className="mb-3 text-xl font-bold ">
         Cart
       </h1>
-      <div id="cart-parent" className=" bg-[#F6F5F3]  h-[46rem] shadow-xl rounded-md">
+      <div id="cart-parent" className=" bg-[white]  h-[46rem]  rounded-md">
         <div className="flex flex-col">
           <div
             id="item-container"
             className="ml-[5%] mr-[5%]  h-[65vh] overflow-y-auto"
           >
-            {items.map((items) => (
+            {items&&items.map((items) => (
               <div
                 id="item-parent"
                 key={items.item_id._id}
@@ -128,14 +129,14 @@ const Carts = () => {
                   className="w-[5vw] h-[12vh] ml-[5%] md:w-[75px] md:h-[8vh]"
                 />
                 
-                <div className="flex flex-col space-y-2 xl:ml-[10%] md:ml-[4%] self-center xl:font-[5px] ">
+                <div className="flex flex-col space-y-2 xl:ml-[6%] md:ml-[4%] self-center xl:font-[5px] xl:w-[80%]  md:w-[30vw]">
                   <h2 className="font-bold m-0 p-0   md:text-[10px] xl:text-[90%]">
                     {items.item_id.name}
                   </h2>
                   <p className="text-[gray] md:text-[10px] xl:text-[75%]">
                     {items.item_id.weight}ML
                   </p>
-                  <p className="font-light text-[75%] md:text-[10px]  ">
+                  <p className="font-light text-[75%] md:text-[10px]   ">
                     Unit Price: {items.unit}$
                   </p>
                 </div>
@@ -151,7 +152,7 @@ const Carts = () => {
                   </button>
                   <input
                     type="text"
-                    className=" focus:outline-none text-center w-full bg-gray-300 font-semibold xl:text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none md:text-[15px]"
+                    className=" md:h-[24px] focus:outline-none text-center w-full bg-gray-300 font-semibold xl:text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none md:text-[15px]"
                     name="custom-input-number"
                     value={items.qty}
                     disabled

@@ -56,7 +56,7 @@ function Home() {
     }
   }
 
-  console.log(window.scrollY);
+  
 
   useEffect(() => {
     window.addEventListener("scroll", disabled);
