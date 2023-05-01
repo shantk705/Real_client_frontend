@@ -19,7 +19,8 @@ import "react-toastify/dist/ReactToastify.css";
 const styleBox = {};
 
 function Users() {
-  let token = sessionStorage.getItem("token");
+
+
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(12);
@@ -35,13 +36,17 @@ function Users() {
       })
 
       .then((res) => {
-        console.log(res.data);
+        
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   },[]);
+  function dec(event,props){
+    console.log(props)
+    
+  }
 
  
 
@@ -65,7 +70,7 @@ function Users() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((user,index) => (
                   <TableRow key={index}>
-                    <TableCell sx={{ pl: 3}}>{user._id}</TableCell>
+                    <TableCell className="hover:cursor-pointer" onClick={(event)=>dec(event,user._id)} sx={{ pl: 3}}>{user._id} </TableCell>
                     <TableCell>{user.name}</TableCell>
                     <TableCell>{user.email}</TableCell>
                     <TableCell>{user.createdAt}</TableCell>

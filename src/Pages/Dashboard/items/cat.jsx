@@ -52,14 +52,14 @@ function Cat() {
     formData.append("image", image);
   
     try {
-      console.log("abel l response")
+      
       const response = await axios.post("http://localhost:5000/item/additem", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      console.log("assalaaaaaaaaaaaaaaaaaaa")
+      
       getItemsByCategory(selectedCategoryId);
       setShowPopup(false);
       swal({
@@ -99,9 +99,9 @@ function Cat() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("abel");
+   
     addItem();
-    console.log("ba3ed");
+    
   };
   
   const handleAddItemButtonClick = () => {

@@ -3,7 +3,7 @@ import axios from "axios";
 import "../items/items.css";
 import swal from "sweetalert";
 import PopupItem from "../items/popupItem";
-import { useNavigate } from "react-router";
+
 import EditItem from "../items/editItem";
 
 function Items(props) {
@@ -12,7 +12,7 @@ function Items(props) {
   const { categoryId } = props;
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const navigate = useNavigate();
+
 
   const getProducts = useCallback(async () => {
     try {
