@@ -6,7 +6,7 @@ const Cart = () => {
   return (
     <>
   
-    <div id="carte-container" className='flex flex-row   md:flex-col w-[100%] bg-[gray]'>
+    <div id="carte-container" className='flex flex-row   md:flex-col w-[100%] bg-white'>
     <Adress/>
     <Carts/>
 

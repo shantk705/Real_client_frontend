@@ -3,10 +3,17 @@ import "./loginup.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import hash from 'hash-it';
+import { useContext } from 'react';
+import { MyContext } from '../../myContext';
 
 
 
 function LoginUp() {
+  const { text, setText } = useContext(MyContext);
+
+ 
+
   let navigate=useNavigate()
   const [lol, setLol]= useState(false)
 
@@ -28,27 +35,40 @@ function LoginUp() {
           password: event.target.password.value,
         }
       );
+      if(response.data.userType==="superAdmin"){
+        setText(true)
+      
       sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userType", response.data.userType);
+      sessionStorage.setItem("userType", hash(response.data.userType));
       sessionStorage.setItem("user_id", response.data._id);
       sessionStorage.setItem("userName", response.data.name);
-      console.log("done");
+       navigate('/items')
+      }else{
+      sessionStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("userType", response.data.type);
+      sessionStorage.setItem("user_id", response.data._id);
+      sessionStorage.setItem("userName", response.data.name);
+      navigate("/")
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
+
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
+   
     try {
       const response = await axios.post(
         "http://localhost:5000/api/signup",
         {
           name: event.target.name.value,
-          email: event.target.email.value,
-          password: event.target.password.value,
+          email: event.target.Email.value,
+          password: event.target.Password.value,
         }
       );
+   
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userType", response.data.userType);
       sessionStorage.setItem("user_id", response.data._id);
@@ -98,13 +118,13 @@ function LoginUp() {
               <span className="floating-label">Name</span>
             </div>
             <div className="user-input-wrp">
-              <input className="inputText" id="email" type="text" required />
+              <input className="inputText" id="Email" type="text" required />
               <span className="floating-label">Email</span>
             </div>
             <div className="user-input-wrp">
               <input
                 className="inputText"
-                id="password-r"
+                id="Password"
                 type="password"
                 required
               />

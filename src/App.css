@@ -13,6 +13,7 @@
   display: grid;
   grid-template-rows: 90px auto;
   grid-template-columns: 100%;
+  
 }
 
 .main{
@@ -24,6 +25,10 @@
   min-height: 80dvh;
   background-color: #F6F5F3;
 }
+#cart-parent,#Payment-parent,#Adress-parent{
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 
 .none{
   position: absolute;

@@ -21,11 +21,11 @@ function Navbar() {
 
   const toggle = () => {
     if (!show) {
-      console.log("opened");
+      
       setMenu("nav-links open");
       setIcon("bx bx-x");
     } else {
-      console.log("closed");
+     
       setMenu("nav-links");
       setIcon("bx bx-menu");
     }
@@ -45,7 +45,7 @@ function Navbar() {
     navigate("/login")
     setMenu("nav-links");
     setIcon("bx bx-menu");
-    console.log("fa2asna");
+ 
   };
 
   window.addEventListener("scroll", navbar);

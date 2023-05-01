@@ -7,8 +7,10 @@ const SuperLayout = () => {
    <>
    <div className='flex flex-row'>
    <SideBar/>
+   <div className='w-[100%] h-[100%] overflow-auto'>
    
    <Outlet />
+   </div>
  
    </div>
    </>
