@@ -13,7 +13,7 @@ const links=[
   {title:"Items" ,nav:"/items", img:Items},
   {title:"Users" ,nav:"/users", img:Users},
   {title:"Orders" ,nav:"/orders", img:Orders},
-  
+  {title:"Carousel", nav:"/carousel"}
   
 
  ]

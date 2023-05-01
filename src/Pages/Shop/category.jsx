@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../Shop/category.css'; // Import your CSS file
 import Shop from '../Shop/shop';
 
+
 function Category() {
   const [category, setCategory] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
@@ -46,7 +47,7 @@ function Category() {
     {Array.isArray(category) && category.map((item, index) => (
     <button key={index} value={item._id} onClick={handleButtonClick} className={`category-button ${selectedCategoryId === item._id ? "selected" : ""}`}>{item.name_category}</button>
   ))}
-</div>
+    </div>
       <Shop categoryId={selectedCategoryId} filteredCategory={filteredCategory} />
     </div>
   );

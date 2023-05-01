@@ -48,6 +48,7 @@ function Shop(props) {
     handleCardFlip(itemId);
   }
 
+  //add to cart
 function addToCart(event, props){
   let id= props
   axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
@@ -127,7 +128,6 @@ if (!item) {
                 </div>
                   <div className="content-product">
                     <h3>{item.name}</h3>
-                    {/* <p>{item.description}</p> */}
                     <h4>{item.weight} kg</h4>
                   </div>
                     <div className="price">
@@ -142,6 +142,7 @@ if (!item) {
                     <button>Add to Cart</button>
                   </div>
               </div>
+
           <div className="front">
             <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
             { item.discount_per === 0 ? null : <div className="discount">{item.discount_per}%</div>}
@@ -166,16 +167,15 @@ if (!item) {
             <div className="button-card">
             <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
 
-            <button onClick={(event) => {
-        addToCart(event,item._id);
-        
-        }}>Add to Cart</button>
+            <button onClick={(event) => {addToCart(event,item._id);
+            }}>Add to Cart</button>
             </div>
           </div>
           <div className="back">
           <button onClick={() => handleCardFlip(item._id)}>
             <i className="bx bx-x"></i>
           </button>
+
             <div className="popup">
               <p>{item.description}</p>
             </div>

@@ -2,10 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
 import ContactUs from "./Pages/Contactus/contact";
-
 import Home from "./Pages/Home/home";
-
-
 import Layout from "./Pages/layout.jsx";
 import Category from "./Pages/Shop/category";
 import Shop from "./Pages/Shop/shop";
@@ -15,6 +12,10 @@ import AboutUs from "./Pages/Aboutus/AboutUs";
 import LoginUp from "./Components/popAuth/LoginUp";
 import SuperLayout from "./Pages/Dashboard/SuperLayout";
 import Single from "./Pages/Single/Single";
+import Items from "./Pages/Dashboard/items/items";
+import Cat from "./Pages/Dashboard/items/cat";
+import Favorites from "./Pages/Dashboard/carousel-dashboard/carousel-dash";
+
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route element={<SuperLayout />}>
             <Route path="/users"  />
             <Route path="/orders" />
-            <Route path="/items" />
+            <Route path="/items" element={<Cat/>} />
+            <Route path="/carousel" element={<Favorites/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
