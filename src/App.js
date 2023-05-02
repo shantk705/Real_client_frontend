@@ -15,6 +15,7 @@ import Single from "./Pages/Single/Single";
 import { MyContext } from "./myContext";
 import Users from "./Pages/users";
 import hash from "hash-it";
+import Orders from "./Pages/Orders";
 
 import Error from "./Pages/A/Error";
 
@@ -52,7 +53,7 @@ if(type.toString()===hash("superAdmin").toString()){
           
           <Route element={text===true?<SuperLayout/>:<Error/>}>
             <Route path="/users" element={<Users/>} />
-            <Route path="/orders" />
+            <Route path="/orders"  element={<Orders/>}/>
             <Route path="/items" element={<Cat/>} />
             <Route path="/carousel" element={<Favorites/>}/>
           </Route>

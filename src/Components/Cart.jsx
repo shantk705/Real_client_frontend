@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { NavLink } from "react-router-dom";
-import honey from "../Assets/honey.png";
+
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Carts = () => {
+  let token=sessionStorage.getItem("token")
+  let id=sessionStorage.getItem("user_id")
   const [cart, setCart] = useState([]);
   const [items, setitems] = useState([]);
   const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
@@ -14,10 +16,11 @@ const Carts = () => {
    
     axios
       .delete(
-        `http://localhost:5000/cart/64332eb3dfcb091305c650e8/${key}`,
+        `http://localhost:5000/cart/${id}/${key}`,
         {},
         {
-          headers: { "Content-Type": "application/json",},
+          headers: { "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`},
         }
       )
 
@@ -49,10 +52,11 @@ const Carts = () => {
   function Decrement(event, key) {
     axios
       .patch(
-        "http://localhost:5000/cart/64332eb3dfcb091305c650e8",
+        `http://localhost:5000/cart/${id}`,
         { productId: key },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" ,
+          Authorization: `Bearer ${token}`},
         }
       )
 
@@ -69,10 +73,11 @@ const Carts = () => {
   
     axios
       .post(
-        "http://localhost:5000/cart/64332eb3dfcb091305c650e8",
+        `http://localhost:5000/cart/${id}`,
         { productId: key },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json" ,
+          Authorization: `Bearer ${token}`},
         }
       )
 
@@ -90,8 +95,8 @@ const Carts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/cart/64332eb3dfcb091305c650e8", {
-        headers: {},
+      .get(`http://localhost:5000/cart/${id}`, {
+        headers: {Authorization: `Bearer ${token}`},
       })
 
       .then((res) => {
