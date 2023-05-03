@@ -103,7 +103,7 @@ function Items(props) {
   }, [showPopup]);
 
   return (
-    <div className="">
+    <div className="tbl-wrper">
       <table className="table-item">
         <thead>
           <tr className="first-item--">
@@ -139,7 +139,7 @@ function Items(props) {
                       onClick={() => deleteUser(item._id)}
                     >
                       {" "}
-                      Delete{" "}
+                      {" "}
                     </button>
                   </td>
                   <td>

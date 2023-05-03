@@ -90,7 +90,7 @@ function Home() {
       setCurrentSlide(newSlide); 
     }} 
 >
-  {favorites.map((favorite,index) => (
+  {favorites.map((favorite, index) => (
     <li className="carousel-child" key={index}>
       <img src={favorite.image_fav.url} alt={favorite.name_fav} className='honey'/>
       <div className="product-logo">

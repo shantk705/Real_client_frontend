@@ -32,7 +32,7 @@
   word-break: break-word;
   color: black;
   font-size: clamp(1rem, 0.9601rem + 3.4493vw, 6rem);
-  width: 400px;
+  width: 390px;
 }
 
 .des-wrap h1:nth-of-type(2){
@@ -383,7 +383,7 @@
     font-size: 1.2em;
     line-height: normal;
     margin: 0;
-    width: 250px;
+    width: 180px;
   }
 
   .des-wrap h1:nth-of-type(2){
@@ -427,7 +427,7 @@
     position: absolute;
     z-index: 2;
     top: 37%;
-    left: 47%;
+    left: 49%;
     transform: translate(0%, -75%);
     display: flex;
     flex-direction: column;
@@ -481,7 +481,7 @@
 }
 
 .des-wrap h1:first-of-type {
-  width: 180px;
+  width: 160px;
 }
 .honey{
   height: 180px;
