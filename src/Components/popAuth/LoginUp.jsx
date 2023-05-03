@@ -68,6 +68,9 @@ function LoginUp() {
           password: event.target.Password.value,
         }
       );
+      if(response.status===201){
+        navigate("/")
+      }
    
       sessionStorage.setItem("token", response.data.token);
       sessionStorage.setItem("userType", response.data.userType);

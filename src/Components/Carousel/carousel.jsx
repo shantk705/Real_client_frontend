@@ -13,7 +13,7 @@ function Carousel() {
     axios.get('http://localhost:5000/item/getdiscount')
       .then(res => {
         setData(res.data);
-        console.log(res.data);
+        
       })
       .catch(err => console.log(err));
   }, []);
