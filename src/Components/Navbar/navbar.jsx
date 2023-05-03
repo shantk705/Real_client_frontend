@@ -48,6 +48,14 @@ function Navbar() {
  
   };
 
+  const token = sessionStorage.getItem('token'); 
+  const logout = () => {
+    sessionStorage.removeItem('user_id');
+    sessionStorage.removeItem('userName');
+    sessionStorage.removeItem('userType');
+    sessionStorage.removeItem('token');
+    window.location.href = "/";
+  };
   window.addEventListener("scroll", navbar);
 
   return (
@@ -77,19 +85,41 @@ function Navbar() {
             Discounts
           </a>
         </li>
+        <li className={`willhidden ${nav ? 'maintain' : 'normal'}`}>
+          <a href="/cart" className={location.pathname === '/contactus' ? 'active' : ''}>
+            Cart
+          </a>
+        </li>
         <li className={nav ? 'maintain' : 'normal'}>
           <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
           </a>
         </li>
         <li className="willhide">
-          <p onClick={handleSignClick} className={location.pathname === '/sign-in' ? 'active' : ''}>
+        {token ? <p onClick={logout} className={location.pathname === '/' ? 'active' : ''}>Logout</p> : <p onClick={handleSignClick} className={location.pathname === '/sign-in' ? 'active' : ''}>
             Sign-in
-          </p>
+          </p>}
         </li>
       </ul>
       <div  className={nav ? 'head-icons' : 'header-icons'}>
-        <p onKeyDown={(e) => {
+      {token ? 
+      <div className='cart-logo-wrpr'>
+        <i class="ri-shopping-cart-2-line" onClick={()=>{
+          navigate("/cart")
+        }}></i>
+      <p
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) {
+              logout();
+            }
+            }} 
+            onClick={logout}
+            tabIndex="0"
+            className="user"
+        >
+          Logout
+        </p> 
+        </div> : <p onKeyDown={(e) => {
           if (e.keyCode === 13) {
             handleSignClick();
           }
@@ -100,6 +130,7 @@ function Navbar() {
         >
           <i className="ri-user-fill"></i>Sign-in
         </p>
+        }
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

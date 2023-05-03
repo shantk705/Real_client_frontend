@@ -11,7 +11,7 @@ const Layout = () => {
          <main className="main">
       <Navbar />
       <Outlet/>
-      {location.pathname==="/login"?"":<Footer/>}
+      {location.pathname==="/login"?"": <Footer/>}
 </main>
       </section>
     </>

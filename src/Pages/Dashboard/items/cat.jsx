@@ -108,6 +108,12 @@ function Cat() {
     setShowPopup(true);
   };
 
+  const handleCancelItemButtonClick = () => {
+    setShowPopup(false);
+    window.location.reload()
+  };
+
+
   const handleImageChange = async (event) => {
     event.preventDefault();
     setImage(event.target.files[0]);
@@ -118,12 +124,13 @@ function Cat() {
 
 
   return (
+    <>
     <div className="category-container-dash">
       <div className="category-buttons-dash">
         {Array.isArray(category) && category.map((item, index) => (
           <button key={index} value={item._id} onClick={handleButtonClick} className={`category-button-dash ${selectedCategoryId === item._id ? "selected" : ""}`}>{item.name_category}</button>
        ))}
-          <button onClick={handleAddItemButtonClick}><span className="add-item-icon-dash">&#43;</span>Add Item</button>
+          <button onClick={handleAddItemButtonClick} className="category-button-dash"><span className="add-item-icon-dash">&#43;</span>Add Item</button>
               
 
 <PopupItem
@@ -205,9 +212,14 @@ function Cat() {
                   onChange={handleImageChange} 
                 />
   </div>
-  <button className="btn-add-item" onClick={submitHandler}>
-    Add Item
-  </button>
+  <div className="btn-pop-wrapper">
+    <button className="btn-add-item" onClick={submitHandler}>
+      Add
+    </button>
+    <button className="btn-cancel-item" onClick={handleCancelItemButtonClick}>
+      Cancel
+    </button>
+  </div>
 </PopupItem>
 
 
@@ -221,6 +233,7 @@ function Cat() {
       </div>
       {selectedCategoryId !== "" && <Items categoryId={selectedCategoryId} filteredCategory={filteredCategory} />}
     </div>
+    </>
   );
 }
 

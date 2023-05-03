@@ -135,19 +135,24 @@ const handleAddItemButtonClick = () => {
     setShowPopup(true);
   };
 
+  const handleCancelItemButtonClick = () => {
+    setShowPopup(false);
+    window.location.reload();
+  };
+
   const handleImageChange = async (event) => {
     event.preventDefault();
     setImage_fav(event.target.files[0]);
   }
 
   return (
-    <div className="">
-<div>
-          <button onClick={handleAddItemButtonClick}><span className="add-item-icon-dash-carousel">&#43;</span>Add Favorite Item</button>
-          <PopupCarousel
-  trigger={showPopup}
-  setTrigger={() => setShowPopup(false)}
->
+    <div className="crsl-wrp">
+      <div className="holder-pop-carousel">
+                <button onClick={handleAddItemButtonClick} className="tab-button"><span className="add-item-icon-dash-carousel">&#43;</span>Add Item</button>
+                <PopupCarousel
+        trigger={showPopup}
+        setTrigger={() => setShowPopup(false)}
+      >
 
   <div className="inputs-add-products-carousel">
     <label className="labels-input-carousel">Product Name: </label>
@@ -181,9 +186,14 @@ const handleAddItemButtonClick = () => {
                   onChange={handleImageChange} 
                 />
   </div>
-  <button className="btn-add-item-carousel" onClick={submitHandler}>
-    Add Item
-  </button>
+  <div className="btn-pop-wrapper">
+    <button className="btn-add-item" onClick={submitHandler}>
+      Add Item
+    </button>
+    <button className="btn-cancel-item" onClick={handleCancelItemButtonClick}>
+      Cancel
+    </button>
+  </div>
 </PopupCarousel>
 </div>
       <table className="table-item-carousel">
@@ -209,11 +219,11 @@ const handleAddItemButtonClick = () => {
                     {" "}
                     <button
                       alt=""
-                      className="button-delete-item-carousel"
+                      className="button-delete-item"
                       onClick={() => deleteUser(item._id)}
                     >
                       {" "}
-                      Delete{" "}
+                      {" "}
                     </button>
                   </td>
                   <td>
@@ -221,7 +231,7 @@ const handleAddItemButtonClick = () => {
                       className="button-edit-item"
                       onClick={() => handleEditButtonClick(item)}
                     >
-                      Edit
+                      
                     </button>
                   </td>
                 </tr>

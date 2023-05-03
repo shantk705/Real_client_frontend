@@ -300,6 +300,24 @@
 #menu-icon {
   display: none;
 }
+
+.cart-logo-wrpr{
+  display: flex;
+  align-items: center;
+}
+
+.cart-logo-wrpr i{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  background-color: white;
+  border: 1px solid rgb(255, 255, 255);
+}
 @media all and (max-width: 1230px) {
   .sticky-header {
     grid-template-columns: 250px 4fr 1fr;
@@ -332,9 +350,12 @@
     font-size: 0.9rem;
     font-weight: bold;
   }
+  
+  
 }
 
-.willhide {
+.willhide,
+.willhidden {
   display: none;
 }
 @media all and (max-width: 840px) {
@@ -344,6 +365,9 @@
     align-items: center;
   }
 
+  .cart-logo-wrpr i{
+    display: none;
+  }
   .not {
     display: flex;
     justify-content: space-between;
@@ -389,7 +413,8 @@
     right: 0%;
   }
 
-  .willhide {
+  .willhide,
+  .willhidden {
     display: block;
   }
 
