@@ -6,7 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Adress = () => {
-  
+  let id=sessionStorage.getItem("user_id")
+  let token = sessionStorage.getItem("token");
+  console.log(id)
   const [adress, setAdress] = useState({
     name: '',
     phone: '',
@@ -18,10 +20,10 @@ const Adress = () => {
   });
 
   useEffect(() => {
-    let token = sessionStorage.getItem("token");
+    
     axios
-      .get("http://localhost:5000/adress/64332eb3dfcb091305c650e8", {
-        headers: {},
+      .get(`http://localhost:5000/adress/${id}`, {
+        headers: {Authorization: `Bearer ${token}`},
       })
       
       .then((res) => {
@@ -45,10 +47,11 @@ const Adress = () => {
   async function updateAddress(event) {
    
     event.preventDefault();
-     const x =await fetch("http://localhost:5000/adress/64332eb3dfcb091305c650e8", {
+     const x =await fetch(`http://localhost:5000/adress/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({
         name: adress.name,
