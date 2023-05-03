@@ -11,9 +11,9 @@ import { MyContext } from '../../myContext';
 
 function LoginUp() {
   const { text, setText } = useContext(MyContext);
-
- 
-
+  const [invalid, setInvalid] = useState(true);
+  const [error, setError] = useState(null)
+  console.log(text);
   let navigate=useNavigate()
   const [lol, setLol]= useState(false)
 
@@ -51,8 +51,13 @@ function LoginUp() {
       navigate("/")
       }
     } catch (error) {
+      setInvalid(false)
+      setTimeout(() => {
+        setInvalid(true);
+      }, 3000);
       console.log(error);
     }
+
   };
 
 
@@ -76,6 +81,11 @@ function LoginUp() {
 
       // handle successful registration
     } catch (error) {
+      setInvalid(false)
+      setError(error.response.data.message)
+      setTimeout(() => {
+        setInvalid(true);
+      }, 3000);
       console.log(error);
     }
   };
@@ -95,13 +105,14 @@ function LoginUp() {
         </div>
         <div className={lol === true ? "log-body-left" : "log-body"}>
         <form className="login child" onSubmit={handleLoginSubmit}>
+            {invalid === false ? <p className="error-hndl">Invalid Email or password</p> : null}
             <div className="user-input-wrp">
-              <input className="inputText" id="email" type="text" required />
+              <input className={invalid ? 'inputText' : 'inputText shake'} id="email" type="text" required />
               <span className="floating-label">Email</span>
             </div>
             <div className="user-input-wrp">
               <input
-                className="inputText"
+                className={invalid ? 'inputText' : 'inputText shake'}
                 id="password"
                 type="password"
                 required
@@ -113,17 +124,18 @@ function LoginUp() {
             </button>
           </form>
           <form className="register child" onSubmit={handleRegisterSubmit}>
+          {invalid === false ? <p className="rgst-hndl">{error}</p> : null}
             <div className="user-input-wrp">
-              <input className="inputText" id="name" type="text" required />
+              <input className={invalid === true ? 'inputText' : 'inputText shake'} id="name" type="text" required />
               <span className="floating-label">Name</span>
             </div>
             <div className="user-input-wrp">
-              <input className="inputText" id="Email" type="text" required />
+              <input className={invalid ? 'inputText' : 'inputText shake'} id="Email" type="text" required />
               <span className="floating-label">Email</span>
             </div>
             <div className="user-input-wrp">
               <input
-                className="inputText"
+                className={invalid ? 'inputText' : 'inputText shake'}
                 id="Password"
                 type="password"
                 required
