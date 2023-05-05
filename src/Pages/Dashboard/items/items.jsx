@@ -9,10 +9,11 @@ import EditItem from "../items/editItem";
 function Items(props) {
   const [items, setItems] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-  const { categoryId } = props;
+  const { categoryId,refresh } = props;
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
+
 
   const getProducts = useCallback(async () => {
     try {
@@ -96,7 +97,7 @@ function Items(props) {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
+  }, [refresh]);
 
   useEffect(() => {
     loadclass();
