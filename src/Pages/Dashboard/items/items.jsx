@@ -5,6 +5,7 @@ import swal from "sweetalert";
 import PopupItem from "../items/popupItem";
 import { useNavigate } from "react-router";
 import EditItem from "../items/editItem";
+import { get } from "react-hook-form";
 
 function Items(props) {
   const [items, setItems] = useState([]);
@@ -19,7 +20,7 @@ function Items(props) {
     try {
       console.log(categoryId);
       if (categoryId === "") {
-        const response = await axios.get("http://localhost:5000/item/getitem");
+        const response = await axios.get("http://localhost:5000/item/items/${categoryId}");
         setItems(response.data);
       } else {
         const response = await axios.get(
@@ -31,12 +32,6 @@ function Items(props) {
       console.error(error);
     }
   }, [categoryId]);
-
-  //get items again
-  const loadclass = async () => {
-    const res = await axios.get("http://localhost:5000/item/getitem");
-    setItems(res.data);
-  };
 
   //delete item
   const deleteUser = async (id) => {
@@ -59,7 +54,7 @@ function Items(props) {
     }).then(async (willDelete) => {
       if (willDelete) {
         await axios.delete(`http://localhost:5000/item/delitem/${id}`);
-        loadclass();
+        getProducts(categoryId);
         swal("Poof! The item has been deleted!", {
           icon: "success",
         });
@@ -97,11 +92,7 @@ function Items(props) {
 
   useEffect(() => {
     getProducts();
-  }, [refresh]);
-
-  useEffect(() => {
-    loadclass();
-  }, [showPopup]);
+  }, [categoryId,refresh]);
 
   return (
     <div className="tbl-wrper">
@@ -160,7 +151,7 @@ function Items(props) {
       {showPopup && (
         <PopupItem
           onClose={() => setShowPopup(false)}
-          reloadItems={() => loadclass()}
+          reloadItems={() => getProducts()}
         />
       )}
 

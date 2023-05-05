@@ -30,14 +30,14 @@ function Cat() {
     }
   }
 
-  // const getItemsByCategory = async (categoryId) => {
-  //   try {
-  //     const response = await axios.get(`http://localhost:5000/item/getitembycategory/${categoryId}`);
-  //     setProducts(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const getItemsByCategory = async (categoryId) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/item/getitembycategory/${categoryId}`);
+      setProducts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   //add new item
   const addItem = async () => {
@@ -87,20 +87,19 @@ function Cat() {
       });
     }
   };
-  
-
-  useEffect(() => {
+   useEffect(()=>{
     getcategories();
-    axios.get(`http://localhost:5000/item/getitembycategory/${selectedCategoryId}`).then((res)=>{
-      setProducts(res.data)
-    });
-     ;
-  }, [refresh]); // add newItemAdded to the dependency array
+   })
+
+  useEffect(()=> {
+    getItemsByCategory(selectedCategoryId);
+  },[selectedCategoryId])
 
   const handleButtonClick = (e) => {
     const categoryId = e.target.value;
     setSelectedCategoryId(categoryId);
   }
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -109,6 +108,8 @@ function Cat() {
     console.log("ba3ed");
     ;
   };
+
+
   
   const handleAddItemButtonClick = () => {
     setShowPopup(true);
