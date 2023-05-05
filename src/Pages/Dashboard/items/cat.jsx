@@ -62,6 +62,8 @@ function Cat() {
       console.log("assalaaaaaaaaaaaaaaaaaaa")
       getItemsByCategory(selectedCategoryId);
       setShowPopup(false);
+
+
       swal({
         title: "Item added successfully!",
         icon: "success",
@@ -102,10 +104,13 @@ function Cat() {
     console.log("abel");
     addItem();
     console.log("ba3ed");
+
   };
   
   const handleAddItemButtonClick = () => {
     setShowPopup(true);
+  
+
   };
 
   const handleCancelItemButtonClick = () => {
