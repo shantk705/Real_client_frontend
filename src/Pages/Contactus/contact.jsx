@@ -120,31 +120,31 @@ const ContactUs = () => {
                 </div>
                 <div className="info-main">
                   <div className="icontainer">
-                    <i class="ri-phone-line icontact"></i>
+                    <i className="ri-phone-line icontact"></i>
                     <p>+961 - 81422765</p>
                   </div>
                   <div className="icontainer">
-                    <i class="ri-mail-line icontact"></i>
+                    <i className="ri-mail-line icontact"></i>
                     <p>day3aStore@gmail.com</p>
                   </div>
                   <div className="icontainer">
-                    <i class="ri-map-pin-line icontact"></i>
+                    <i className="ri-map-pin-line icontact"></i>
                       <p>Had l chou esmo<br></br> eddem l shou bi2ouloulo</p>
                     </div>
                   </div>
 
                 <div className="info-foot">
                   <div className="icontainer">
-                  <i class="ri-facebook-fill icontact"></i>
+                  <i className="ri-facebook-fill icontact"></i>
                   </div>
                   <div className="icontainer">
-                    <i class="ri-linkedin-fill icontact"></i>
+                    <i className="ri-linkedin-fill icontact"></i>
                   </div>
                   <div className="icontainer">
-                    <i class="ri-instagram-line icontact"></i>
+                    <i className="ri-instagram-line icontact"></i>
                   </div>
                   <div className="icontainer">
-                    <i class="ri-twitter-fill icontact"></i>
+                    <i className="ri-twitter-fill icontact"></i>
                   </div>
                 </div>
               </div>

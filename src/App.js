@@ -16,10 +16,7 @@ import { MyContext } from "./myContext";
 import Users from "./Pages/users";
 import hash from "hash-it";
 import Orders from "./Pages/Orders";
-
 import Error from "./Pages/A/Error";
-
-import Items from "./Pages/Dashboard/items/items";
 import Cat from "./Pages/Dashboard/items/cat";
 import Favorites from "./Pages/Dashboard/carousel-dashboard/carousel-dash";
 
@@ -56,7 +53,7 @@ function App() {
               <Route path="/discounts" element={<Discounts />} />
               <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/login" element={<LoginUp />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/cart" element={<Cart/>} />
             </Route>
           </Routes>
         </BrowserRouter>
