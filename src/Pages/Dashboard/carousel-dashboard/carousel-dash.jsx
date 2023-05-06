@@ -97,19 +97,6 @@ function Favorites() {
   };
 
     ////// edit fav item
-    // const editfavItem = async (id) => {
-    //     try {
-    //       await axios.put(`http://localhost:5000/fav/updfav/${id}`, config1);
-    //      loadclass();
-    //       setShowEditPopup(false);
-    //       swal("The item has been updated!", {
-    //         icon: "success",
-    //       });
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   };
-
     const editfavItem = async (id) => {
       try {
         const response = await axios.put(`http://localhost:5000/fav/updfav/${id}`, {}, {

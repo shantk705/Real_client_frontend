@@ -13,12 +13,11 @@
 }
 
 .popupItem-edit-car{
-  position:fixed;
-  top:0;
-  left:0;
+  position:absolute;
+  top:50%;
+  left:50%;
   width:100%;
-  height:100%;
- 
+  height:100vh;
   display: flex;
   justify-content:center;
   align-items:center;
@@ -58,34 +57,46 @@
   font-weight: 900;
 }
 
-.btn-add-item-car{
-
-  background-color: orange;
+.btn-add-item-car {
+  border: 1px solid black;
+  color: black;
   padding: 5px;
-  font-size: 15px ;
+  font-size: 15px;
   font-weight: 900;
   width: 100px;
   margin-top: 7px;
-
 }
 
-
-
-@media all and (max-width:500px){
-.popup-inner-edit{
-    width: 95%;
+/* Media queries for different screen sizes */
+@media screen and (max-width: 768px) {
+  .popup-inner-edit-car {
+    width: 80%;
+  }
 }
 
-.category-button-dash {
+@media screen and (max-width: 480px) {
+  .popup-inner-edit-car {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .title-edit-car {
+    font-size: 20px;
+  }
+
+  .btn-add-item-car {
+    font-size: 12px;
     width: 80px;
+  }
 }
 
-.category-button-dash:last-of-type{
-      width: 114px;
-  flex-shrink: 0;
-}
+@media screen and (max-width: 360px) {
+  .title-edit-car {
+    font-size: 16px;
+  }
 
-.category-container-dash {
-  padding: 10px;
-}
+  .btn-add-item-car {
+    font-size: 10px;
+    width: 60px;
+  }
 }
