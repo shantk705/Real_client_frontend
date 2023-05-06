@@ -52,6 +52,7 @@ function Shop(props) {
 
   //add to cart
 function addToCart(event, props){
+  if(token &&id){
   let key= props
   console.log(props)
   axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
@@ -80,6 +81,7 @@ function addToCart(event, props){
           window.location.href = "/cart";
         } 
       });
+    
     }
     
   })
@@ -105,6 +107,7 @@ function addToCart(event, props){
       } 
     });
   });
+}else{navigate("/login")}
 }
 
 if (!item) {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import "./single.css"
 import Loader from "../../Components/Loader/Loader";
 import swal from 'sweetalert';
 
 function Single() {
+  let navigate=useNavigate()
+  let id=sessionStorage.getItem("user_id")
+  let token=sessionStorage.getItem("token")
   const [item, setItem] = useState(null);
   const location = useLocation();
 
@@ -24,9 +27,11 @@ function Single() {
   }, [location.state.id]);
 
   function addToCart(event, props){
-    let id= props
-    axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
-        headers: { "Content-Type": "application/json",},
+    if(token &&id){
+    let key= props
+    console.log(props)
+    axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
       })
     .then((res) => {
       if(res.status===201){
@@ -51,6 +56,7 @@ function Single() {
             window.location.href = "/cart";
           } 
         });
+      
       }
       
     })
@@ -76,6 +82,7 @@ function Single() {
         } 
       });
     });
+  }else{navigate("/login")}
   }
 
   if (!item) {

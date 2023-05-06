@@ -7,6 +7,8 @@ import { useNavigate } from "react-router";
 import Loader from "../../Components/Loader/Loader";
 
 function Discounts(props) {
+  let id=sessionStorage.getItem("user_id")
+  let token=sessionStorage.getItem("token")
   const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [product, setProduct] = useState([]);
@@ -55,9 +57,11 @@ function Discounts(props) {
   }
 
   function addToCart(event, props){
-    let id= props
-    axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
-        headers: { "Content-Type": "application/json",},
+    if(token &&id){
+    let key= props
+    console.log(props)
+    axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
       })
     .then((res) => {
       if(res.status===201){
@@ -82,6 +86,7 @@ function Discounts(props) {
             window.location.href = "/cart";
           } 
         });
+      
       }
       
     })
@@ -107,6 +112,7 @@ function Discounts(props) {
         } 
       });
     });
+  }else{navigate("/login")}
   }
 
   if (!item) {
