@@ -244,7 +244,7 @@ function Cat() {
             {showPopup && (
         <PopupItem 
           onClose={() => setShowPopup(false)}
-          // reloadItems={() => getItemsByCategory()}
+          reloadItems={() => getItemsByCategory()}
         />
       )}
 

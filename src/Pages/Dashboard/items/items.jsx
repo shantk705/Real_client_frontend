@@ -16,6 +16,7 @@ function Items(props) {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
+  console.log("catttt",categoryId)
 
 
   const getProducts = useCallback(async () => {
