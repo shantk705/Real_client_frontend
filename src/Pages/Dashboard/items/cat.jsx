@@ -30,14 +30,14 @@ function Cat() {
     }
   }
 
-  // const getItemsByCategory = async (categoryId) => {
-  //   try {
-  //     const response = await axios.get(`http://localhost:5000/item/getitembycategory/${categoryId}`);
-  //     setProducts(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const getItemsByCategory = async (categoryId) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/item/getitembycategory/${categoryId}`);
+      setProducts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   //add new item
   const addItem = async () => {
@@ -89,11 +89,10 @@ function Cat() {
 
   useEffect(() => {
     getcategories();
-    axios.get(`http://localhost:5000/item/getitembycategory/${selectedCategoryId}`).then((res)=>{
-      setProducts(res.data)
-    });
-     ;
-  }, [refresh]); // add newItemAdded to the dependency array
+    getItemsByCategory(selectedCategoryId)
+   
+     
+  }, []); // add newItemAdded to the dependency array
 
   const handleButtonClick = (e) => {
     const categoryId = e.target.value;
@@ -230,7 +229,7 @@ function Cat() {
             {showPopup && (
         <PopupItem 
           onClose={() => setShowPopup(false)}
-          // reloadItems={() => getItemsByCategory()}
+          reloadItems={() => getItemsByCategory()}
         />
       )}
 
