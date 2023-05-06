@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useReducer} from "react";
 import axios from 'axios';
 import Items from '../items/items'
 import '../items/cat.css'
@@ -6,8 +6,10 @@ import PopupItem from "../items/popupItem";
 import swal from 'sweetalert';
 
 
-
 function Cat() {
+  let token=sessionStorage.getItem("token")
+
+  const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
   const [category, setCategory] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const [products, setProducts] = useState([]);
@@ -19,9 +21,7 @@ function Cat() {
   const [discount_per, setDiscount_per] = useState("");
   const [cat, setCat] = useState("");
   const [image, setImage] = useState("");
-  
-
-  
+  const [newItemAdded, setNewItemAdded] = useState(false); // add new state variable
 
   const getcategories = async () => {
     try {
@@ -39,8 +39,13 @@ function Cat() {
     } catch (error) {
       console.error(error);
     }
-  }
-
+  };
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
   //add new item
   const addItem = async () => {
     const formData = new FormData();
@@ -54,15 +59,23 @@ function Cat() {
   
     try {
       console.log("abel l response")
-      const response = await axios.post("http://localhost:5000/item/additem", formData, {
+      await axios.post("http://localhost:5000/item/additem", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+         
         },
+      }).then((res)=>{
+        
+        if(res.status===200){
+          setRefresh();
+        }
       });
 
-      console.log("assalaaaaaaaaaaaaaaaaaaa")
-      getItemsByCategory(selectedCategoryId);
+     ; // set the new state variable to true after adding item
       setShowPopup(false);
+
+
       swal({
         title: "Item added successfully!",
         icon: "success",
@@ -83,30 +96,34 @@ function Cat() {
       });
     }
   };
-  
-
-  useEffect(() => {
+   useEffect(()=>{
     getcategories();
-  }, []);
+   })
 
-  useEffect(() => {
+  useEffect(()=> {
     getItemsByCategory(selectedCategoryId);
-  }, [selectedCategoryId]);
+  },[selectedCategoryId])
 
   const handleButtonClick = (e) => {
     const categoryId = e.target.value;
     setSelectedCategoryId(categoryId);
   }
 
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("abel");
     addItem();
     console.log("ba3ed");
+    ;
   };
+
+
   
   const handleAddItemButtonClick = () => {
     setShowPopup(true);
+  
+
   };
 
   const handleCancelItemButtonClick = () => {
@@ -227,12 +244,12 @@ function Cat() {
             {showPopup && (
         <PopupItem 
           onClose={() => setShowPopup(false)}
-          reloadItems={() => getItemsByCategory()}
+          // reloadItems={() => getItemsByCategory()}
         />
       )}
 
       </div>
-      {selectedCategoryId !== "" && <Items categoryId={selectedCategoryId} filteredCategory={filteredCategory} />}
+      {selectedCategoryId !== "" && <Items categoryId={selectedCategoryId} refresh={refresh} filteredCategory={filteredCategory} />}
     </div>
     </>
   );

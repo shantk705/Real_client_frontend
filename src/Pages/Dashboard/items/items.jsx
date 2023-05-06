@@ -5,20 +5,24 @@ import swal from "sweetalert";
 import PopupItem from "../items/popupItem";
 import { useNavigate } from "react-router";
 import EditItem from "../items/editItem";
+import { get } from "react-hook-form";
 
 function Items(props) {
+  let token=sessionStorage.getItem("token")
+
   const [items, setItems] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-  const { categoryId } = props;
+  const { categoryId,refresh } = props;
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
 
+
   const getProducts = useCallback(async () => {
     try {
       console.log(categoryId);
-      if (!categoryId ) {
-        const response = await axios.get("http://localhost:5000/item/getitem");
+      if (categoryId === "") {
+        const response = await axios.get("http://localhost:5000/item/items/${categoryId}");
         setItems(response.data);
       } else {
         const response = await axios.get(
@@ -31,12 +35,13 @@ function Items(props) {
     }
   }, [categoryId]);
 
-  //get items again
-  const loadclass = async () => {
-    const res = await axios.get("http://localhost:5000/item/getitem");
-    setItems(res.data);
-  };
 
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
   //delete item
   const deleteUser = async (id) => {
     swal({
@@ -57,8 +62,8 @@ function Items(props) {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/item/delitem/${id}`);
-        loadclass();
+        await axios.delete(`http://localhost:5000/item/delitem/${id}`, config1);
+        getProducts(categoryId);
         swal("Poof! The item has been deleted!", {
           icon: "success",
         });
@@ -68,10 +73,15 @@ function Items(props) {
     });
   };
 
-  ////// edit item
+  // edit item
   const editItem = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/item/upditem/${id}`);
+      const response = await axios.put(`http://localhost:5000/item/upditem/${id}`, {}, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       getProducts();
       setShowEditPopup(false);
       swal("The item has been updated!", {
@@ -81,8 +91,7 @@ function Items(props) {
       console.error(error);
     }
   };
-
-
+  
     // open the EditItemPopup component with the selected item
     const handleEditButtonClick = (item) => {
       setSelectedItem(item);
@@ -96,11 +105,7 @@ function Items(props) {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
-
-  useEffect(() => {
-    loadclass();
-  }, [showPopup]);
+  }, [categoryId,refresh]);
 
   return (
     <div className="tbl-wrper">
@@ -159,7 +164,7 @@ function Items(props) {
       {showPopup && (
         <PopupItem
           onClose={() => setShowPopup(false)}
-          reloadItems={() => loadclass()}
+          reloadItems={() => getProducts()}
         />
       )}
 
