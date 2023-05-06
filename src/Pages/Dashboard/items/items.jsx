@@ -17,7 +17,7 @@ function Items(props) {
   const getProducts = useCallback(async () => {
     try {
       console.log(categoryId);
-      if (categoryId === "") {
+      if (!categoryId ) {
         const response = await axios.get("http://localhost:5000/item/getitem");
         setItems(response.data);
       } else {

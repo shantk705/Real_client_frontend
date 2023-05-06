@@ -19,6 +19,7 @@ function Cat() {
   const [discount_per, setDiscount_per] = useState("");
   const [cat, setCat] = useState("");
   const [image, setImage] = useState("");
+  
 
   
 

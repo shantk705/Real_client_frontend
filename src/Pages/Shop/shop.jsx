@@ -9,6 +9,8 @@ import Loader from "../../Components/Loader/Loader";
 
 
 function Shop(props) {
+  let id=sessionStorage.getItem("user_id")
+  let token=sessionStorage.getItem("token")
   const [product, setProduct] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const { categoryId } = props;
@@ -50,9 +52,10 @@ function Shop(props) {
 
   //add to cart
 function addToCart(event, props){
-  let id= props
-  axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
-      headers: { "Content-Type": "application/json",},
+  let key= props
+  console.log(props)
+  axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
     })
   .then((res) => {
     if(res.status===201){
@@ -139,7 +142,7 @@ if (!item) {
                       }
                     </div>
                   <div className="button-card">
-                    <button>Add to Cart</button>
+                    <button >Add to Cart</button>
                   </div>
               </div>
 

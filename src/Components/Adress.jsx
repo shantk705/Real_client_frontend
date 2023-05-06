@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Adress = () => {
   let id=sessionStorage.getItem("user_id")
   let token = sessionStorage.getItem("token");
-  console.log(id)
+
   const [adress, setAdress] = useState({
     name: '',
     phone: '',
@@ -148,7 +148,7 @@ const Adress = () => {
             Street
             <input
               type="text"
-              name="streer"
+              name="street"
               value={adress.street}
               onChange={handleChange}
               className="border-2 h-10 mt-2 rounded-md pl-[3%]"

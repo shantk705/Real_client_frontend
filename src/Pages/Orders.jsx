@@ -27,6 +27,22 @@ const Orders = () => {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+
+  useEffect(() => {
+    let token = sessionStorage.getItem("token");
+    axios
+      .get("http://localhost:5000/order", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
   return (
     <>
     {pop&&(<div className="bg-[red] "> <div
@@ -68,19 +84,24 @@ const Orders = () => {
               <TableRow>
                 <TableCell sx={{ pl: 3}}>Order-ID</TableCell>
                 <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
                 <TableCell>Total</TableCell>
+              
                 <TableCell>Date</TableCell>
+                <TableCell>View Items</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((user, index) => (
+                .map((order, index) => (
                   <TableRow key={index}>
-                    <TableCell >{user._id}</TableCell>
-                    <TableCell>{user.name}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.createdAt}</TableCell>
+                    <TableCell >{order._id}</TableCell>
+                    <TableCell>{order.user_id.name}</TableCell>
+                    <TableCell>{order.user_id.email}</TableCell>
+                    <TableCell>{order.total} $</TableCell>
+                    <TableCell>{order.createdAt}</TableCell>
+                    <TableCell><button>aa</button></TableCell>
                   </TableRow>
                 ))}
             </TableBody>
