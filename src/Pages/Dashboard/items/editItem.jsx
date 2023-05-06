@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../items/editItem.css';
 
 function EditItem(props) {
+  let token=sessionStorage.getItem("token")
+
   const [name, setName] = useState(props.item.name);
   const [itemid, setItemid] = useState(props.item._id);
   const [description, setDescription] = useState(props.item.description);
@@ -30,6 +32,12 @@ function EditItem(props) {
   const handleDiscountPerChange = (event) => {
     setDiscountPer(event.target.value);
   };
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,7 +49,7 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      await axios.put(`http://localhost:5000/item/upditem/${itemid}`, updatedItem);
+      await axios.put(`http://localhost:5000/item/upditem/${itemid}`, updatedItem, config1);
       props.onClose();
     } catch (error) {
       console.log(error);
