@@ -104,7 +104,7 @@ function Navbar() {
       <div  className={nav ? 'head-icons' : 'header-icons'}>
       {token ? 
       <div className='cart-logo-wrpr'>
-        <i class="ri-shopping-cart-2-line" onClick={()=>{
+        <i className="ri-shopping-cart-2-line" onClick={()=>{
           navigate("/cart")
         }}></i>
       <p

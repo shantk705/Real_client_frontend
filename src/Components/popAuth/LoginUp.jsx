@@ -45,7 +45,7 @@ function LoginUp() {
        navigate('/items')
       }else{
       sessionStorage.setItem("token", response.data.token);
-      sessionStorage.setItem("userType", response.data.type);
+      sessionStorage.setItem("userType", response.data.userType);
       sessionStorage.setItem("user_id", response.data._id);
       sessionStorage.setItem("userName", response.data.name);
       navigate("/")

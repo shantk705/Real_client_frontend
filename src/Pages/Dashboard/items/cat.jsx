@@ -7,6 +7,8 @@ import swal from 'sweetalert';
 
 
 function Cat() {
+  let token=sessionStorage.getItem("token")
+
   const [refresh, setRefresh] = useReducer((x) => x + 1, 0);
   const [category, setCategory] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
@@ -38,7 +40,12 @@ function Cat() {
       console.error(error);
     }
   };
-
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
   //add new item
   const addItem = async () => {
     const formData = new FormData();
@@ -55,6 +62,8 @@ function Cat() {
       await axios.post("http://localhost:5000/item/additem", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+         
         },
       }).then((res)=>{
         
@@ -65,6 +74,8 @@ function Cat() {
 
      ; // set the new state variable to true after adding item
       setShowPopup(false);
+
+
       swal({
         title: "Item added successfully!",
         icon: "success",
@@ -85,19 +96,19 @@ function Cat() {
       });
     }
   };
-  
-
-  useEffect(() => {
+   useEffect(()=>{
     getcategories();
-    getItemsByCategory(selectedCategoryId)
-   
-     
-  }, []); // add newItemAdded to the dependency array
+   })
+
+  useEffect(()=> {
+    getItemsByCategory(selectedCategoryId);
+  },[selectedCategoryId])
 
   const handleButtonClick = (e) => {
     const categoryId = e.target.value;
     setSelectedCategoryId(categoryId);
   }
+
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -106,9 +117,13 @@ function Cat() {
     console.log("ba3ed");
     ;
   };
+
+
   
   const handleAddItemButtonClick = () => {
     setShowPopup(true);
+  
+
   };
 
   const handleCancelItemButtonClick = () => {

@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../carousel-dashboard/editfavItem.css';
 
 function EditfavItem(props) {
+  let token=sessionStorage.getItem("token")
+
   const [name_fav, setName_fav] = useState(props.item.name_fav);
   const [itemid, setItemid] = useState(props.item._id);
   const [price_fav, setPrice_fav] = useState(props.item.price_fav);
@@ -15,6 +17,13 @@ function EditfavItem(props) {
     setPrice_fav(event.target.value);
   };
 
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const updatedItem = {
@@ -22,7 +31,7 @@ function EditfavItem(props) {
       price_fav,
     };
     try {
-      await axios.put(`http://localhost:5000/fav/updfav/${itemid}`, updatedItem);
+      await axios.put(`http://localhost:5000/fav/updfav/${itemid}`, updatedItem, config1);
       props.onClose();
     } catch (error) {
       console.log(error);
