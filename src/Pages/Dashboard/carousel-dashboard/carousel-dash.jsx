@@ -7,6 +7,8 @@ import PopupCarousel from "./popupcarousel";
 import EditfavItem from "./editfavItem";
 
 function Favorites() {
+  let token=sessionStorage.getItem("token")
+
   const [favorite, setFavorite] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [name_fav, setName_fav] = useState("");
@@ -16,7 +18,12 @@ function Favorites() {
   const [selectedItem, setSelectedItem] = useState(null);
 
  
-
+  const config1 = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
   //get items again
   const loadclass = async () => {
     const res = await axios.get("http://localhost:5000/fav/getfav");
@@ -43,7 +50,7 @@ function Favorites() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/fav/delfav/${id}`);
+        await axios.delete(`http://localhost:5000/fav/delfav/${id}`, config1);
         loadclass();
         swal("Poof! The item has been deleted!", {
           icon: "success",
@@ -66,6 +73,7 @@ function Favorites() {
       const response = await axios.post("http://localhost:5000/fav/addfav", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -89,19 +97,37 @@ function Favorites() {
   };
 
     ////// edit fav item
+    // const editfavItem = async (id) => {
+    //     try {
+    //       await axios.put(`http://localhost:5000/fav/updfav/${id}`, config1);
+    //      loadclass();
+    //       setShowEditPopup(false);
+    //       swal("The item has been updated!", {
+    //         icon: "success",
+    //       });
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   };
+
     const editfavItem = async (id) => {
-        try {
-          await axios.put(`http://localhost:5000/fav/updfav/${id}`);
-         loadclass();
-          setShowEditPopup(false);
-          swal("The item has been updated!", {
-            icon: "success",
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      };
-    
+      try {
+        const response = await axios.put(`http://localhost:5000/fav/updfav/${id}`, {}, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        loadclass();
+        setShowEditPopup(false);
+        swal("The item has been updated!", {
+          icon: "success",
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
        // open the EditItemPopup component with the selected item
     const handleEditButtonClick = (item) => {
         setSelectedItem(item);
