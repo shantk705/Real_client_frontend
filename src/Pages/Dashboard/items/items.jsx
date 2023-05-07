@@ -20,13 +20,13 @@ function Items(props) {
 
   const getProducts = useCallback(async () => {
     try {
-      console.log(categoryId);
+      
       if (categoryId === "") {
-        const response = await axios.get("http://localhost:5000/item/items/${categoryId}");
+        const response = await axios.get("https://dayaa-backend.onrender.com/item/items/${categoryId}");
         setItems(response.data);
       } else {
         const response = await axios.get(
-          `http://localhost:5000/item/items/${categoryId}`
+          `https://dayaa-backend.onrender.com/item/items/${categoryId}`
         );
         setItems(response.data);
       }
@@ -62,7 +62,7 @@ function Items(props) {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/item/delitem/${id}`, config1);
+        await axios.delete(`https://dayaa-backend.onrender.com/item/delitem/${id}`, config1);
         getProducts(categoryId);
         swal("Poof! The item has been deleted!", {
           icon: "success",
@@ -76,7 +76,7 @@ function Items(props) {
   // edit item
   const editItem = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:5000/item/upditem/${id}`, {}, {
+      const response = await axios.put(`https://dayaa-backend.onrender.com/item/upditem/${id}`, {}, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

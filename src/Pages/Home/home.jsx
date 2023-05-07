@@ -17,7 +17,7 @@ function Home() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/fav/getfav')
+    axios.get('https://dayaa-backend.onrender.com/fav/getfav')
       .then(response => {
         setFavorites(response.data);
       })

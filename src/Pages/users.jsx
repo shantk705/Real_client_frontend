@@ -30,12 +30,12 @@ function Users() {
   useEffect(() => {
     let token = sessionStorage.getItem("token");
     axios
-      .get("http://localhost:5000/api/get", {
+      .get("https://dayaa-backend.onrender.com/api/get", {
         headers: { Authorization: `Bearer ${token}` },
       })
 
       .then((res) => {
-        console.log(res.data);
+       
         setData(res.data);
       })
       .catch((err) => {

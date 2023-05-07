@@ -11,7 +11,7 @@ function Category() {
 
   const getcategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/cat/getcategory");
+      const response = await axios.get("https://dayaa-backend.onrender.com/cat/getcategory");
       setCategory(response.data);
     } catch (error) {
       console.error(error);
@@ -20,7 +20,7 @@ function Category() {
 
   const getallitems= async () => {
     try {
-      const response = await axios.get("http://localhost:5000/item/getitem");
+      const response = await axios.get("https://dayaa-backend.onrender.com/item/getitem");
       setProducts(response.data);
     } catch (error) {
       console.error(error);

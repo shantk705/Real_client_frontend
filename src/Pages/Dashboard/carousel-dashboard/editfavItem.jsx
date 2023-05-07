@@ -31,7 +31,7 @@ function EditfavItem(props) {
       price_fav,
     };
     try {
-      await axios.put(`http://localhost:5000/fav/updfav/${itemid}`, updatedItem, config1);
+      await axios.put(`https://dayaa-backend.onrender.com/fav/updfav/${itemid}`, updatedItem, config1);
       props.onClose();
     } catch (error) {
       console.log(error);

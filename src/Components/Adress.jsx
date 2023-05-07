@@ -22,7 +22,7 @@ const Adress = () => {
   useEffect(() => {
     
     axios
-      .get(`http://localhost:5000/adress/${id}`, {
+      .get(`https://dayaa-backend.onrender.com/adress/${id}`, {
         headers: {Authorization: `Bearer ${token}`},
       })
       
@@ -47,7 +47,7 @@ const Adress = () => {
   async function updateAddress(event) {
    
     event.preventDefault();
-     const x =await fetch(`http://localhost:5000/adress/${id}`, {
+     const x =await fetch(`https://dayaa-backend.onrender.com/adress/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

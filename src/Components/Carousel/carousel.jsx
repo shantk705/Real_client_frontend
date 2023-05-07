@@ -10,7 +10,7 @@ function Carousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/item/getdiscount')
+    axios.get('https://dayaa-backend.onrender.com/item/getdiscount')
       .then(res => {
         setData(res.data);
         

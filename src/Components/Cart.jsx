@@ -15,7 +15,7 @@ const Carts = () => {
   function Remove(event, key) {
     axios
       .delete(
-        `http://localhost:5000/cart/${id}/${key}`,
+        `https://dayaa-backend.onrender.com/cart/${id}/${key}`,
 
         {
           headers: {
@@ -52,7 +52,7 @@ const Carts = () => {
   async function Checkout(){
     axios
     .post(
-      `http://localhost:5000/order/${id}`,{},
+      `https://dayaa-backend.onrender.com/order/${id}`,{},
       {
         headers: {
          Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const Carts = () => {
   function Decrement(event, key) {
     axios
       .patch(
-        `http://localhost:5000/cart/${id}`,
+        `https://dayaa-backend.onrender.com/cart/${id}`,
         { productId: key },
         {
           headers: {
@@ -94,7 +94,7 @@ const Carts = () => {
   function Increment(event, key) {
     axios
       .post(
-        `http://localhost:5000/cart/${id}`,
+        `https://dayaa-backend.onrender.com/cart/${id}`,
         { productId: key },
         {
           headers: {
@@ -118,7 +118,7 @@ const Carts = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/cart/${id}`, {
+      .get(`https://dayaa-backend.onrender.com/cart/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
 

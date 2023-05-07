@@ -31,12 +31,12 @@ const Orders = () => {
   useEffect(() => {
     let token = sessionStorage.getItem("token");
     axios
-      .get("http://localhost:5000/order", {
+      .get("https://dayaa-backend.onrender.com/order", {
         headers: { Authorization: `Bearer ${token}` },
       })
 
       .then((res) => {
-        console.log(res.data);
+      
         setData(res.data);
       })
       .catch((err) => {
