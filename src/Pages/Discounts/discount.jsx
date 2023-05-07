@@ -16,11 +16,10 @@ function Discounts(props) {
   const [flippedItem, setFlippedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const { categoryId } = props;
-  console.log(categoryId)
-  console.log(single, showPopup);
+ 
   const getdiscounts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/item/getdiscount`);
+      const response = await axios.get(`https://dayaa-backend.onrender.com/item/getdiscount`);
       setProduct(response.data);
       setItem(response.data);
     } catch (error) {
@@ -30,7 +29,7 @@ function Discounts(props) {
 
   const getsingleproduct = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/item/getitem/${id}`);
+      const response = await axios.get(`https://dayaa-backend.onrender.com/item/getitem/${id}`);
       setSingle(response.data);
       setShowPopup(true);
       setItem(response.data);
@@ -59,8 +58,8 @@ function Discounts(props) {
   function addToCart(event, props){
     if(token &&id){
     let key= props
-    console.log(props)
-    axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+    
+    axios.post(`https://dayaa-backend.onrender.com/cart/${id}`,{productId:key},{
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
       })
     .then((res) => {

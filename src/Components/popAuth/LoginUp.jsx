@@ -13,7 +13,7 @@ function LoginUp() {
   const { text, setText } = useContext(MyContext);
   const [invalid, setInvalid] = useState(true);
   const [error, setError] = useState(null)
-  console.log(text);
+  
   let navigate=useNavigate()
   const [lol, setLol]= useState(false)
 
@@ -29,7 +29,7 @@ function LoginUp() {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/login",
+        "https://dayaa-backend.onrender.com/api/login",
         {
           email: event.target.email.value,
           password: event.target.password.value,
@@ -66,7 +66,7 @@ function LoginUp() {
    
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/signup",
+        "https://dayaa-backend.onrender.com/api/signup",
         {
           name: event.target.name.value,
           email: event.target.Email.value,

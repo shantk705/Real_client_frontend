@@ -25,7 +25,7 @@ function Cat() {
 
   const getcategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/cat/getcategory");
+      const response = await axios.get("https://dayaa-backend.onrender.com/cat/getcategory");
       setCategory(response.data);
     } catch (error) {
       console.error(error);
@@ -34,7 +34,7 @@ function Cat() {
 
   const getItemsByCategory = async (categoryId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/item/getitembycategory/${categoryId}`);
+      const response = await axios.get(`https://dayaa-backend.onrender.com/item/getitembycategory/${categoryId}`);
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -58,8 +58,8 @@ function Cat() {
     formData.append("image", image);
   
     try {
-      console.log("abel l response")
-      await axios.post("http://localhost:5000/item/additem", formData, {
+      
+      await axios.post("https://dayaa-backend.onrender.com/item/additem", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -112,9 +112,9 @@ function Cat() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("abel");
+    
     addItem();
-    console.log("ba3ed");
+    
     ;
   };
 

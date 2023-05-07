@@ -20,13 +20,13 @@ function Shop(props) {
 
   const getProducts = useCallback(async () => {
     try {
-      console.log(categoryId)
+      
       if (categoryId==="") {  
-         const response = await axios.get("http://localhost:5000/item/getitem");
+         const response = await axios.get("https://dayaa-backend.onrender.com/item/getitem");
          setProduct(response.data);
          setItem(response.data);
       } else {
-          const response = await axios.get(`http://localhost:5000/item/items/${categoryId}`);
+          const response = await axios.get(`https://dayaa-backend.onrender.com/item/items/${categoryId}`);
           setProduct(response.data);
       }
     } catch (error) {
@@ -54,8 +54,8 @@ function Shop(props) {
 function addToCart(event, props){
   if(token &&id){
   let key= props
-  console.log(props)
-  axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+ 
+  axios.post(`https://dayaa-backend.onrender.com/cart/${id}`,{productId:key},{
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
     })
   .then((res) => {

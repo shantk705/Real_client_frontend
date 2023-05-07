@@ -49,7 +49,7 @@ function EditItem(props) {
       discount_per: discountPer,
     };
     try {
-      await axios.put(`http://localhost:5000/item/upditem/${itemid}`, updatedItem, config1);
+      await axios.put(`https://dayaa-backend.onrender.com/item/upditem/${itemid}`, updatedItem, config1);
       props.onClose();
     } catch (error) {
       console.log(error);

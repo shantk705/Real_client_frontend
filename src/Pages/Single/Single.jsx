@@ -16,7 +16,7 @@ function Single() {
     const getItem = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/item/getitem/${location.state.id}`
+          `https://dayaa-backend.onrender.com/item/getitem/${location.state.id}`
         );
         setItem(response.data);
       } catch (error) {
@@ -29,8 +29,8 @@ function Single() {
   function addToCart(event, props){
     if(token &&id){
     let key= props
-    console.log(props)
-    axios.post(`http://localhost:5000/cart/${id}`,{productId:key},{
+   
+    axios.post(`https://dayaa-backend.onrender.com/cart/${id}`,{productId:key},{
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
       })
     .then((res) => {

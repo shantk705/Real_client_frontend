@@ -26,7 +26,7 @@ function Favorites() {
   };
   //get items again
   const loadclass = async () => {
-    const res = await axios.get("http://localhost:5000/fav/getfav");
+    const res = await axios.get("https://dayaa-backend.onrender.com/fav/getfav");
     setFavorite(res.data);
   };
 
@@ -50,7 +50,7 @@ function Favorites() {
       dangerMode: true,
     }).then(async (willDelete) => {
       if (willDelete) {
-        await axios.delete(`http://localhost:5000/fav/delfav/${id}`, config1);
+        await axios.delete(`https://dayaa-backend.onrender.com/fav/delfav/${id}`, config1);
         loadclass();
         swal("Poof! The item has been deleted!", {
           icon: "success",
@@ -69,15 +69,15 @@ function Favorites() {
     formData.append("image_fav", image_fav);
   
     try {
-      console.log("abel l response")
-      const response = await axios.post("http://localhost:5000/fav/addfav", formData, {
+      
+      const response = await axios.post("https://dayaa-backend.onrender.com/fav/addfav", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       });
 
-      console.log("assalaaaaaaaaaaaaaaaaaaa")
+      
       setShowPopup(false);
       swal({
         title: "Item added successfully!",
@@ -99,7 +99,7 @@ function Favorites() {
     ////// edit fav item
     const editfavItem = async (id) => {
       try {
-        const response = await axios.put(`http://localhost:5000/fav/updfav/${id}`, {}, {
+        const response = await axios.put(`https://dayaa-backend.onrender.com/fav/updfav/${id}`, {}, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -139,9 +139,9 @@ function Favorites() {
 
 const submitHandler = (e) => {
     e.preventDefault();
-    console.log("abel");
+   
     addfav();
-    console.log("ba3ed");
+    
   };
 
 const handleAddItemButtonClick = () => {
