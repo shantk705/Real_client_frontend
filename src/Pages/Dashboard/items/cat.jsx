@@ -33,12 +33,15 @@ function Cat() {
   }
 
   const getItemsByCategory = async (categoryId) => {
+    
+    if(categoryId){
     try {
       const response = await axios.get(`https://dayaa-backend.onrender.com/item/getitembycategory/${categoryId}`);
       setProducts(response.data);
     } catch (error) {
       console.error(error);
     }
+  }
   };
   const config1 = {
     headers: {
@@ -98,11 +101,11 @@ function Cat() {
   };
    useEffect(()=>{
     getcategories();
-   })
+   },[])
 
   useEffect(()=> {
     getItemsByCategory(selectedCategoryId);
-  },[selectedCategoryId])
+  },[])
 
   const handleButtonClick = (e) => {
     const categoryId = e.target.value;
