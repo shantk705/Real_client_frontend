@@ -16,7 +16,7 @@ function Items(props) {
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
-  
+
 
 
   const getProducts = useCallback(async () => {
@@ -57,7 +57,7 @@ function Items(props) {
           className: "btn-danger",
           visible: true,
           closeModal: true,
-          className: "orange-button",
+       
         },
       },
       dangerMode: true,
