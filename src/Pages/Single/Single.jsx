@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import "./single.css"
 import Loader from "../../Components/Loader/Loader";
+import swal from 'sweetalert';
+
 function Single() {
+  let navigate=useNavigate()
+  let id=sessionStorage.getItem("user_id")
+  let token=sessionStorage.getItem("token")
   const [item, setItem] = useState(null);
   const location = useLocation();
 
@@ -11,7 +16,7 @@ function Single() {
     const getItem = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/item/getitem/${location.state.id}`
+          `https://dayaa-backend.onrender.com/item/getitem/${location.state.id}`
         );
         setItem(response.data);
       } catch (error) {
@@ -20,6 +25,65 @@ function Single() {
     };
     getItem();
   }, [location.state.id]);
+
+  function addToCart(event, props){
+    if(token &&id){
+    let key= props
+   
+    axios.post(`https://dayaa-backend.onrender.com/cart/${id}`,{productId:key},{
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
+      })
+    .then((res) => {
+      if(res.status===201){
+     
+        swal({
+          title: "Item added to cart!",
+          icon: "success",
+          buttons: {
+            cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
+        }).then((value) => {
+          if (value === "cart") {
+            window.location.href = "/cart";
+          } 
+        });
+      
+      }
+      
+    })
+    .catch((err) => {
+      swal({
+        title: "Something went wrong ! please try again",
+        icon: "error",
+        buttons: {
+          cancel: "Continue Shopping",
+          confirm: {
+            text: "See Cart",
+            value: "cart",
+            className: "swal-button"
+          },
+        },
+        customClass: {
+          confirmButton: "swal-button-center",
+          container: "my-custom-container-class",
+        },
+      }).then((value) => {
+        if (value === "cart") {
+          window.location.href = "/cart";
+        } 
+      });
+    });
+  }else{navigate("/login")}
+  }
 
   if (!item) {
     return (
@@ -48,7 +112,10 @@ function Single() {
             </div>
           )}
         </div>
-        <button className="s-btn">Add to Cart</button>
+        <button  onClick={(event) => {
+        addToCart(event,item._id);
+        
+        }}className="s-btn">Add to Cart</button>
       </div>
     </div>
   );

@@ -3,24 +3,23 @@ import axios from 'axios';
 import '../Discounts/discount.css'
 import '../Shop/shop.css'; 
 import swal from 'sweetalert';
+import { useNavigate } from "react-router";
 import Loader from "../../Components/Loader/Loader";
 
 function Discounts(props) {
-
-
-
+  let id=sessionStorage.getItem("user_id")
+  let token=sessionStorage.getItem("token")
+  const navigate = useNavigate();
   const [item, setItem] = useState(null);
   const [product, setProduct] = useState([]);
   const [single, setSingle] = useState([]);
   const [flippedItem, setFlippedItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const { categoryId } = props;
-
-
-  console.log(single, showPopup);
+ 
   const getdiscounts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/item/getdiscount`);
+      const response = await axios.get(`https://dayaa-backend.onrender.com/item/getdiscount`);
       setProduct(response.data);
       setItem(response.data);
     } catch (error) {
@@ -30,7 +29,7 @@ function Discounts(props) {
 
   const getsingleproduct = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:5000/item/getitem/${id}`);
+      const response = await axios.get(`https://dayaa-backend.onrender.com/item/getitem/${id}`);
       setSingle(response.data);
       setShowPopup(true);
       setItem(response.data);
@@ -57,16 +56,62 @@ function Discounts(props) {
   }
 
   function addToCart(event, props){
-    let id= props
-    axios.post(`http://localhost:5000/cart/64332eb3dfcb091305c650e8`,{productId:id},{
-        headers: { "Content-Type": "application/json",},
+    if(token &&id){
+    let key= props
+    
+    axios.post(`https://dayaa-backend.onrender.com/cart/${id}`,{productId:key},{
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`,},
       })
     .then((res) => {
-      console.log(res.data)
+      if(res.status===201){
+     
+        swal({
+          title: "Item added to cart!",
+          icon: "success",
+          buttons: {
+            cancel: "Continue Shopping",
+            confirm: {
+              text: "See Cart",
+              value: "cart",
+              className: "swal-button"
+            },
+          },
+          customClass: {
+            confirmButton: "swal-button-center",
+            container: "my-custom-container-class",
+          },
+        }).then((value) => {
+          if (value === "cart") {
+            window.location.href = "/cart";
+          } 
+        });
+      
+      }
+      
     })
     .catch((err) => {
-      console.log(err);
+      swal({
+        title: "Something went wrong ! please try again",
+        icon: "error",
+        buttons: {
+          cancel: "Continue Shopping",
+          confirm: {
+            text: "See Cart",
+            value: "cart",
+            className: "swal-button"
+          },
+        },
+        customClass: {
+          confirmButton: "swal-button-center",
+          container: "my-custom-container-class",
+        },
+      }).then((value) => {
+        if (value === "cart") {
+          window.location.href = "/cart";
+        } 
+      });
     });
+  }else{navigate("/login")}
   }
 
   if (!item) {
@@ -79,7 +124,7 @@ function Discounts(props) {
   return (
     <>
       <div className="text-discount">
-        <h2>You can see here all the items that have a discount!</h2>
+        <h2>Discounted Items!</h2>
       </div>
       <div className="product-container-discount">
         {Array.isArray(product) && product.map((item, index) => (
@@ -107,8 +152,9 @@ function Discounts(props) {
              
             </div>
             <div className="button-card">
-                    <button>Add to Cart</button>
-                  </div>
+              <button>Add to Cart</button>
+              <button>Add to Cart</button>
+            </div>
         </div>
               <div className="front">
             <button className="infor" onClick={() => handleMoreInfoClick(item._id)}>!</button>
@@ -132,30 +178,8 @@ function Discounts(props) {
                
             </div>
             <div className="button-card">
-                   
-        <button onClick={(event) => {
-        addToCart(event,item._id);
-        swal({
-          title: "Item added to cart!",
-          icon: "success",
-          buttons: {
-            cancel: "Continue Shopping",
-            confirm: {
-              text: "See Cart",
-              value: "cart",
-              className: "swal-button"
-            },
-          },
-          customClass: {
-            confirmButton: "swal-button-center",
-            container: "my-custom-container-class",
-          },
-        }).then((value) => {
-          if (value === "cart") {
-            window.location.href = "/cart";
-          } 
-        });
-         }}>Add to Cart</button>
+            <button onClick={() => navigate("/single", { state: { id: item._id } })}>Details</button>
+        <button onClick={(event) => {addToCart(event,item._id); }}>Add to Cart</button>
 
          </div>
             </div>

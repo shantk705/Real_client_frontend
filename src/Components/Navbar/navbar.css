@@ -176,7 +176,7 @@
   }
 } */
 
-.not{
+.not {
   position: fixed;
   width: 100%;
   top: 0;
@@ -185,11 +185,11 @@
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
   background-color: rgb(255, 255, 255);
-  transition: all .30s ease;
+  transition: all 0.3s ease;
   align-items: center;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
 }
-.sticky-header{
+.sticky-header {
   position: fixed;
   width: 100%;
   top: 0;
@@ -198,22 +198,22 @@
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
   background-color: orange;
-  transition: all .20s ease;
+  transition: all 0.2s ease;
   align-items: center;
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
-.logo img{
+.logo img {
   width: 105px;
   cursor: pointer;
   height: 90px;
 }
 
-.logo span{
+.logo span {
   font-size: 1.7rem;
   font-weight: bold;
 }
@@ -223,72 +223,72 @@
   margin: 0 auto;
 }
 
-.nav-links li a, 
-.nav-links li p{
+.nav-links li a,
+.nav-links li p {
   font-size: 1.1rem;
   font-weight: 600;
   padding: 5px 0;
   margin: 0px 30px;
-  transition: all .30s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
-.nav-links li a:is(:hover, :focus, :focus-visible){
+.nav-links li a:is(:hover, :focus, :focus-visible) {
   color: white;
   outline: none;
 }
 
 .active {
-  transition: all .30s ease;
+  transition: all 0.3s ease;
 }
-.nav-links li a.active{
+.nav-links li a.active {
   color: white;
 }
 
-.maintain a:is(:hover, :focus, :focus-visible){
-  color: orange!important;
+.maintain a:is(:hover, :focus, :focus-visible) {
+  color: orange !important;
   outline: none;
 }
 
-.maintain a.active{
-  color: orange!important;
+.maintain a.active {
+  color: orange !important;
 }
 
-.header-icons{
+.header-icons {
   display: flex;
   align-items: center;
 }
 
-.header-icons p{
+.header-icons p {
   margin-inline: 25px 10px;
   font-size: 1.1rem;
   font-weight: bold;
-  transition: all .30s ease;
+  transition: all 0.3s ease;
 }
 
-.header-icons p:is(:hover, :focus, :focus-visible){
+.header-icons p:is(:hover, :focus, :focus-visible) {
   color: white;
   outline: none;
 }
 
-.head-icons{
+.head-icons {
   display: flex;
   align-items: center;
 }
 
-.head-icons p{
+.head-icons p {
   margin-inline: 25px 10px;
   font-size: 1.1rem;
   font-weight: bold;
-  transition: all .30s ease;
+  transition: all 0.3s ease;
 }
 
-.head-icons p:is(:hover, :focus, :focus-visible){
+.head-icons p:is(:hover, :focus, :focus-visible) {
   color: orange;
   outline: none;
 }
 
-.user{
+.user {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -300,56 +300,80 @@
 #menu-icon {
   display: none;
 }
-@media all and (max-width:1230px){
-  .sticky-header{
+
+.cart-logo-wrpr{
+  display: flex;
+  align-items: center;
+}
+
+.cart-logo-wrpr i{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  background-color: white;
+  border: 1px solid rgb(255, 255, 255);
+}
+@media all and (max-width: 1230px) {
+  .sticky-header {
     grid-template-columns: 250px 4fr 1fr;
   }
 
-  .not{
+  .not {
     grid-template-columns: 250px 4fr 1fr;
-}
+  }
 
-  .logo span{
+  .logo span {
     font-size: 1.2rem;
     font-weight: bold;
   }
 
   .nav-links li a,
-  .nav-links li p{
+  .nav-links li p {
     font-size: 0.8rem;
     padding: 5px 0;
     margin: 0px 20px;
   }
 
-  .header-icons p{
-    margin-inline:5px 10px;
+  .header-icons p {
+    margin-inline: 5px 10px;
     font-size: 0.8rem;
     font-weight: bold;
-  }  
+  }
 
   .head-icons p {
     margin-inline: 5px 10px;
     font-size: 0.9rem;
     font-weight: bold;
-}
+  }
+  
+  
 }
 
-.willhide{
+.willhide,
+.willhidden {
   display: none;
 }
-@media all and (max-width:840px){
-  .sticky-header{
+@media all and (max-width: 840px) {
+  .sticky-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
+  .cart-logo-wrpr i{
+    display: none;
+  }
   .not {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-  #menu-icon:hover{
+  }
+  #menu-icon:hover {
     color: white;
   }
   #menu-icon {
@@ -357,10 +381,10 @@
     font-size: 55px;
     cursor: pointer;
     margin-right: 15px;
-    transition: .30s all ease;
+    transition: 0.3s all ease;
   }
 
-  .nav-links{
+  .nav-links {
     position: absolute;
     top: 100%;
     right: -100%;
@@ -371,31 +395,31 @@
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 0px 0px 10px 10px;
-    transition: .30s all ease;
+    transition: 0.3s all ease;
   }
 
-  .nav-links a{
+  .nav-links a {
     display: block;
     margin: 12px 0px;
     padding: 0px 25px;
-    transition: 0.30s ease;
+    transition: 0.3s ease;
   }
 
   .user {
     display: none;
   }
 
-
-  .nav-links.open{
+  .nav-links.open {
     right: 0%;
   }
 
-  .willhide{
+  .willhide,
+  .willhidden {
     display: block;
   }
 
   .maintain a.active,
   .maintain p.active {
-    color: rgb(255, 255, 255)!important;
+    color: rgb(255, 255, 255) !important;
   }
 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../Shop/category.css'; // Import your CSS file
 import Shop from '../Shop/shop';
 
+
 function Category() {
   const [category, setCategory] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
@@ -10,7 +11,7 @@ function Category() {
 
   const getcategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/cat/getcategory");
+      const response = await axios.get("https://dayaa-backend.onrender.com/cat/getcategory");
       setCategory(response.data);
     } catch (error) {
       console.error(error);
@@ -19,7 +20,7 @@ function Category() {
 
   const getallitems= async () => {
     try {
-      const response = await axios.get("http://localhost:5000/item/getitem");
+      const response = await axios.get("https://dayaa-backend.onrender.com/item/getitem");
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -46,7 +47,7 @@ function Category() {
     {Array.isArray(category) && category.map((item, index) => (
     <button key={index} value={item._id} onClick={handleButtonClick} className={`category-button ${selectedCategoryId === item._id ? "selected" : ""}`}>{item.name_category}</button>
   ))}
-</div>
+    </div>
       <Shop categoryId={selectedCategoryId} filteredCategory={filteredCategory} />
     </div>
   );

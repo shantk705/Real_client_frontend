@@ -1,7 +1,6 @@
 import './home.css';
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import honey from '../../Assets/honey.png';
 import plogo from '../../Assets/logo.png';
 import stick from '../../Assets/honeystick.png';
 import Carousel from '../../Components/Carousel/carousel';
@@ -18,7 +17,7 @@ function Home() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/fav/getfav')
+    axios.get('https://dayaa-backend.onrender.com/fav/getfav')
       .then(response => {
         setFavorites(response.data);
       })
@@ -28,26 +27,26 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    function scrollCarousel() {
+      const carousel = carouselRef.current;
+      const slideWidth = carousel.offsetWidth;
+      const currentSlide = Math.round(carousel.scrollLeft / slideWidth);
+      let nextSlide = currentSlide + 1;
+      if (nextSlide >= favorites.length) { 
+        nextSlide = 0; 
+        carousel.scrollLeft = 0;
+      } else {
+        carousel.scroll({
+          left: nextSlide * slideWidth,
+          behavior: "smooth",
+        });
+      }
+      setCurrentSlide(nextSlide);
+    }
+  
     const intervalId = setInterval(scrollCarousel, 3000);
     return () => clearInterval(intervalId);
-  }, []);
-
-  function scrollCarousel() {
-    const carousel = carouselRef.current;
-    const slideWidth = carousel.offsetWidth;
-    const currentSlide = Math.round(carousel.scrollLeft / slideWidth);
-    let nextSlide = currentSlide + 1;
-    if (nextSlide >= favorites.length) { 
-      nextSlide = 0; 
-      carousel.scrollLeft = 0;
-    } else {
-      carousel.scroll({
-        left: nextSlide * slideWidth,
-        behavior: "smooth",
-      });
-    }
-    setCurrentSlide(nextSlide);
-  }
+  }, [favorites]);
 
   function disabled() {
     if (window.scrollY >= 790) {
@@ -57,14 +56,14 @@ function Home() {
     }
   }
 
-  console.log(window.scrollY);
+  
 
   useEffect(() => {
     window.addEventListener("scroll", disabled);
     return () => window.removeEventListener("scroll", disabled);
   }, []);
 
-  return (
+  return ( 
     <>
       <section className={fixed ? 'notfixed' : 'hero-main'}>
 
@@ -91,8 +90,8 @@ function Home() {
       setCurrentSlide(newSlide); 
     }} 
 >
-  {favorites.map((favorite) => (
-    <li className="carousel-child" key={favorite.id}>
+  {favorites.map((favorite, index) => (
+    <li className="carousel-child" key={index}>
       <img src={favorite.image_fav.url} alt={favorite.name_fav} className='honey'/>
       <div className="product-logo">
         <img src={plogo} alt="product" className='plogo'/>

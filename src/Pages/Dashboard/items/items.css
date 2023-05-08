@@ -1,0 +1,239 @@
+.item-desc{
+    width: 500px;
+}
+
+.table-item {
+    border-collapse: collapse;
+  }
+  
+  .first-item-- {
+    background-color: #ffad1e;
+  }
+
+  /* .tbl-wrper{
+    padding: 20px;
+  } */
+  
+  .table-item th,
+  .table-item td {
+    border: 3px solid black;
+    padding: 5px;
+    text-align: center;
+    color: blacka;
+    font-size:20px;
+  }
+
+  .item-desc{
+    width: 500px;
+}
+
+.item-name{
+    width: 75px;
+}
+
+.button-delete-item {
+    /* background-color: grey; */
+    border: none;
+    color: orange;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid orange;
+    position: relative;
+    transition: .3s all ease;
+    width: 90px;
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  .button-delete-item::before{
+    content: 'Delete';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -150%) scale(0);
+    background-color: orange;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: 0.3s all ease;
+
+  }
+
+  .button-delete-item::after{
+    content: 'Delete';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    color: #ffad1e;
+    justify-content: center;
+    align-items: center;
+    /* transition: 0.3s all ease; */
+
+  }
+  .button-delete-item:hover::before{
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .button-delete-item:hover::after{
+    opacity: 0;
+  }
+
+ 
+
+  /* .button-delete-item:hover{
+    opacity: 0;
+  } */
+  .title-item{
+    border-bottom: 2px solid lightgrey;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    padding-right: 2%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .add-item-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    font-size: 25px;
+    margin-right: 10px;
+    border: 2px solid #000;
+  }
+
+  .item-image{
+    width: 200px;
+  }
+
+  .button-edit-item {
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid orange;
+    position: relative;
+    transition: .3s all ease;
+    width: 60px;
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  .button-edit-item::before{
+    content: 'Edit';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, 150%) scale(0);
+    background-color: orange;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: 0.3s all ease;
+
+  }
+
+  .button-edit-item::after{
+    content: 'Edit';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    color: #ffad1e;
+    justify-content: center;
+    align-items: center;
+    /* transition: 0.3s all ease; */
+
+  }
+  .button-edit-item:hover::before{
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .button-edit-item:hover::after{
+    opacity: 0;
+  }
+
+  /* Media Queries */
+@media only screen and (max-width: 768px) {
+  .item-desc {
+    width: 100%;
+  }
+
+  .table-item th,
+  .table-item td {
+    font-size: 16px;
+  }
+
+  .title-item {
+    font-size: 24px;
+    flex-direction: column;
+  }
+
+  .button-delete-item,
+  .button-edit-item {
+    font-size: 16px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .item-desc {
+    width: 100%;
+  }
+
+  .table-item th,
+  .table-item td {
+    font-size: 14px;
+    padding: 3px;
+  }
+
+  .title-item {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .add-item-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .button-delete-item,
+  .button-edit-item {
+    font-size: 14px;
+    padding: 3px;
+  }
+}

@@ -5,11 +5,13 @@ import Carts from '../Components/Cart.jsx'
 const Cart = () => {
   return (
     <>
-    <div className='flex flex-row  md:flex-col-reverse '>
+  
+    <div id="carte-container" className='flex flex-row   md:flex-col w-[100%] bg-white'>
     <Adress/>
     <Carts/>
 
     </div>
+   
     
     
     </>
