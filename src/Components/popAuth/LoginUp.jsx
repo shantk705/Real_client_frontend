@@ -14,11 +14,13 @@ function LoginUp() {
   const [invalid, setInvalid] = useState(true);
   const [error, setError] = useState(null)
   
+  
   let navigate=useNavigate()
   const [lol, setLol]= useState(false)
 
   function login(){
     setLol(true)
+    console.log(text)
   }
 
   function register(){
