@@ -124,7 +124,7 @@ function Discounts(props) {
   return (
     <>
       <div className="text-discount">
-        <h2>Discounted Items!</h2>
+        <h2>Discounted Items</h2>
       </div>
       <div className="product-container-discount">
         {Array.isArray(product) && product.map((item, index) => (
