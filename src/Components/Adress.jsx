@@ -20,6 +20,8 @@ const Adress = () => {
   });
 
   useEffect(() => {
+    let id=sessionStorage.getItem("user_id")
+    let token = sessionStorage.getItem("token");
     
     axios
       .get(`https://dayaa-backend.onrender.com/adress/${id}`, {

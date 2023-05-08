@@ -117,6 +117,8 @@ const Carts = () => {
   useEffect(() => {}, []);
 
   useEffect(() => {
+    let id=sessionStorage.getItem("user_id")
+    let token = sessionStorage.getItem("token");
     axios
       .get(`https://dayaa-backend.onrender.com/cart/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
