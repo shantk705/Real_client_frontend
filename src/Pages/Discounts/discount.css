@@ -137,6 +137,12 @@
     font-size: 25px;
   }
 
+  .text-discount h2{
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
   /* .swal-button{
     background-color: orange!important;
    

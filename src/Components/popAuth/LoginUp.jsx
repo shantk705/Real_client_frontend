@@ -32,7 +32,7 @@ function LoginUp() {
       sessionStorage.setItem("userType", response.data.userType);
       sessionStorage.setItem("user_id", response.data._id);
       sessionStorage.setItem("userName", response.data.name);
-      console.log("done");
+     
     } catch (error) {
       console.log(error);
     }
