@@ -173,7 +173,7 @@ const Adress = () => {
               name="details"
               value={adress.details}
               onChange={handleChange}
-              className="border-2 h-24  mt-2 rounded-md pl-[3%]"
+              className="border-2 h-24  mt-2 rounded-md pl-[3%] resize-none"
             />
           </label>
           <button type="submit" className="bg-black  w-3/4 text-white mt-10 ml-[10%] md:ml-[12%] h-[5vh] text-xl  hover:bg-[#FFA500] hover:text-black hover:border-2 hover:border-[black] rounded-md">
