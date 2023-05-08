@@ -294,5 +294,6 @@
 
 
 .primary span {
+  cursor: pointer;
   color: orange;
 }

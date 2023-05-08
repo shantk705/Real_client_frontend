@@ -31,7 +31,7 @@
 }
 
 .aboutspan {
-  color: #b9e200;
+  color: orange;
 }
 
 .text p {
@@ -67,7 +67,7 @@
 }
 
 .aboutbutton:hover {
-  background: #4d1902f8;
+  background: #e28e2ef8;
   border: none;
 }
 
