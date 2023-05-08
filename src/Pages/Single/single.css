@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: rgb(236, 241, 182);
+  background-color: rgb(240 240 240);
 
 }
 
@@ -118,7 +118,7 @@
 
 .s-btn{
   padding: 10px 15px;
-  background-color: rgb(236, 241, 182);
+  background-color: rgb(240 240 240);
   width: fit-content;
   font-size: 1.5rem;
 }
